@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STICHD UP — Custom Steering Wheel Wraps Melbourne</title>
+  <meta name="description" content="Premium custom steering wheel wraps in Melbourne. Leather, Alcantara, suede. Professional fitment or DIY kits. Book now." />
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#0b0b0b; --bg-card:#111; --bg-card2:#181818;
+      --red:#e63946; --red-s:rgba(230,57,70,0.12); --red-b:rgba(230,57,70,0.28);
+      --red-g:rgba(230,57,70,0.22);
+      --white:#f0ede8; --muted:#7a7672; --border:rgba(255,255,255,0.07);
+      --fh:'Bebas Neue',sans-serif; --fb:'DM Sans',sans-serif;
+      --r:12px; --rl:18px; --e:0.24s cubic-bezier(.4,0,.2,1);
+      --sb:env(safe-area-inset-bottom,0px);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:calc(72px + var(--sb));}
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit;}
+
+    /* Bloom */
+    .bloom{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+    .bloom::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:min(900px,140vw);height:600px;background:radial-gradient(ellipse,rgba(230,57,70,.20) 0%,rgba(230,57,70,.05) 45%,transparent 70%);filter:blur(60px);animation:bp 7s ease-in-out infinite alternate;}
+    @keyframes bp{from{opacity:.7;}to{opacity:1;}}
+
+    /* Layout */
+    .w{max-width:1160px;margin:0 auto;padding:0 20px;}
+    @media(min-width:768px){.w{padding:0 32px;}}
+    .sec{position:relative;padding:52px 0;}
+    @media(min-width:768px){.sec{padding:80px 0;}}
+    .tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+    .h2{font-family:var(--fh);font-size:clamp(36px,8vw,58px);line-height:1;letter-spacing:.01em;margin-bottom:12px;}
+    .sub{font-size:16px;font-weight:300;color:var(--muted);line-height:1.7;max-width:540px;}
+
+    /* Reveal — fallback-safe */
+    .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+    .rv.in{opacity:1;transform:none;}
+    .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;} .d4{transition-delay:.32s;}
+    /* Hard fallback: if JS observer fails, show everything after 1.5s */
+    body.loaded .rv{opacity:1;transform:none;}
+
+    /* CTA buttons */
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-size:15px;font-weight:700;letter-spacing:.04em;padding:16px 28px;border-radius:var(--r);transition:var(--e);box-shadow:0 0 28px var(--red-g);white-space:nowrap;min-height:52px;-webkit-tap-highlight-color:transparent;}
+    .cta:hover,.cta:active{background:#f04550;box-shadow:0 0 48px rgba(230,57,70,.55);transform:translateY(-1px);}
+    .cta svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+    .sec-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:460px;margin:24px auto 0;background:var(--red);color:#fff;font-size:16px;font-weight:700;letter-spacing:.04em;padding:18px 24px;border-radius:var(--r);box-shadow:0 0 32px var(--red-g);min-height:56px;-webkit-tap-highlight-color:transparent;transition:var(--e);}
+    .sec-cta:hover,.sec-cta:active{background:#f04550;box-shadow:0 0 52px rgba(230,57,70,.5);}
+    .sec-cta svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+    .ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--red-b);color:var(--white);font-size:14px;font-weight:600;padding:14px 22px;border-radius:var(--r);transition:var(--e);min-height:48px;-webkit-tap-highlight-color:transparent;}
+    .ghost:hover{border-color:var(--red);color:var(--red);background:var(--red-s);}
+
+    /* Sticky bottom bar */
+    .sticky{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(11,11,11,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:12px 20px;padding-bottom:calc(12px + var(--sb));display:flex;align-items:center;gap:12px;}
+    .sticky-txt{flex:1;min-width:0;}
+    .sticky-txt strong{display:block;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .sticky-txt span{font-size:11px;color:var(--muted);}
+    .sticky .cta{flex-shrink:0;font-size:14px;padding:13px 18px;}
+    @media(min-width:900px){.sticky{display:none;}body{padding-bottom:0;}}
+
+    /* Nav */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,11,11,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background var(--e);}
+    nav.sc{background:rgba(11,11,11,.97);}
+    .ni{display:flex;align-items:center;justify-content:space-between;height:58px;}
+    .logo{font-family:var(--fh);font-size:24px;letter-spacing:.06em;}
+    .logo em{font-style:normal;color:var(--red);}
+    .nl{display:none;list-style:none;gap:28px;}
+    @media(min-width:900px){.nl{display:flex;align-items:center;}}
+    .nl a{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.03em;transition:color var(--e);}
+    .nl a:hover{color:var(--white);}
+    .nr{display:flex;align-items:center;gap:10px;}
+    .nc{background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;letter-spacing:.03em;min-height:40px;display:flex;align-items:center;gap:6px;transition:var(--e);-webkit-tap-highlight-color:transparent;}
+    .nc:hover{background:#f04550;box-shadow:0 0 24px var(--red-g);}
+    .nc svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;}
+    .mb{display:flex;flex-direction:column;gap:5px;width:40px;height:40px;align-items:center;justify-content:center;border-radius:8px;transition:background var(--e);}
+    .mb:hover{background:rgba(255,255,255,.06);}
+    .mb span{display:block;width:20px;height:1.5px;background:var(--white);border-radius:2px;}
+    @media(min-width:900px){.mb{display:none;}}
+    .nd{display:none;flex-direction:column;background:rgba(11,11,11,.98);border-bottom:1px solid var(--border);padding:8px 0 16px;}
+    .nd.open{display:flex;}
+    .nd a{font-size:16px;font-weight:500;color:var(--muted);padding:14px 20px;border-bottom:1px solid var(--border);min-height:52px;display:flex;align-items:center;transition:color var(--e);}
+    .nd a:last-of-type{border-bottom:none;}
+    .nd a:hover{color:var(--white);}
+
+    /* Hero */
+    .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;}
+    .hero-c{position:relative;z-index:1;width:100%;padding:48px 0 40px;}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;border:1px solid var(--red-b);background:var(--red-s);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:24px;}
+    .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:dot 2s ease-in-out infinite;}
+    @keyframes dot{0%,100%{opacity:1;}50%{opacity:.2;}}
+    .ht{font-family:var(--fh);font-size:clamp(62px,15vw,108px);line-height:.92;letter-spacing:.01em;margin-bottom:24px;}
+    .ht em{font-style:normal;color:var(--red);}
+    .hs{font-size:17px;font-weight:300;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:36px;}
+    .hctas{display:flex;flex-direction:column;gap:12px;max-width:380px;margin-bottom:48px;}
+    @media(min-width:480px){.hctas{flex-direction:row;}}
+    .hctas .cta,.hctas .ghost{flex:1;justify-content:center;}
+    .hstats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;max-width:420px;}
+    .hstat{padding:18px 12px;border-right:1px solid var(--border);text-align:center;}
+    .hstat:last-child{border-right:none;}
+    .hstat-n{font-family:var(--fh);font-size:28px;color:var(--white);line-height:1;display:block;}
+    .hstat-l{font-size:11px;color:var(--muted);margin-top:3px;display:block;}
+    .hero-img{display:none;}
+
+    /* Trust */
+    .trust-strip{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 0 32px;}
+    .tg{display:grid;grid-template-columns:1fr;gap:1px;background:var(--red-b);}
+    @media(min-width:640px){.tg{grid-template-columns:repeat(3,1fr);}}
+    .tc{
+      background:var(--bg-card);padding:28px 24px;display:flex;gap:16px;align-items:flex-start;
+      position:relative;overflow:hidden;
+    }
+    /* Permanent bloom orb at bottom of each card */
+    .tc::before{
+      content:'';position:absolute;
+      bottom:-40px;left:50%;transform:translateX(-50%);
+      width:200px;height:110px;
+      background:radial-gradient(ellipse,rgba(230,57,70,.22) 0%,transparent 70%);
+      filter:blur(18px);
+      pointer-events:none;
+    }
+    /* Permanent glow behind icon */
+    .tc::after{
+      content:'';position:absolute;
+      top:14px;left:8px;
+      width:72px;height:72px;
+      background:radial-gradient(ellipse,rgba(230,57,70,.18) 0%,transparent 70%);
+      filter:blur(10px);
+      pointer-events:none;
+    }
+    .ti{width:40px;height:40px;border-radius:10px;background:var(--red-s);border:1px solid var(--red-b);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;}
+    .ti svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+    .tt{font-size:15px;font-weight:600;margin-bottom:5px;position:relative;z-index:1;}
+    .tb{font-size:14px;color:var(--muted);line-height:1.6;position:relative;z-index:1;}
+
+    /* Before/After */
+    .ba-wrap{position:relative;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 60px rgba(230,57,70,.1);touch-action:none;cursor:col-resize;user-select:none;}
+    .ba-after{display:block;width:100%;height:clamp(260px,55vw,460px);object-fit:cover;object-position:center;}
+    /* before image: identical size to after, sits on top, clipped by inset() */
+    .ba-before{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;clip-path:inset(0 50% 0 0);}
+    .ba-line{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:2px;background:var(--red);z-index:5;}
+    .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(230,57,70,.7);}
+    .ba-knob svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;}
+    .ba-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);backdrop-filter:blur(8px);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;white-space:nowrap;z-index:6;animation:hf 3s ease-in-out 1.2s forwards;}
+    @keyframes hf{0%{opacity:1;}70%{opacity:1;}100%{opacity:0;}}
+    .ba-lb{position:absolute;top:14px;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;z-index:6;}
+    .ba-lb-b{left:14px;} .ba-lb-a{right:14px;}
+
+    /* Products */
+    .pg{display:grid;grid-template-columns:1fr;gap:16px;}
+    @media(min-width:640px){.pg{grid-template-columns:repeat(2,1fr);}}
+    .pc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:var(--e);}
+    .pc:hover{border-color:var(--red-b);box-shadow:0 0 40px rgba(230,57,70,.14);transform:translateY(-2px);}
+    .pi{position:relative;height:clamp(200px,45vw,280px);background:#1a1a1a;overflow:hidden;}
+    .pi img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .pc:hover .pi img{transform:scale(1.04);}
+    .pbadge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:6px;}
+    .pb{padding:22px 20px;}
+    .ptitle{font-family:var(--fh);font-size:28px;letter-spacing:.02em;margin-bottom:8px;}
+    .pdesc{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.6;}
+    .pprice{font-size:20px;font-weight:600;margin-bottom:18px;}
+    .pprice small{font-size:13px;color:var(--muted);font-weight:400;}
+    .pbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;font-size:15px;font-weight:700;padding:16px;border-radius:var(--r);box-shadow:0 0 24px var(--red-g);transition:var(--e);min-height:52px;-webkit-tap-highlight-color:transparent;}
+    .pbtn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+    .pbtn:hover,.pbtn:active{background:#f04550;box-shadow:0 0 40px rgba(230,57,70,.45);}
+    .pbtn-g{background:transparent;border:1px solid var(--red-b);color:var(--red);box-shadow:none;}
+    .pbtn-g svg{stroke:var(--red);}
+    .pbtn-g:hover{background:var(--red-s);border-color:var(--red);}
+
+    /* Process */
+    .steps{display:flex;flex-direction:column;}
+    .step{display:grid;grid-template-columns:48px 1fr;gap:0 20px;padding:32px 0;border-bottom:1px solid var(--border);}
+    .step:last-child{border-bottom:none;}
+    .sl{display:flex;flex-direction:column;align-items:center;}
+    .snw{width:48px;height:48px;flex-shrink:0;border-radius:50%;border:1px solid var(--red-b);background:var(--red-s);display:flex;align-items:center;justify-content:center;}
+    .sn{font-family:var(--fh);font-size:22px;color:var(--red);line-height:1;}
+    .sli{flex:1;width:1px;background:var(--border);margin:10px 0;}
+    .step:last-child .sli{display:none;}
+    .stitle{font-size:17px;font-weight:600;margin-bottom:8px;padding-top:12px;}
+    .sbody{font-size:15px;color:var(--muted);line-height:1.65;}
+
+    /* Material cards */
+    .mat-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+    @media(min-width:540px){.mat-grid{grid-template-columns:repeat(3,1fr);}}
+    .mat-card{
+      background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);
+      padding:24px 20px;transition:border-color var(--e),box-shadow var(--e),transform var(--e);
+      cursor:pointer;position:relative;overflow:hidden;
+    }
+    /* Ambient bloom always present — subtle red light from bottom of card */
+    .mat-card::before{
+      content:'';position:absolute;
+      bottom:-30px;left:50%;transform:translateX(-50%);
+      width:70%;height:80px;
+      background:radial-gradient(ellipse,rgba(230,57,70,.18) 0%,transparent 68%);
+      filter:blur(16px);
+      pointer-events:none;
+    }
+    /* Top-edge glow line — always on */
+    .mat-card::after{
+      content:'';position:absolute;
+      top:0;left:10%;right:10%;
+      height:1px;
+      background:linear-gradient(to right,transparent,rgba(230,57,70,.45),transparent);
+    }
+    .mat-card:hover,.mat-card.active{
+      border-color:var(--red-b);
+      box-shadow:0 0 32px rgba(230,57,70,.18), 0 0 0 1px rgba(230,57,70,.12);
+      transform:translateY(-2px);
+    }
+    .mat-card.popular::before{content:none;} /* bloom is now .mat-bloom, badge uses .mat-badge */
+    .mat-badge{display:none;}
+    .mat-card.popular .mat-badge{
+      display:block;position:absolute;top:-1px;left:20px;
+      background:var(--red);color:#fff;font-size:9px;font-weight:700;
+      letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;
+      border-radius:0 0 6px 6px;z-index:2;
+    }
+    .mat-swatch{width:100%;height:200px;border-radius:10px;margin-bottom:16px;position:relative;overflow:hidden;background:#1a1a1a;}
+    .mat-swatch img{width:100%;height:100%;object-fit:cover;}
+    .mat-name{font-family:var(--fh);font-size:24px;margin-bottom:4px;position:relative;z-index:1;}
+    .mat-price{font-size:14px;color:var(--red);font-weight:600;margin-bottom:10px;position:relative;z-index:1;}
+    .mat-desc{font-size:13px;color:var(--muted);line-height:1.6;position:relative;z-index:1;}
+
+    /* Marquee */
+    .mq{overflow:hidden;position:relative;}
+    .mq::before,.mq::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+    .mq::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+    .mq::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+    .mq-t{display:flex;gap:56px;width:max-content;will-change:transform;}
+    /* animation driven by JS for zero-jump looping */
+    .mq-logo{height:26px;width:auto;flex-shrink:0;
+      filter:invert(1) grayscale(1);
+      mix-blend-mode:screen;
+      opacity:.4;transition:opacity var(--e);}
+    .mq-logo:hover{opacity:.75;}
+
+    /* Reviews */
+    .rg{display:grid;grid-template-columns:1fr;gap:14px;}
+    @media(min-width:640px){.rg{grid-template-columns:repeat(2,1fr);}}
+    @media(min-width:960px){.rg{grid-template-columns:repeat(3,1fr);}}
+    .rc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);padding:24px;transition:var(--e);}
+    .rc:hover{border-color:var(--red-b);box-shadow:0 0 28px rgba(230,57,70,.1);}
+    .stars{color:var(--red);font-size:14px;letter-spacing:2px;margin-bottom:14px;}
+    .rq{font-size:15px;font-weight:300;color:var(--white);line-height:1.65;margin-bottom:18px;}
+    .ra{display:flex;align-items:center;gap:12px;}
+    .rav{width:36px;height:36px;border-radius:50%;background:var(--red-s);border:1px solid var(--red-b);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--red);flex-shrink:0;}
+    .rname{font-size:14px;font-weight:600;}
+    .rcar{font-size:12px;color:var(--muted);}
+
+    /* FAQ */
+    .fl{max-width:720px;margin:0 auto;}
+    .fi{border-bottom:1px solid var(--border);}
+    .fq{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:16px;font-weight:500;text-align:left;gap:16px;min-height:60px;-webkit-tap-highlight-color:transparent;}
+    .fico{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--e);}
+    .fico svg{width:12px;height:12px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;transition:transform var(--e),stroke var(--e);}
+    .fi.open .fico{border-color:var(--red);background:var(--red-s);}
+    .fi.open .fico svg{stroke:var(--red);transform:rotate(45deg);}
+    .fa{max-height:0;overflow:hidden;transition:max-height .38s ease,padding .3s ease;}
+    .fi.open .fa{max-height:240px;padding-bottom:18px;}
+    .fa p{font-size:15px;color:var(--muted);line-height:1.7;}
+
+    /* Contact */
+    .cw{display:grid;grid-template-columns:1fr;gap:40px;}
+    @media(min-width:768px){.cw{grid-template-columns:1fr 1.3fr;align-items:start;}}
+    .co{display:flex;flex-direction:column;gap:12px;}
+    .cop{display:flex;align-items:center;gap:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);padding:18px 20px;transition:var(--e);min-height:72px;-webkit-tap-highlight-color:transparent;}
+    .cop:hover{border-color:var(--red-b);background:var(--bg-card2);}
+    .coi{width:44px;height:44px;border-radius:12px;background:var(--red-s);border:1px solid var(--red-b);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .coi svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;}
+    .col{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+    .cov{font-size:16px;font-weight:600;}
+    .coa{margin-left:auto;color:var(--muted);font-size:18px;}
+    .ff{margin-bottom:14px;}
+    .fl2{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .fi2,.fs,.fta{width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;font-family:var(--fb);font-size:16px;color:var(--white);outline:none;transition:border-color var(--e);min-height:52px;}
+    .fi2:focus,.fs:focus,.fta:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(230,57,70,.1);}
+    .fi2::placeholder,.fta::placeholder{color:var(--muted);}
+    .fs option{background:#1a1a1a;}
+    .fta{resize:vertical;min-height:100px;}
+    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    @media(max-width:480px){.fr2{grid-template-columns:1fr;}}
+    .fsub{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-family:var(--fb);font-size:16px;font-weight:700;padding:18px;border-radius:var(--r);box-shadow:0 0 24px var(--red-g);transition:var(--e);margin-top:8px;min-height:56px;-webkit-tap-highlight-color:transparent;}
+    .fsub:hover,.fsub:active{background:#f04550;box-shadow:0 0 40px rgba(230,57,70,.45);}
+    .fsub svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+
+    /* Footer */
+    footer{background:var(--bg-card);border-top:1px solid var(--border);padding:48px 0 32px;}
+    .fg{display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:40px;}
+    @media(min-width:640px){.fg{grid-template-columns:1.4fr 1fr 1fr;gap:48px;}}
+    .flogo{font-family:var(--fh);font-size:26px;letter-spacing:.04em;margin-bottom:10px;}
+    .flogo em{font-style:normal;color:var(--red);}
+    .ftag{font-size:14px;color:var(--muted);max-width:280px;line-height:1.6;margin-bottom:20px;}
+    .fsoc{display:flex;gap:10px;}
+    .sb{width:38px;height:38px;border-radius:9px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:var(--e);}
+    .sb:hover{border-color:var(--red);background:var(--red-s);}
+    .sb svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.8;stroke-linecap:round;transition:stroke var(--e);}
+    .sb:hover svg{stroke:var(--red);}
+    .fch{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+    .flinks{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .flinks a{font-size:14px;color:var(--muted);transition:color var(--e);min-height:24px;display:block;}
+    .flinks a:hover{color:var(--white);}
+    .fbot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .fcopy{font-size:13px;color:var(--muted);}
+    .fleg{display:flex;gap:18px;}
+    .fleg a{font-size:13px;color:var(--muted);transition:color var(--e);}
+    .fleg a:hover{color:var(--white);}
+    .subb{background:linear-gradient(135deg,rgba(230,57,70,.10) 0%,rgba(230,57,70,.04) 100%);border:1px solid var(--red-b);border-radius:var(--rl);padding:32px 28px;margin-bottom:48px;}
+    .subb h3{font-family:var(--fh);font-size:28px;margin-bottom:4px;}
+    .subb p{font-size:14px;color:var(--muted);margin-bottom:18px;}
+    .subf{display:flex;gap:10px;flex-wrap:wrap;}
+    .subi{flex:1;min-width:200px;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;font-family:var(--fb);font-size:16px;color:var(--white);outline:none;transition:border-color var(--e);min-height:52px;}
+    .subi:focus{border-color:var(--red);}
+    .subi::placeholder{color:var(--muted);}
+
+    /* Image placeholder (shows if img fails to load) */
+    .imgph{background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;}
+
+    /* ═══ CONFIGURATOR ═══ */
+    .cfg-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.87);backdrop-filter:blur(14px);display:none;align-items:flex-end;justify-content:center;}
+    .cfg-overlay.open{display:flex;}
+    @media(min-width:700px){.cfg-overlay{align-items:center;}}
+    .cfg-modal{background:var(--bg-card);width:100%;max-width:880px;border-radius:20px 20px 0 0;border:1px solid var(--border);border-bottom:none;max-height:92svh;display:flex;flex-direction:column;overflow:hidden;animation:cfg-up .3s cubic-bezier(.16,1,.3,1);}
+    @media(min-width:700px){.cfg-modal{border-radius:20px;border-bottom:1px solid var(--border);max-height:88svh;}}
+    @keyframes cfg-up{from{transform:translateY(32px);opacity:0;}to{transform:none;opacity:1;}}
+    .cfg-hdr{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
+    .cfg-hdr-logo{font-family:var(--fh);font-size:18px;letter-spacing:.06em;flex-shrink:0;}
+    .cfg-hdr-logo em{font-style:normal;color:var(--red);}
+    .cfg-hdr-title{flex:1;font-size:14px;font-weight:600;color:var(--muted);}
+    .cfg-close{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--e);flex-shrink:0;color:var(--muted);}
+    .cfg-close:hover{border-color:var(--red);color:var(--red);}
+    .cfg-close svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;}
+    .cfg-body{display:grid;grid-template-columns:1fr;overflow:hidden;flex:1;}
+    @media(min-width:700px){.cfg-body{grid-template-columns:260px 1fr;}}
+    .cfg-preview{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;gap:16px;background:radial-gradient(ellipse at 50% 60%,rgba(230,57,70,.08) 0%,transparent 65%);border-right:1px solid var(--border);flex-shrink:0;}
+    @media(max-width:699px){.cfg-preview{border-right:none;border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:row;gap:20px;}}
+    .cfg-wheel-wrap{position:relative;width:220px;flex-shrink:0;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 40px rgba(230,57,70,.14);}
+    @media(max-width:699px){.cfg-wheel-wrap{width:120px;}}
+    .cfg-wheel-wrap img{width:100%;height:200px;object-fit:cover;display:block;}
+    @media(max-width:699px){.cfg-wheel-wrap img{height:110px;}}
+    .cfg-overlay-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);font-size:10px;font-weight:500;color:var(--white);padding:7px 10px;text-align:center;line-height:1.4;}
+    .cfg-preview-info{display:flex;flex-direction:column;gap:10px;align-items:center;}
+    @media(max-width:699px){.cfg-preview-info{align-items:flex-start;}}
+    .cfg-price-badge{background:var(--red);color:#fff;font-family:var(--fh);font-size:24px;letter-spacing:.02em;padding:8px 18px;border-radius:var(--r);box-shadow:0 0 20px rgba(230,57,70,.35);}
+    .cfg-controls{overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
+    .cfg-field{display:flex;flex-direction:column;}
+    .cfg-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .cfg-sel{width:100%;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-family:var(--fb);font-size:15px;color:var(--white);outline:none;transition:border-color var(--e);appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a7672' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;}
+    .cfg-sel:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(230,57,70,.1);}
+    .cfg-sel option,.cfg-sel optgroup{background:#1a1a1a;}
+    .cfg-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    @media(max-width:400px){.cfg-row2{grid-template-columns:1fr;}}
+    .cfg-inp{width:100%;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-family:var(--fb);font-size:16px;color:var(--white);outline:none;transition:border-color var(--e);}
+    .cfg-inp:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(230,57,70,.1);}
+    .cfg-inp::placeholder{color:var(--muted);}
+    .cfg-circles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+    .cfg-circle{width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;flex-shrink:0;}
+    .cfg-circle:hover{transform:scale(1.18);}
+    .cfg-circle.sel{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25);}
+    .cfg-selected-val{font-size:12px;color:var(--muted);}
+    .cfg-suburb-btns{display:flex;flex-direction:column;gap:10px;}
+    .cfg-suburb-btn{display:flex;align-items:center;gap:14px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;text-decoration:none;color:var(--white);transition:var(--e);}
+    .cfg-suburb-btn:hover{border-color:var(--red);background:var(--red-s);}
+    .cfg-suburb-icon{font-size:18px;flex-shrink:0;}
+    .cfg-suburb-btn strong{font-size:14px;font-weight:600;display:block;}
+    .cfg-suburb-btn span{font-size:11px;color:var(--muted);}
+    .cfg-submit-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-family:var(--fb);font-size:15px;font-weight:700;padding:15px;border-radius:var(--r);border:none;cursor:pointer;box-shadow:0 0 24px rgba(230,57,70,.35);transition:var(--e);min-height:52px;}
+    .cfg-submit-btn:hover{background:#f04550;box-shadow:0 0 40px rgba(230,57,70,.5);}
+    .cfg-submit-btn:disabled{background:#333;box-shadow:none;cursor:not-allowed;}
+  </style>
+</head>
+<body>
+
+  <!-- STICKY BOTTOM BAR -->
+  <div class="sticky" id="sticky-bar">
+    <div class="sticky-txt">
+      <strong>Custom Wraps from $135 AUD</strong>
+      <span>Leather · Alcantara · Suede</span>
+    </div>
+    <a href="#products" class="cta">
+      Customise Now
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="w">
+      <div class="ni">
+        <a href="/" class="logo">STICHD<em>UP</em></a>
+        <ul class="nl">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nr">
+          <a href="#products" class="nc">
+            Customise Now
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <button class="mb" id="menu-btn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nd" id="nav-drawer">
+      <a href="#products" onclick="closeD()">Products</a>
+      <a href="#process" onclick="closeD()">How It Works</a>
+      <a href="#reviews" onclick="closeD()">Reviews</a>
+      <a href="#faq" onclick="closeD()">FAQ</a>
+      <a href="#contact" onclick="closeD()">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bloom"></div>
+    <div class="hero-img" style="display:none;"></div>
+    <div class="w">
+      <div class="hero-c">
+        <div class="badge rv">Melbourne's Custom Wrap Studio</div>
+        <h1 class="ht rv d1">YOUR<br>WHEEL.<br><em>YOUR<br>RULES.</em></h1>
+        <p class="hs rv d2">Handcrafted steering wheel wraps in leather, Alcantara, and suede. Mobile fitting across Melbourne or DIY kits shipped Australia-wide.</p>
+        <div class="hctas rv d3">
+          <a href="#products" class="cta">
+            Customise Now
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#process" class="ghost">How It Works</a>
+        </div>
+        <div class="hstats rv d4">
+          <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">Wraps Done</span></div>
+          <div class="hstat"><span class="hstat-n">5★</span><span class="hstat-l">Rating</span></div>
+          <div class="hstat"><span class="hstat-n">48hr</span><span class="hstat-l">Response</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="w">
+      <div class="tg">
+        <div class="tc rv">
+          <div class="ti"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="tt">Built to Last</div>
+            <div class="tb">Automotive-grade leather, suede, and Alcantara stitched to endure years of daily driving. No cheap materials, ever.</div>
+          </div>
+        </div>
+        <div class="tc rv d1">
+          <div class="ti"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div>
+            <div class="tt">Better Than Factory</div>
+            <div class="tb">Tight, textured, tailored. Every wrap is hand-fitted for grip, comfort, and a finish your factory wheel never had.</div>
+          </div>
+        </div>
+        <div class="tc rv d2">
+          <div class="ti"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+          <div>
+            <div class="tt">100% Your Design</div>
+            <div class="tb">Your material, your colours, your stitching pattern. No cookie-cutter options — every wrap is made just for you.</div>
+          </div>
+        </div>
+      </div>
+      <a href="#products" class="sec-cta rv">
+        Customise Now
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- BEFORE / AFTER -->
+  <section class="sec" id="ba">
+    <div class="w">
+      <div style="margin-bottom:36px;">
+        <span class="tag rv">The Difference</span>
+        <h2 class="h2 rv d1">See it for yourself</h2>
+        <p class="sub rv d2">A wrap doesn't just change how your wheel looks — it changes how it feels every time you drive. Drag to compare.</p>
+      </div>
+      <div class="ba-wrap rv" id="ba-wrap">
+        <img class="ba-after" src="https://stichdup.com.au/wp-content/uploads/2025/09/IMG_8479-scaled-4.jpg" alt="After wrap" />
+        <img class="ba-before" id="ba-before" src="https://stichdup.com.au/wp-content/uploads/2025/09/IMG_8465-scaled-1.jpg" alt="Before wrap" />
+        <div class="ba-line" id="ba-line" style="left:50%">
+          <div class="ba-knob">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </div>
+        </div>
+        <div class="ba-hint">← Drag to compare →</div>
+        <span class="ba-lb ba-lb-b">Before</span>
+        <span class="ba-lb ba-lb-a">After</span>
+      </div>
+      <a href="#products" class="sec-cta rv">
+        Get This For Your Car
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="sec" id="products" style="padding-top:0;">
+    <div class="w">
+      <span class="tag rv">Shop</span>
+      <h2 class="h2 rv d1" style="margin-bottom:28px;">Choose Your Upgrade</h2>
+      <div class="pg">
+
+        <!-- SHOPIFY: data-shopify-product-id="{{ product.id }}" -->
+        <div class="pc rv">
+          <div class="pi">
+            <img src="https://stichdup.com.au/wp-content/uploads/2025/08/IMG_9105-300x300.jpg" alt="Professional Installation — STICHD UP" loading="lazy" />
+            <span class="pbadge">Most Popular</span>
+          </div>
+          <div class="pb">
+            <div class="ptitle">Pro Install</div>
+            <div class="pdesc">We come to you anywhere in Melbourne metro. Your wrap custom-built, professionally fitted in 1–2 hours at your door. Guaranteed quality finish.</div>
+            <div class="pprice">$340 – $430 <small>AUD</small></div>
+            <!-- SHOPIFY: form action="/cart/add" input name="id" value="{{ variant.id }}" -->
+            <button class="pbtn" onclick="openConfigurator('install')">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Customise &amp; Book
+            </button>
+          </div>
+        </div>
+
+        <div class="pc rv d1">
+          <div class="pi">
+            <img src="https://stichdup.com.au/wp-content/uploads/2025/08/IMG_9093-300x300.jpg" alt="DIY Kit — STICHD UP" loading="lazy" />
+            <span class="pbadge" style="background:#2a2a2a;">DIY Kit</span>
+          </div>
+          <div class="pb">
+            <div class="ptitle">DIY Kit</div>
+            <div class="pdesc">Same premium materials, pre-cut to your vehicle's exact spec. Full step-by-step instructions and live remote support included. Ships anywhere in Australia.</div>
+            <div class="pprice">$135 – $250 <small>AUD</small></div>
+            <button class="pbtn pbtn-g" onclick="openConfigurator('diy')">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Customise &amp; Order Kit
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <p style="text-align:center;font-size:14px;color:var(--muted);margin-top:24px;margin-bottom:4px;" class="rv">Not sure which option is right for you?</p>
+      <a href="#contact" class="sec-cta rv" style="background:transparent;border:1px solid var(--red-b);color:var(--white);box-shadow:none;">
+        Ask Us — We'll Help You Choose
+        <svg viewBox="0 0 24 24" style="stroke:var(--white);"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section class="sec" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);" id="materials">
+    <div class="w">
+      <span class="tag rv">Materials</span>
+      <h2 class="h2 rv d1" style="margin-bottom:12px;">What do you want it to feel like?</h2>
+      <p class="sub rv d2" style="margin-bottom:40px;">All three are cut and stitched specifically for your car. The only difference is how they feel in your hands.</p>
+
+      <div class="mat-grid">
+        <!-- Leather -->
+        <div class="mat-card popular rv" onclick="this.classList.toggle('active')">
+          <span class="mat-badge">Most Popular</span>
+          <div class="mat-swatch">
+            <img src="https://stichdup.com.au/wp-content/uploads/2025/04/Sythetic-Faux-Leather-768x1024.jpg" alt="Leather material" loading="lazy" />
+          </div>
+          <div class="mat-name">Leather</div>
+          <div class="mat-price">From $135</div>
+          <div class="mat-desc">Smooth, firm grip. Durable and easy to clean. The most popular choice for everyday drivers who want a premium feel without the fuss.</div>
+        </div>
+        <!-- Alcantara -->
+        <div class="mat-card rv d1" onclick="this.classList.toggle('active')">
+          <div class="mat-swatch" style="background:linear-gradient(135deg,#1c1c2e,#2d2d3f);">
+            <img src="https://stichdup.com.au/wp-content/uploads/2025/09/IMG_8479-scaled-4.jpg" alt="Alcantara material" loading="lazy" style="object-position:center 65%;" />
+          </div>
+          <div class="mat-name">Alcantara</div>
+          <div class="mat-price">From $185</div>
+          <div class="mat-desc">Soft, suede-like texture used by Ferrari, Lamborghini, and Porsche. Exceptional grip and a luxury feel that leather simply can't match.</div>
+        </div>
+        <!-- Suede -->
+        <div class="mat-card rv d2" onclick="this.classList.toggle('active')">
+          <div class="mat-swatch" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);">
+            <img src="https://stichdup.com.au/wp-content/uploads/2025/09/IMG_8465-scaled-1.jpg" alt="Suede material" loading="lazy" />
+          </div>
+          <div class="mat-name">Suede</div>
+          <div class="mat-price">From $165</div>
+          <div class="mat-desc">The look of Alcantara at a more accessible price. Soft, grippy, and available in a wide range of colours for full customisation.</div>
+        </div>
+      </div>
+
+      <a href="#products" class="sec-cta rv">
+        Customise Now
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sec" id="process">
+    <div class="w" style="position:relative;">
+      <div class="bloom" style="opacity:.4;"></div>
+      <div style="position:relative;z-index:1;">
+        <span class="tag rv">How It Works</span>
+        <h2 class="h2 rv d1" style="margin-bottom:36px;">Three steps.<br>One perfect wrap.</h2>
+        <div class="steps rv d2">
+          <div class="step">
+            <div class="sl"><div class="snw"><span class="sn">1</span></div><div class="sli"></div></div>
+            <div>
+              <div class="stitle">Design Your Wrap</div>
+              <div class="sbody">Tell us your vehicle's make, model, and year. Pick your material — leather, suede, or Alcantara. Choose your colours, stitching style, centre markers, and thumb grips. The whole thing takes about 5 minutes.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sl"><div class="snw"><span class="sn">2</span></div><div class="sli"></div></div>
+            <div>
+              <div class="stitle">Handcrafted to Order</div>
+              <div class="sbody">Your wrap is hand-cut and stitched using automotive-grade materials. Every single one is made specifically for your car — no generic templates, no mass production. Ready in 10–12 business days.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sl"><div class="snw"><span class="sn">3</span></div><div class="sli"></div></div>
+            <div>
+              <div class="stitle">Fitted or Shipped</div>
+              <div class="sbody">Melbourne customers can book our mobile fitting service — we come to you and fit it in 1–2 hours. DIY kit customers get full step-by-step instructions and remote support via phone or video call.</div>
+            </div>
+          </div>
+        </div>
+        <a href="#products" class="sec-cta rv">
+          Start Customising
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND MARQUEE -->
+  <section style="padding:52px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg);">
+    <p style="text-align:center;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;">Compatible with every major brand</p>
+    <div class="mq">
+    <div class="mq" id="mq-outer">
+      <div class="mq-t" id="mq-track">
+        <!-- Only using logos whose filenames confirm dark-on-transparent format -->
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/bmw-logo-2020-gray-download.png"       alt="BMW"         onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/nissan-logo-2020-black.png"             alt="Nissan"       onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/honda-logo-2000-full-black-download.png" alt="Honda"        onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/ford-logo-2017-download.png"            alt="Ford"         onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/tesla-logo-2007-black-download.png"     alt="Tesla"        onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/toyota-logo-2020-europe-download.png"   alt="Toyota"       onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/mazda-logo-2018-vertical-download.png"  alt="Mazda"        onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/maserati-logo-2020-download.png"        alt="Maserati"     onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/lamborghini-logo-1998-640.png"          alt="Lamborghini"  onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/bentley-logo-2002-640.png"              alt="Bentley"      onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/jaguar-logo-2021-download.png"          alt="Jaguar"       onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/hyundai-logo-2011-download-scaled.png"  alt="Hyundai"      onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/cadillac-logo-2021-full-download.png"   alt="Cadillac"     onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/chevrolet-corvette-logo-2020-download.png" alt="Corvette"  onerror="this.remove()"/>
+        <img class="mq-logo" src="https://stichdup.com.au/wp-content/uploads/2025/06/chrysler-logo-2009-download.png"        alt="Chrysler"     onerror="this.remove()"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec" id="reviews">
+    <div class="w">
+      <span class="tag rv">Reviews</span>
+      <h2 class="h2 rv d1" style="margin-bottom:8px;">What drivers say</h2>
+      <p class="sub rv d2" style="margin-bottom:36px;">Real customers, real cars, real results.</p>
+      <div class="rg">
+        <div class="rc rv">
+          <div class="stars">★★★★★</div>
+          <p class="rq">"Absolutely incredible job. The Alcantara feels factory-spec — except better. I get compliments every time someone gets in the car. Worth every cent."</p>
+          <div class="ra"><div class="rav">JM</div><div><div class="rname">James M.</div><div class="rcar">2022 BMW M3 Competition</div></div></div>
+        </div>
+        <div class="rc rv d1">
+          <div class="stars">★★★★★</div>
+          <p class="rq">"Ordered the DIY kit. Instructions were genuinely simple and the remote support was fast when I had a question. Looks like a professional did it. 10/10."</p>
+          <div class="ra"><div class="rav">SL</div><div><div class="rname">Sarah L.</div><div class="rcar">2019 Toyota Supra GR</div></div></div>
+        </div>
+        <div class="rc rv d2">
+          <div class="stars">★★★★★</div>
+          <p class="rq">"Booked the mobile service. On time, clean, done in under 2 hours in my driveway. Red stitching on black Alcantara — exactly what I had in my head. Mint."</p>
+          <div class="ra"><div class="rav">DP</div><div><div class="rname">Daniel P.</div><div class="rcar">2021 Mercedes-AMG C63</div></div></div>
+        </div>
+      </div>
+      <a href="#products" class="sec-cta rv">
+        Customise Now
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="w">
+      <div style="text-align:center;margin-bottom:48px;">
+        <span class="tag rv">FAQ</span>
+        <h2 class="h2 rv d1">Common questions</h2>
+      </div>
+      <div class="fl">
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">What materials can I choose from?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>Genuine leather, premium suede, and Alcantara — plus carbon detailing options. Each is available across multiple colours with custom stitching styles, centre markers, and thumb grip options. Every combination is available.</p></div>
+        </div>
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">Will it affect my heated steering wheel?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>No. Our wraps are designed to be fully compatible with heated steering wheels. The materials we use allow heat to transfer effectively, so your heating function works exactly as intended.</p></div>
+        </div>
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">How long does professional installation take?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>1 to 2 hours at your location. We cover all Melbourne metro areas — you pick a time that works for you and we come to you. No need to drop your car anywhere.</p></div>
+        </div>
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">How long until my order is ready?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>10–12 business days for Australian orders. International orders take 14–16 business days. Every wrap is made to order — we don't stock pre-made wraps or use generic templates.</p></div>
+        </div>
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">Can it be removed later?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>Yes. Our wraps are designed to be durable and removable. If you want to change the look later or go back to your original wheel, it can be removed without any damage.</p></div>
+        </div>
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">Is my car supported?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>We support a very wide range of makes and models — from daily drivers to performance and luxury vehicles. Enter your vehicle details in the customiser or contact us directly and we'll confirm straight away.</p></div>
+        </div>
+        <div class="fi">
+          <button class="fq" onclick="faq(this)">How do I care for my wrap?<span class="fico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+          <div class="fa"><p>For leather and suede, wipe down with a soft damp cloth. Avoid harsh chemicals or abrasive cleaners. Alcantara benefits from an occasional gentle brush with a soft bristle brush to maintain its texture. We provide care instructions with every order.</p></div>
+        </div>
+      </div>
+      <a href="#products" class="sec-cta rv" style="margin-top:40px;">
+        Customise Now
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="contact">
+    <div class="w">
+      <span class="tag rv">Get in Touch</span>
+      <h2 class="h2 rv d1" style="margin-bottom:12px;">We're easy to reach</h2>
+      <p class="sub rv d2" style="margin-bottom:40px;">Tap to call, email, or DM us directly. Or fill in the form and we'll get back within 48 hours.</p>
+      <div class="cw">
+        <div class="co rv">
+          <a href="tel:0430366635" class="cop">
+            <div class="coi"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="col">Call Us</div><div class="cov">0430 366 635</div></div>
+            <span class="coa">›</span>
+          </a>
+          <a href="mailto:info@stichdup.com.au" class="cop">
+            <div class="coi"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="col">Email</div><div class="cov">info@stichdup.com.au</div></div>
+            <span class="coa">›</span>
+          </a>
+          <a href="https://www.instagram.com/stichdup_steeringwheels/" target="_blank" rel="noopener" class="cop">
+            <div class="coi"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div><div class="col">Instagram</div><div class="cov">@stichdup_steeringwheels</div></div>
+            <span class="coa">›</span>
+          </a>
+          <div class="cop" style="cursor:default;pointer-events:none;opacity:.7;">
+            <div class="coi"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="col">Service Area</div><div class="cov">All Melbourne VIC Metro</div></div>
+          </div>
+        </div>
+
+        <!-- SHOPIFY: form action="{{ routes.contact_url }}" method="post" -->
+        <div class="rv d1">
+          <div class="fr2">
+            <div class="ff"><label class="fl2" for="f-name">Name</label><input class="fi2" id="f-name" type="text" placeholder="Your name" autocomplete="name" /></div>
+            <div class="ff"><label class="fl2" for="f-phone">Phone</label><input class="fi2" id="f-phone" type="tel" placeholder="04xx xxx xxx" autocomplete="tel" /></div>
+          </div>
+          <div class="ff"><label class="fl2" for="f-email">Email</label><input class="fi2" id="f-email" type="email" placeholder="you@email.com" autocomplete="email" /></div>
+          <div class="ff"><label class="fl2" for="f-vehicle">Your Vehicle</label><input class="fi2" id="f-vehicle" type="text" placeholder="e.g. BMW M3 2022" /></div>
+          <div class="ff">
+            <label class="fl2" for="f-service">What are you after?</label>
+            <select class="fs" id="f-service">
+              <option value="">Select an option</option>
+              <option value="pro">Professional Installation</option>
+              <option value="diy">DIY Kit</option>
+              <option value="q">Custom Quote</option>
+            </select>
+          </div>
+          <div class="ff"><label class="fl2" for="f-msg">Anything else? <span style="color:var(--muted);font-weight:400;text-transform:none;">(optional)</span></label><textarea class="fta" id="f-msg" placeholder="Materials, colours, stitching ideas..."></textarea></div>
+          <button type="button" class="fsub" onclick="submitForm()">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Enquiry
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="w">
+      <div class="subb rv">
+        <h3>Exclusive deals, first.</h3>
+        <p>New materials, limited run colours, early access pricing — straight to your inbox.</p>
+        <div class="subf">
+          <input class="subi" type="email" placeholder="your@email.com" />
+          <a href="#" class="cta" style="padding:14px 22px;">Subscribe</a>
+        </div>
+      </div>
+      <div class="fg">
+        <div>
+          <div class="flogo">STICHD<em>UP</em></div>
+          <p class="ftag">Premium custom steering wheel wraps handcrafted in Melbourne. Built for drivers who give a damn about what they touch every time they drive.</p>
+          <div class="fsoc">
+            <a href="https://www.instagram.com/stichdup_steeringwheels/" target="_blank" rel="noopener" class="sb" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/stichdupsteeringwheels" target="_blank" rel="noopener" class="sb" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="fch">Navigation</div>
+          <ul class="flinks">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#materials">Materials</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fch">Contact</div>
+          <ul class="flinks">
+            <li><a href="tel:0430366635">0430 366 635</a></li>
+            <li><a href="mailto:info@stichdup.com.au">info@stichdup.com.au</a></li>
+            <li style="color:var(--muted);font-size:14px;cursor:default;">Melbourne VIC Metro</li>
+          </ul>
+          <div style="margin-top:24px;">
+            <a href="#products" class="cta" style="font-size:13px;padding:12px 18px;">
+              Customise Now
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fbot">
+        <p class="fcopy">© 2026 STICHD UP Steering Wheels. All rights reserved.</p>
+        <div class="fleg"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Nav */
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('sc', scrollY > 40), {passive:true});
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('nav-drawer').classList.toggle('open'));
+    function closeD(){ document.getElementById('nav-drawer').classList.remove('open'); }
+
+    /* Reveal — with hard fallback after 800ms */
+    const revealAll = () => document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+    /* Fallback: show everything after 800ms regardless */
+    setTimeout(revealAll, 800);
+
+    /* Before/After — clip-path approach, both images always full size */
+    (function(){
+      const wrap   = document.getElementById('ba-wrap');
+      const before = document.getElementById('ba-before');
+      const line   = document.getElementById('ba-line');
+      let drag = false;
+
+      function sp(cx){
+        const r = wrap.getBoundingClientRect();
+        const p = Math.min(Math.max((cx - r.left) / r.width, 0.02), 0.98);
+        const pct = (p * 100).toFixed(2);
+        before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        line.style.left = pct + '%';
+      }
+
+      wrap.addEventListener('mousedown',  e => { drag = true;  sp(e.clientX); });
+      window.addEventListener('mousemove', e => { if (drag) sp(e.clientX); });
+      window.addEventListener('mouseup',   () => { drag = false; });
+      wrap.addEventListener('touchstart',  e => { drag = true;  sp(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener('touchmove', e => { if (drag) sp(e.touches[0].clientX); },     { passive: true });
+      window.addEventListener('touchend',  () => { drag = false; });
+    })();
+
+    /* FAQ */
+    function faq(btn){
+      const item = btn.closest('.fi');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.fi.open').forEach(i=>i.classList.remove('open'));
+      if(!open) item.classList.add('open');
+    }
+
+    /* Marquee — rAF loop, no CSS animation = no jump */
+    (function(){
+      const track = document.getElementById('mq-track');
+      if(!track) return;
+
+      /* Wait for images, then clone first set to create seamless loop */
+      window.addEventListener('load', function(){
+        /* Remove any onerror'd items first */
+        const originals = Array.from(track.querySelectorAll('.mq-logo'));
+        if(!originals.length) return;
+
+        /* Clone the whole set and append for seamless loop */
+        originals.forEach(img => {
+          const clone = img.cloneNode(true);
+          clone.setAttribute('aria-hidden','true');
+          clone.removeAttribute('alt');
+          track.appendChild(clone);
+        });
+
+        let x = 0;
+        const speed = 0.45; /* px per frame */
+        let paused = false;
+        track.parentElement.addEventListener('mouseenter', ()=>{ paused=true; });
+        track.parentElement.addEventListener('mouseleave', ()=>{ paused=false; });
+
+        function step(){
+          if(!paused){
+            x -= speed;
+            /* halfWidth = width of the original set (first half of track) */
+            const half = track.scrollWidth / 2;
+            if(Math.abs(x) >= half) x = 0;
+            track.style.transform = 'translateX('+x.toFixed(2)+'px)';
+          }
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    })();
+
+    /* Contact form — EmailJS */
+    function submitForm(){
+      var name    = document.getElementById('f-name').value.trim();
+      var email   = document.getElementById('f-email').value.trim();
+      var phone   = document.getElementById('f-phone').value.trim();
+      var vehicle = document.getElementById('f-vehicle').value.trim();
+      var service = document.getElementById('f-service').value;
+      var msg     = document.getElementById('f-msg').value.trim();
+
+      if(!name || !email){ alert('Please enter your name and email.'); return; }
+
+      var btn = document.querySelector('.fsub');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      emailjs.send(
+        'YOUR_EMAILJS_SERVICE_ID',   /* replace with your EmailJS service ID */
+        'YOUR_EMAILJS_TEMPLATE_ID',  /* replace with your EmailJS template ID */
+        {
+          from_name:    name,
+          from_email:   email,
+          phone:        phone   || 'Not provided',
+          vehicle:      vehicle || 'Not provided',
+          service_type: service || 'Not specified',
+          message:      msg     || 'No additional info',
+          reply_to:     email,
+        }
+      ).then(function() {
+        btn.textContent = '✓ Sent — we\'ll be in touch within 48 hours';
+        btn.style.background = '#16a34a';
+        document.getElementById('f-name').value    = '';
+        document.getElementById('f-phone').value   = '';
+        document.getElementById('f-email').value   = '';
+        document.getElementById('f-vehicle').value = '';
+        document.getElementById('f-msg').value     = '';
+      }, function(err) {
+        console.error('EmailJS error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Send Enquiry';
+        alert('Something went wrong. Please email us directly at info@stichdup.com.au');
+      });
+    }
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       CONFIGURATOR MODAL
+  ═══════════════════════════════════════ -->
+  <div class="cfg-overlay" id="cfg-overlay">
+    <div class="cfg-modal">
+
+      <div class="cfg-hdr">
+        <div class="cfg-hdr-logo">STICHD<em>UP</em></div>
+        <div class="cfg-hdr-title" id="cfg-title">Customise Your Wrap</div>
+        <div class="cfg-close" onclick="closeCfg()">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+      </div>
+
+      <div class="cfg-body">
+
+        <div class="cfg-preview">
+          <div class="cfg-wheel-wrap">
+            <img src="https://stichdup.com.au/wp-content/uploads/2025/09/IMG_8479-scaled-4.jpg" alt="Steering wheel wrap" />
+            <div class="cfg-overlay-label" id="cfg-preview-label">Configure your wrap below</div>
+          </div>
+          <div class="cfg-preview-info">
+            <div class="cfg-price-badge" id="cfg-price-badge">From $135</div>
+          </div>
+        </div>
+
+        <div class="cfg-controls">
+
+          <!-- Vehicle -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Your Vehicle</label>
+            <div class="cfg-row2">
+              <input class="cfg-inp" id="v-make"  type="text" placeholder="Make (e.g. BMW)"  autocomplete="off" oninput="cfgUpdate()"/>
+              <input class="cfg-inp" id="v-model" type="text" placeholder="Model (e.g. M3)"  autocomplete="off" oninput="cfgUpdate()"/>
+            </div>
+            <input class="cfg-inp" id="v-year" type="text" placeholder="Year (e.g. 2022)" inputmode="numeric" maxlength="4" style="margin-top:10px;" oninput="cfgUpdate()"/>
+          </div>
+
+          <!-- Material -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Material</label>
+            <select class="cfg-sel" id="sel-material" onchange="cfgUpdate()">
+              <option value="">Select material</option>
+              <option value="Genuine Leather">Genuine Leather</option>
+              <option value="Premium Vegan Leather">Premium Vegan Leather</option>
+              <option value="Alcantara">Alcantara</option>
+              <option value="Suede">Suede</option>
+              <option value="Carbon Fibre">Carbon Fibre</option>
+            </select>
+          </div>
+
+          <!-- Sides FIRST -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Side Material</label>
+            <select class="cfg-sel" id="sel-side-mat" onchange="cfgUpdate()">
+              <option value="Match Wrap Material">Match Wrap Material</option>
+              <option value="Alcantara">Alcantara</option>
+              <option value="Suede">Suede</option>
+              <option value="Genuine Leather">Genuine Leather</option>
+              <option value="Premium Vegan Leather">Premium Vegan Leather</option>
+            </select>
+            <select class="cfg-sel" id="sel-side-col" onchange="cfgUpdate()" style="margin-top:10px;display:none;">
+              <option value="">Select colour</option>
+            </select>
+          </div>
+
+          <!-- Top & Bottom SECOND — with Match Side Material -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Top &amp; Bottom Material</label>
+            <select class="cfg-sel" id="sel-top-mat" onchange="cfgUpdate()">
+              <option value="Match Side Material">Match Side Material</option>
+              <option value="Alcantara">Alcantara</option>
+              <option value="Suede">Suede</option>
+              <option value="Genuine Leather">Genuine Leather</option>
+              <option value="Matte Carbon Fiber">Matte Carbon Fiber</option>
+              <option value="Glossy Carbon Fiber">Glossy Carbon Fiber</option>
+              <option value="Forged Carbon Fiber">Forged Carbon Fiber</option>
+            </select>
+            <select class="cfg-sel" id="sel-top-col" onchange="cfgUpdate()" style="margin-top:10px;display:none;">
+              <option value="">Select colour</option>
+            </select>
+          </div>
+
+          <!-- Stitching -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Stitching Colour</label>
+            <div class="cfg-circles" id="stitch-circles">
+              <div class="cfg-circle sel" data-val="White"      title="White"      style="background:#f0ede8;border-color:#888;" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Red"         title="Red"        style="background:#e63946;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Gold"        title="Gold"       style="background:#d4a843;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Blue"        title="Blue"       style="background:#2563eb;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Green"       title="Green"      style="background:#16a34a;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Orange"      title="Orange"     style="background:#ea580c;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Purple"      title="Purple"     style="background:#7c3aed;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Silver"      title="Silver"     style="background:#aaa;"                      onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Black"       title="Black"      style="background:#111;border-color:#555;"    onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Wine Red"    title="Wine Red"   style="background:#6b1921;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Dark Green"  title="Dark Green" style="background:#14532d;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Apricot"     title="Apricot"    style="background:#fb923c;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Light Blue"  title="Light Blue" style="background:#38bdf8;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Yellow"      title="Yellow"     style="background:#eab308;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Beige"       title="Beige"      style="background:#d4b896;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Rose Red"    title="Rose Red"   style="background:#e11d48;"                   onclick="pickStitch(this)"></div>
+            </div>
+            <div class="cfg-selected-val" id="stitch-label">White</div>
+          </div>
+
+          <!-- Centre Marker -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Centre Marker</label>
+            <select class="cfg-sel" id="sel-marker" onchange="cfgUpdate()">
+              <option value="None">No marker</option>
+              <optgroup label="Hollow Stripe">
+                <option>Hollow Stripe - Black</option><option>Hollow Stripe - Blue</option>
+                <option>Hollow Stripe - Green</option><option>Hollow Stripe - Orange</option>
+                <option>Hollow Stripe - Purple</option><option>Hollow Stripe - Red</option>
+                <option>Hollow Stripe - White</option><option>Hollow Stripe - Yellow</option>
+              </optgroup>
+              <optgroup label="Alcantara Marker">
+                <option>Alcantara Marker - Light Blue</option><option>Alcantara Marker - Yellow</option>
+              </optgroup>
+              <optgroup label="Leather Marker">
+                <option>Leather Marker - Dark Green</option><option>Leather Marker - Green</option>
+                <option>Leather Marker - Light Blue</option><option>Leather Marker - Orange</option>
+                <option>Leather Marker - Purple</option><option>Leather Marker - White</option>
+                <option>Leather Marker - Yellow</option>
+              </optgroup>
+              <optgroup label="Flag">
+                <option>Flag - Blue/White/Red</option><option>Flag - German</option>
+                <option>Flag - Italian</option><option>Flag - Grey/White/Red</option>
+              </optgroup>
+              <optgroup label="Logo">
+                <option>Logo - M3</option><option>Logo - No.12 Black</option>
+                <option>Logo - No.12 Blue</option><option>Logo - No.12 Charcoal</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- CTA area -->
+          <div id="cfg-cta-area"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  /* ═══════════════════════════════════════
+     SHOPIFY STOREFRONT API
+  ═══════════════════════════════════════ */
+  const SHOPIFY = {
+    api:   'https://7bip20-rt.myshopify.com/api/2024-01/graphql.json',
+    token: 'ebb81341f912982dc6b457c827ad3bef',
+    products: {
+      install: 'gid://shopify/Product/8737772404790',
+      diy:     'gid://shopify/Product/8737458421814',
+    }
+  };
+  var SD_VARIANTS = { install: {}, diy: {} };
+
+  function shopifyQuery(query, variables) {
+    return fetch(SHOPIFY.api, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY.token,
+      },
+      body: JSON.stringify({ query: query, variables: variables || {} })
+    }).then(function(r){ return r.json(); });
+  }
+
+  /* Load variant GIDs once */
+  shopifyQuery(
+    'query($a:ID!,$b:ID!){install:product(id:$a){variants(first:10){edges{node{id title}}}}diy:product(id:$b){variants(first:10){edges{node{id title}}}}}',
+    { a: SHOPIFY.products.install, b: SHOPIFY.products.diy }
+  ).then(function(d) {
+    if (!d.data) return;
+    d.data.install.variants.edges.forEach(function(e){ SD_VARIANTS.install[e.node.title] = e.node.id; });
+    d.data.diy.variants.edges.forEach(function(e){ SD_VARIANTS.diy[e.node.title] = e.node.id; });
+  }).catch(function(e){ console.warn('Variant load failed', e); });
+
+  /* ═══════════════════════════════════════
+     COLOUR DATA
+  ═══════════════════════════════════════ */
+  var MAT_COLORS = {
+    'Alcantara':             ['Black','Black-Perforated','Blue','Blue-Perforated','Dark Green','Dark Green-Perforated','Dark Grey','Dark Grey-Perforated','Red','Red-Perforated'],
+    'Genuine Leather':       ['Black','Black-Perforated','White','White-Perforated','Blue','Blue-Perforated','Grey','Grey-Perforated','Light Grey','Light Grey-Perforated','Brown','Brown-Perforated','Coffee','Coffee-Perforated','Beige','Beige-Perforated','Wine Red','Wine Red-Perforated'],
+    'Premium Vegan Leather': ['Black','Black-Perforated','White','White-Perforated','Red','Red-Perforated','Blue','Blue-Perforated','Grey','Grey-Perforated','Pink','Pink-Perforated','Brown','Brown-Perforated','Beige','Beige-Perforated'],
+    'Suede':                 ['Black','Blue','Red'],
+    'Matte Carbon Fiber':    ['Black','Blue','Red'],
+    'Glossy Carbon Fiber':   ['Black','Blue','Red'],
+    'Forged Carbon Fiber':   ['Forged Carbon'],
+  };
+
+  var PRICES = {
+    install: { 'Genuine Leather':340,'Premium Vegan Leather':340,'Alcantara':390,'Suede':365,'Carbon Fibre':430 },
+    diy:     { 'Genuine Leather':135,'Premium Vegan Leather':135,'Alcantara':185,'Suede':165,'Carbon Fibre':250 },
+  };
+
+  /* ═══════════════════════════════════════
+     STATE
+  ═══════════════════════════════════════ */
+  var CFG_PRODUCT = 'diy';
+  var STITCH_VAL  = 'White';
+
+  /* ═══════════════════════════════════════
+     OPEN / CLOSE
+  ═══════════════════════════════════════ */
+  function openConfigurator(product) {
+    CFG_PRODUCT = product || 'diy';
+    document.getElementById('cfg-title').textContent =
+      product === 'install' ? 'Book Professional Installation' : 'Customise Your DIY Kit';
+    document.getElementById('cfg-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    cfgUpdate();
+  }
+  function closeCfg() {
+    document.getElementById('cfg-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('cfg-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeCfg();
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCfg(); });
+
+  /* ═══════════════════════════════════════
+     STITCHING CIRCLE PICKER
+  ═══════════════════════════════════════ */
+  function pickStitch(el) {
+    document.querySelectorAll('#stitch-circles .cfg-circle').forEach(function(c){ c.classList.remove('sel'); });
+    el.classList.add('sel');
+    STITCH_VAL = el.dataset.val;
+    document.getElementById('stitch-label').textContent = STITCH_VAL;
+    cfgUpdate();
+  }
+
+  /* ═══════════════════════════════════════
+     COLOUR DROPDOWNS
+  ═══════════════════════════════════════ */
+  function populateColors(selectId, material) {
+    var sel    = document.getElementById(selectId);
+    var colors = MAT_COLORS[material] || [];
+    if (!colors.length) { sel.style.display = 'none'; return; }
+    /* Preserve current selection if it still exists in the new colour list */
+    var prev = sel.value;
+    sel.innerHTML = '<option value="">Select colour</option>' +
+      colors.map(function(c){ return '<option value="' + c + '">' + c + '</option>'; }).join('');
+    if (prev && colors.indexOf(prev) !== -1) sel.value = prev;
+    sel.style.display = 'block';
+  }
+
+  /* ═══════════════════════════════════════
+     UPDATE
+  ═══════════════════════════════════════ */
+  function cfgUpdate() {
+    var mat     = document.getElementById('sel-material').value;
+    var topMat  = document.getElementById('sel-top-mat').value;
+    var sideMat = document.getElementById('sel-side-mat').value;
+
+    /* Side colour */
+    var noSideCol = !sideMat || sideMat === 'Match Wrap Material';
+    if (noSideCol) {
+      document.getElementById('sel-side-col').style.display = 'none';
+    } else {
+      populateColors('sel-side-col', sideMat);
+    }
+
+    /* Top colour — hide if matching sides or no selection */
+    var noTopCol = !topMat || topMat === 'Match Side Material';
+    if (noTopCol) {
+      document.getElementById('sel-top-col').style.display = 'none';
+    } else {
+      populateColors('sel-top-col', topMat);
+    }
+
+    /* Price */
+    var priceMap = PRICES[CFG_PRODUCT];
+    if (mat && priceMap[mat]) {
+      document.getElementById('cfg-price-badge').textContent = '$' + priceMap[mat] + ' AUD';
+    } else {
+      document.getElementById('cfg-price-badge').textContent = CFG_PRODUCT === 'diy' ? 'From $135 AUD' : 'From $340 AUD';
+    }
+
+    /* Preview label */
+    var parts = [];
+    if (mat) parts.push(mat);
+    if (STITCH_VAL) parts.push(STITCH_VAL + ' stitching');
+    document.getElementById('cfg-preview-label').textContent =
+      parts.length ? parts.join(' · ') : 'Configure your wrap below';
+
+    renderCTA();
+  }
+
+  /* ═══════════════════════════════════════
+     CTA
+  ═══════════════════════════════════════ */
+  /* Calendly URLs */
+  var CALENDLY = {
+    north:     'https://calendly.com/stichdup-info/30min',
+    southeast: 'https://calendly.com/stichdup-info/steering-wheel-fitting-time-clone',
+    west:      'https://calendly.com/stichdup-info/eastern-suburbs-steering-wheel-fitting-time-clone',
+  };
+
+  function renderCTA() {
+    var area = document.getElementById('cfg-cta-area');
+    if (CFG_PRODUCT === 'install') {
+      area.innerHTML =
+        '<div class="cfg-field">' +
+          '<label class="cfg-lbl">Select Your Area</label>' +
+          '<p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Pick your suburb to proceed to checkout. After payment we\'ll email you your booking link.</p>' +
+          '<div style="display:flex;flex-direction:column;gap:8px;">' +
+            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:border-color .2s;" id="area-north" onclick="selectArea(\'north\')">' +
+              '<input type="radio" name="suburb" value="north" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" />' +
+              '<div><strong style="display:block;font-size:14px;">Northern Suburbs</strong><span style="font-size:11px;color:var(--muted);">Epping · Craigieburn · Bundoora + more</span></div>' +
+            '</label>' +
+            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:border-color .2s;" id="area-west" onclick="selectArea(\'west\')">' +
+              '<input type="radio" name="suburb" value="west" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" />' +
+              '<div><strong style="display:block;font-size:14px;">Western Suburbs</strong><span style="font-size:11px;color:var(--muted);">Footscray · Sunshine · Werribee + more</span></div>' +
+            '</label>' +
+            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:border-color .2s;" id="area-southeast" onclick="selectArea(\'southeast\')">' +
+              '<input type="radio" name="suburb" value="southeast" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" />' +
+              '<div><strong style="display:block;font-size:14px;">South East Suburbs</strong><span style="font-size:11px;color:var(--muted);">Dandenong · Frankston · Berwick + more</span></div>' +
+            '</label>' +
+          '</div>' +
+          '<button class="cfg-submit-btn" id="cfg-submit" onclick="submitInstall()" style="margin-top:14px;">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+            'Proceed to Checkout' +
+          '</button>' +
+          '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Your Calendly booking link is sent automatically by email after payment.</p>' +
+        '</div>';
+    } else {
+      area.innerHTML =
+        '<button class="cfg-submit-btn" id="cfg-submit" onclick="submitCart(\'diy\')">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+          'Add DIY Kit to Cart' +
+        '</button>' +
+        '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Ships anywhere in Australia · 10–12 business days</p>';
+    }
+  }
+
+  var SELECTED_AREA = '';
+  function selectArea(area) {
+    SELECTED_AREA = area;
+    ['north','west','southeast'].forEach(function(k) {
+      var el = document.getElementById('area-' + k);
+      if (!el) return;
+      el.style.borderColor = k === area ? 'var(--red)' : 'var(--border)';
+      el.style.background  = k === area ? 'var(--red-s)' : 'var(--bg-card2)';
+      var radio = el.querySelector('input[type=radio]');
+      if (radio) radio.checked = (k === area);
+    });
+  }
+
+  function buildAttributes(product) {
+    var vehicle = [
+      document.getElementById('v-make').value,
+      document.getElementById('v-model').value,
+      document.getElementById('v-year').value,
+    ].filter(Boolean).join(' ');
+    var sideMat  = document.getElementById('sel-side-mat').value;
+    var sideCol  = document.getElementById('sel-side-col').value;
+    var topMat   = document.getElementById('sel-top-mat').value;
+    var topCol   = document.getElementById('sel-top-col').value;
+    /* Resolve "Match Side Material" */
+    var topFinal = topMat === 'Match Side Material' ? sideMat : topMat;
+    var topColFinal = topMat === 'Match Side Material' ? sideCol : topCol;
+    var sideStr  = [sideMat, sideCol].filter(function(x){ return x && x !== 'Match Wrap Material'; }).join(' — ') || sideMat;
+    var topStr   = [topFinal, topColFinal].filter(function(x){ return x && x !== 'Match Side Material' && x !== 'Match Wrap Material'; }).join(' — ') || topFinal;
+    var areaLabel = {north:'Northern Suburbs',west:'Western Suburbs',southeast:'South East Suburbs'};
+    var attrs = [
+      {key:'Vehicle',      value: vehicle||'Not provided'},
+      {key:'Material',     value: document.getElementById('sel-material').value},
+      {key:'Side Material',value: sideStr},
+      {key:'Top & Bottom', value: topStr},
+      {key:'Stitching',    value: STITCH_VAL},
+      {key:'Centre Marker',value: document.getElementById('sel-marker').value},
+    ];
+    if (product==='install') attrs.push({key:'Area',value:areaLabel[SELECTED_AREA]||''});
+    return attrs.filter(function(a){return a.value;});
+  }
+
+  function getVariantId(product) {
+    var mat=document.getElementById('sel-material').value;
+    var variants=SD_VARIANTS[product];
+    var id=variants[mat];
+    if(!id){
+      var keys=Object.keys(variants);
+      for(var i=0;i<keys.length;i++){
+        if(keys[i].toLowerCase().indexOf(mat.toLowerCase())!==-1){id=variants[keys[i]];break;}
+      }
+    }
+    return id;
+  }
+
+  function submitInstall() {
+    if (!document.getElementById('sel-material').value) {alert('Please select a material first.');return;}
+    if (!SELECTED_AREA) {alert('Please select your suburb area.');return;}
+    submitCart('install');
+  }
+
+  function submitCart(product) {
+    var mat=document.getElementById('sel-material').value;
+    if(!mat){alert('Please select a material first.');return;}
+    var variantId=getVariantId(product);
+    if(!variantId){alert('Still loading product data. Please wait a moment and try again.');return;}
+    var btn=document.getElementById('cfg-submit');
+    if(btn){btn.disabled=true;btn.textContent='Adding to cart...';}
+    shopifyQuery(
+      'mutation($vid:ID!,$attrs:[AttributeInput!]!,$note:String){cartCreate(input:{lines:[{quantity:1,merchandiseId:$vid,attributes:$attrs}],note:$note}){cart{checkoutUrl}userErrors{message}}}',
+      {
+        vid:   variantId,
+        attrs: buildAttributes(product),
+        note:  product === 'install' ? 'PROFESSIONAL INSTALLATION — Mobile fitting. No shipping required. Customer will book via Calendly.' : null
+      }
+    ).then(function(data){
+      var errs=data.data&&data.data.cartCreate&&data.data.cartCreate.userErrors;
+      if(errs&&errs.length)throw new Error(errs[0].message);
+      var url=data.data&&data.data.cartCreate&&data.data.cartCreate.cart&&data.data.cartCreate.cart.checkoutUrl;
+      if(!url)throw new Error('No checkout URL');
+      closeCfg();
+      window.location.href=url;
+    }).catch(function(e){
+      console.error(e);
+      if(btn){btn.disabled=false;btn.textContent=product==='install'?'Proceed to Checkout':'Add DIY Kit to Cart';}
+      alert('Something went wrong. Please try again.');
+    });
+  }
+  </script>
+
+</body>
+</html>
