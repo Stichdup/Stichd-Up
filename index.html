@@ -7,7 +7,7 @@
   <meta name="description" content="Premium custom steering wheel wraps in Melbourne. Leather, Alcantara, suede. Professional fitment or DIY kits. Book now." />
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");</script>
+  <script>emailjs.init("_wY-OCH0Xo6ZMqcqP");</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -376,6 +376,13 @@
     .cfg-submit-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-family:var(--fb);font-size:15px;font-weight:700;padding:15px;border-radius:var(--r);border:none;cursor:pointer;box-shadow:0 0 24px rgba(230,57,70,.35);transition:var(--e);min-height:52px;}
     .cfg-submit-btn:hover{background:#f04550;box-shadow:0 0 40px rgba(230,57,70,.5);}
     .cfg-submit-btn:disabled{background:#333;box-shadow:none;cursor:not-allowed;}
+    .cfg-oem-btn{
+      width:100%;padding:13px 16px;
+      background:rgba(230,57,70,.08);border:1px solid var(--red-b);border-radius:var(--r);
+      color:var(--white);font-family:var(--fb);font-size:14px;font-weight:600;
+      cursor:pointer;transition:var(--e);text-align:center;
+    }
+    .cfg-oem-btn:hover{background:var(--red-s);border-color:var(--red);}
   </style>
 </head>
 <body>
@@ -957,8 +964,8 @@
       btn.textContent = 'Sending...';
 
       emailjs.send(
-        'YOUR_EMAILJS_SERVICE_ID',   /* replace with your EmailJS service ID */
-        'YOUR_EMAILJS_TEMPLATE_ID',  /* replace with your EmailJS template ID */
+        'YOUR_EMAILJS_SERVICE_ID',   /* replace with your EmailJS service ID when ready */
+        'template_jjtunve',
         {
           from_name:    name,
           from_email:   email,
@@ -985,9 +992,8 @@
     }
   </script>
 
-  <!-- ═══════════════════════════════════════
-       CONFIGURATOR MODAL
-  ═══════════════════════════════════════ -->
+
+  <!-- CONFIGURATOR MODAL -->
   <div class="cfg-overlay" id="cfg-overlay">
     <div class="cfg-modal">
 
@@ -1007,58 +1013,50 @@
             <div class="cfg-overlay-label" id="cfg-preview-label">Configure your wrap below</div>
           </div>
           <div class="cfg-preview-info">
-            <div class="cfg-price-badge" id="cfg-price-badge">From $135</div>
+            <div class="cfg-price-badge" id="cfg-price-badge">Select options</div>
           </div>
         </div>
 
         <div class="cfg-controls">
 
+          <!-- OEM button -->
+          <button class="cfg-oem-btn" onclick="setOEM()" type="button">
+            ✦ I just want the factory / OEM look
+          </button>
+
           <!-- Vehicle -->
           <div class="cfg-field">
-            <label class="cfg-lbl">Your Vehicle</label>
+            <label class="cfg-lbl">Your Vehicle <span style="color:var(--red);">*</span></label>
             <div class="cfg-row2">
-              <input class="cfg-inp" id="v-make"  type="text" placeholder="Make (e.g. BMW)"  autocomplete="off" oninput="cfgUpdate()"/>
-              <input class="cfg-inp" id="v-model" type="text" placeholder="Model (e.g. M3)"  autocomplete="off" oninput="cfgUpdate()"/>
+              <input class="cfg-inp" id="v-make"  type="text" placeholder="Make (e.g. BMW)"  autocomplete="off" oninput="validateCar()"/>
+              <input class="cfg-inp" id="v-model" type="text" placeholder="Model (e.g. M3)"  autocomplete="off" oninput="validateCar()"/>
             </div>
-            <input class="cfg-inp" id="v-year" type="text" placeholder="Year (e.g. 2022)" inputmode="numeric" maxlength="4" style="margin-top:10px;" oninput="cfgUpdate()"/>
-          </div>
-
-          <!-- Material -->
-          <div class="cfg-field">
-            <label class="cfg-lbl">Material</label>
-            <select class="cfg-sel" id="sel-material" onchange="cfgUpdate()">
-              <option value="">Select material</option>
-              <option value="Genuine Leather">Genuine Leather</option>
-              <option value="Premium Vegan Leather">Premium Vegan Leather</option>
-              <option value="Alcantara">Alcantara</option>
-              <option value="Suede">Suede</option>
-              <option value="Carbon Fibre">Carbon Fibre</option>
-            </select>
+            <input class="cfg-inp" id="v-year" type="text" placeholder="Year (e.g. 2022)" inputmode="numeric" maxlength="4" style="margin-top:10px;" oninput="validateCar()"/>
+            <div id="car-status" style="font-size:12px;margin-top:8px;min-height:18px;"></div>
           </div>
 
           <!-- Sides FIRST -->
           <div class="cfg-field">
-            <label class="cfg-lbl">Side Material</label>
+            <label class="cfg-lbl">Side Material <span style="color:var(--red);">*</span></label>
             <select class="cfg-sel" id="sel-side-mat" onchange="cfgUpdate()">
-              <option value="Match Wrap Material">Match Wrap Material</option>
-              <option value="Alcantara">Alcantara</option>
-              <option value="Suede">Suede</option>
+              <option value="">Select material</option>
               <option value="Genuine Leather">Genuine Leather</option>
               <option value="Premium Vegan Leather">Premium Vegan Leather</option>
+              <option value="Alcantara">Alcantara</option>
             </select>
             <select class="cfg-sel" id="sel-side-col" onchange="cfgUpdate()" style="margin-top:10px;display:none;">
               <option value="">Select colour</option>
             </select>
           </div>
 
-          <!-- Top & Bottom SECOND — with Match Side Material -->
+          <!-- Top & Bottom SECOND -->
           <div class="cfg-field">
-            <label class="cfg-lbl">Top &amp; Bottom Material</label>
+            <label class="cfg-lbl">Top &amp; Bottom Material <span style="color:var(--red);">*</span></label>
             <select class="cfg-sel" id="sel-top-mat" onchange="cfgUpdate()">
-              <option value="Match Side Material">Match Side Material</option>
-              <option value="Alcantara">Alcantara</option>
-              <option value="Suede">Suede</option>
+              <option value="Same as Sides">Same as Sides</option>
               <option value="Genuine Leather">Genuine Leather</option>
+              <option value="Premium Vegan Leather">Premium Vegan Leather</option>
+              <option value="Alcantara">Alcantara</option>
               <option value="Matte Carbon Fiber">Matte Carbon Fiber</option>
               <option value="Glossy Carbon Fiber">Glossy Carbon Fiber</option>
               <option value="Forged Carbon Fiber">Forged Carbon Fiber</option>
@@ -1082,12 +1080,13 @@
               <div class="cfg-circle"    data-val="Silver"      title="Silver"     style="background:#aaa;"                      onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Black"       title="Black"      style="background:#111;border-color:#555;"    onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Wine Red"    title="Wine Red"   style="background:#6b1921;"                   onclick="pickStitch(this)"></div>
-              <div class="cfg-circle"    data-val="Dark Green"  title="Dark Green" style="background:#14532d;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Dark Grey"   title="Dark Grey"  style="background:#4b4b4b;"                   onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Apricot"     title="Apricot"    style="background:#fb923c;"                   onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Light Blue"  title="Light Blue" style="background:#38bdf8;"                   onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Yellow"      title="Yellow"     style="background:#eab308;"                   onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Beige"       title="Beige"      style="background:#d4b896;"                   onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Rose Red"    title="Rose Red"   style="background:#e11d48;"                   onclick="pickStitch(this)"></div>
+              <div class="cfg-circle"    data-val="Dark Green"  title="Dark Green" style="background:#14532d;"                   onclick="pickStitch(this)"></div>
             </div>
             <div class="cfg-selected-val" id="stitch-label">White</div>
           </div>
@@ -1123,7 +1122,7 @@
             </select>
           </div>
 
-          <!-- CTA area -->
+          <!-- CTA -->
           <div id="cfg-cta-area"></div>
 
         </div>
@@ -1132,71 +1131,130 @@
   </div>
 
   <script>
-  /* ═══════════════════════════════════════
-     SHOPIFY STOREFRONT API
-  ═══════════════════════════════════════ */
+  /* ═══ SHOPIFY ═══ */
   const SHOPIFY = {
     api:   'https://7bip20-rt.myshopify.com/api/2024-01/graphql.json',
     token: 'ebb81341f912982dc6b457c827ad3bef',
-    products: {
-      install: 'gid://shopify/Product/8737772404790',
-      diy:     'gid://shopify/Product/8737458421814',
-    }
+    products: { install:'gid://shopify/Product/8737772404790', diy:'gid://shopify/Product/8737458421814' }
   };
-  var SD_VARIANTS = { install: {}, diy: {} };
+  var SD_VARIANTS = { install:{}, diy:{} };
+  function shopifyQuery(q,v){ return fetch(SHOPIFY.api,{method:'POST',headers:{'Content-Type':'application/json','X-Shopify-Storefront-Access-Token':SHOPIFY.token},body:JSON.stringify({query:q,variables:v||{}})}).then(function(r){return r.json();}); }
+  shopifyQuery('query($a:ID!,$b:ID!){install:product(id:$a){variants(first:10){edges{node{id title}}}}diy:product(id:$b){variants(first:10){edges{node{id title}}}}}',{a:SHOPIFY.products.install,b:SHOPIFY.products.diy}).then(function(d){if(!d.data)return;d.data.install.variants.edges.forEach(function(e){SD_VARIANTS.install[e.node.title]=e.node.id;});d.data.diy.variants.edges.forEach(function(e){SD_VARIANTS.diy[e.node.title]=e.node.id;});}).catch(function(e){console.warn('Variant load failed',e);});
 
-  function shopifyQuery(query, variables) {
-    return fetch(SHOPIFY.api, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': SHOPIFY.token,
-      },
-      body: JSON.stringify({ query: query, variables: variables || {} })
-    }).then(function(r){ return r.json(); });
+  /* ═══ COMPATIBLE CARS ═══ */
+  var COMPATIBLE = {
+    'alfa romeo': ['Giulia','Stelvio','Giulietta','MiTo','147','156','159','GT','Brera','Spider'],
+    'audi': ['A3','A4','A5','A6','A7','RS3','RS4','RS5','RS6','RS7','S3','S4','S5','S6','S7','S8','SQ5','Q3','Q5','Q7','Q8','TT','TT RS','R8'],
+    'bmw': ['1 Series','2 Series','3 Series','4 Series','5 Series','6 Series','7 Series','8 Series','X1','X2','X3','X4','X5','X6','X7','M2','M3','M4','M5','M6','M8','I3','I8'],
+    'chrysler': 'enquire',
+    'citroen': 'enquire',
+    'dodge': ['RAM 1500','RAM 3500'],
+    'fiat': 'enquire',
+    'ford': ['Falcon','Mustang','F150','F150 Raptor','Everest','Ranger','Fiesta','Fiesta ST','Focus','Kuga','Transit','Mondeo'],
+    'genesis': 'enquire',
+    'holden': ['Commodore','VS Commodore','VY','VZ','VE Commodore','VF Commodore','ZB Commodore','Astra','Calais','Barina','Cruze','Captiva','Colorado'],
+    'honda': ['Civic','Accord','Integra','CRV','Jazz','HRV','Odyssey'],
+    'hyundai': ['i20','i30','Veloster','Elantra','Santa Fe','Palisade','i40','Kona','Ioniq','Tucson','iLoad'],
+    'infiniti': 'enquire',
+    'isuzu': ['D-MAX','MU-X'],
+    'jaguar': 'enquire',
+    'jeep': ['Compass','Grand Cherokee','Wrangler','Patriot','Renegade'],
+    'kia': ['Stinger','Cerato','Sportage','Picanto','Rio','Carnival'],
+    'land rover': ['Range Rover','Freelander','Discovery','Defender','Evoque'],
+    'lexus': 'enquire',
+    'mazda': ['2','3','5','6','MX-5','RX-8','CX-5','CX-7','CX-9','BT-50'],
+    'mercedes': ['A-Class','B-Class','C-Class','CLA','CLK','CLS','E-Class','G-Class','GL','GLA','GLB','GLC','GLE','GLS','S-Class','Sprinter'],
+    'mercedes-benz': ['A-Class','B-Class','C-Class','CLA','CLK','CLS','E-Class','G-Class','GL','GLA','GLB','GLC','GLE','GLS','S-Class','Sprinter'],
+    'mini': ['JCW','Mini JCW','Countryman','Clubman'],
+    'mitsubishi': ['Lancer','Lancer Evolution','Outlander','Pajero','ASX','Triton'],
+    'nissan': ['350Z','370Z','Pathfinder','Patrol','Navara','Qashqai','X-Trail','V35','Skyline','200SX','Silvia','Cube','Juke'],
+    'peugeot': 'enquire',
+    'porsche': ['911','987','991','718','Cayenne','Macan','Panamera','Taycan'],
+    'renault': ['Megane','Kangoo','Klio','Clio','Traffic'],
+    'skoda': 'enquire',
+    'subaru': ['WRX','WRX STI','Levorg','Impreza','XV','Crosstrek','BRZ','Outback','Forester','Liberty','Legacy'],
+    'suzuki': 'enquire',
+    'tesla': ['Model 3','Model Y','Model S','Model X'],
+    'toyota': ['Echo','Yaris','GR Yaris','GR Supra','Corolla','Camry','RAV4','Landcruiser','Highlander','Kluger','Prado','FJ Cruiser','Hilux','Hiace','86','C-HR'],
+    'volkswagen': ['Polo','Beetle','Caddy','Amarok','Transporter','Tiguan','T-Roc','Touareg','Passat','Golf'],
+    'vw': ['Polo','Beetle','Caddy','Amarok','Transporter','Tiguan','T-Roc','Touareg','Passat','Golf'],
+    'volvo': ['XC60','XC70','XC90'],
+  };
+
+  var CAR_VALID = false; // tracks whether vehicle check passed
+
+  function validateCar() {
+    var make  = document.getElementById('v-make').value.trim().toLowerCase();
+    var model = document.getElementById('v-model').value.trim().toLowerCase();
+    var status = document.getElementById('car-status');
+    if (!make || !model) { status.textContent=''; CAR_VALID=false; updateNextBtn(); return; }
+    var entry = COMPATIBLE[make];
+    if (!entry) {
+      /* Try partial match on make */
+      var keys = Object.keys(COMPATIBLE);
+      var found = keys.find(function(k){ return k.indexOf(make)!==-1 || make.indexOf(k)!==-1; });
+      entry = found ? COMPATIBLE[found] : null;
+    }
+    if (!entry) {
+      status.innerHTML='<span style="color:#e63946;">⚠ Make not found in our compatibility list. <a href="mailto:info@stichdup.com.au" style="color:#e63946;">Email us a photo of your wheel</a> to confirm.</span>';
+      CAR_VALID=false;
+    } else if (entry === 'enquire') {
+      status.innerHTML='<span style="color:#d4a843;">✓ Most '+make.charAt(0).toUpperCase()+make.slice(1)+' models are supported — <a href="mailto:info@stichdup.com.au" style="color:#d4a843;">contact us to confirm yours.</a></span>';
+      CAR_VALID=true;
+    } else {
+      var modelMatch = entry.find(function(m){ return model.indexOf(m.toLowerCase())!==-1 || m.toLowerCase().indexOf(model)!==-1; });
+      if (modelMatch) {
+        status.innerHTML='<span style="color:#16a34a;">✓ '+modelMatch+' is supported.</span>';
+        CAR_VALID=true;
+      } else {
+        status.innerHTML='<span style="color:#e63946;">⚠ '+model.charAt(0).toUpperCase()+model.slice(1)+' not found. <a href="mailto:info@stichdup.com.au" style="color:#e63946;">Email us a photo of your wheel</a> to confirm.</span>';
+        CAR_VALID=false;
+      }
+    }
+    updateNextBtn();
   }
 
-  /* Load variant GIDs once */
-  shopifyQuery(
-    'query($a:ID!,$b:ID!){install:product(id:$a){variants(first:10){edges{node{id title}}}}diy:product(id:$b){variants(first:10){edges{node{id title}}}}}',
-    { a: SHOPIFY.products.install, b: SHOPIFY.products.diy }
-  ).then(function(d) {
-    if (!d.data) return;
-    d.data.install.variants.edges.forEach(function(e){ SD_VARIANTS.install[e.node.title] = e.node.id; });
-    d.data.diy.variants.edges.forEach(function(e){ SD_VARIANTS.diy[e.node.title] = e.node.id; });
-  }).catch(function(e){ console.warn('Variant load failed', e); });
-
-  /* ═══════════════════════════════════════
-     COLOUR DATA
-  ═══════════════════════════════════════ */
+  /* ═══ COLOURS ═══ */
   var MAT_COLORS = {
-    'Alcantara':             ['Black','Black-Perforated','Blue','Blue-Perforated','Dark Green','Dark Green-Perforated','Dark Grey','Dark Grey-Perforated','Red','Red-Perforated'],
     'Genuine Leather':       ['Black','Black-Perforated','White','White-Perforated','Blue','Blue-Perforated','Grey','Grey-Perforated','Light Grey','Light Grey-Perforated','Brown','Brown-Perforated','Coffee','Coffee-Perforated','Beige','Beige-Perforated','Wine Red','Wine Red-Perforated'],
     'Premium Vegan Leather': ['Black','Black-Perforated','White','White-Perforated','Red','Red-Perforated','Blue','Blue-Perforated','Grey','Grey-Perforated','Pink','Pink-Perforated','Brown','Brown-Perforated','Beige','Beige-Perforated'],
-    'Suede':                 ['Black','Blue','Red'],
+    'Alcantara':             ['Black','Black-Perforated','Blue','Blue-Perforated','Dark Green','Dark Green-Perforated','Dark Grey','Dark Grey-Perforated','Red','Red-Perforated'],
     'Matte Carbon Fiber':    ['Black','Blue','Red'],
     'Glossy Carbon Fiber':   ['Black','Blue','Red'],
     'Forged Carbon Fiber':   ['Forged Carbon'],
   };
 
-  var PRICES = {
-    install: { 'Genuine Leather':340,'Premium Vegan Leather':340,'Alcantara':390,'Suede':365,'Carbon Fibre':430 },
-    diy:     { 'Genuine Leather':135,'Premium Vegan Leather':135,'Alcantara':185,'Suede':165,'Carbon Fibre':250 },
-  };
+  /* ═══ PRICING ═══
+     Price = most expensive non-carbon material used.
+     Install: Vegan $340 / Genuine $390 / Alcantara $430
+     DIY:     Vegan $135 / Genuine $135 / Alcantara $185
+  ═══════════════════════════════════════════ */
+  var MAT_RANK = { 'Premium Vegan Leather':1, 'Genuine Leather':2, 'Alcantara':3 };
+  var INSTALL_PRICE = { 1:340, 2:390, 3:430 };
+  var DIY_PRICE     = { 1:135, 2:135, 3:185 };
 
-  /* ═══════════════════════════════════════
-     STATE
-  ═══════════════════════════════════════ */
+  function calcPrice() {
+    var sideMat  = document.getElementById('sel-side-mat').value;
+    var topRaw   = document.getElementById('sel-top-mat').value;
+    var topMat   = topRaw === 'Same as Sides' ? sideMat : topRaw;
+    var isCarbon = topMat && topMat.indexOf('Carbon') !== -1;
+    /* Non-carbon materials only */
+    var mats = [sideMat, isCarbon ? null : topMat].filter(Boolean);
+    var maxRank = 0;
+    mats.forEach(function(m){ if((MAT_RANK[m]||0) > maxRank) maxRank = MAT_RANK[m]||0; });
+    if (!maxRank) return null;
+    return CFG_PRODUCT === 'diy' ? DIY_PRICE[maxRank] : INSTALL_PRICE[maxRank];
+  }
+
+  /* ═══ STATE ═══ */
   var CFG_PRODUCT = 'diy';
   var STITCH_VAL  = 'White';
+  var SELECTED_AREA = '';
 
-  /* ═══════════════════════════════════════
-     OPEN / CLOSE
-  ═══════════════════════════════════════ */
+  /* ═══ OPEN / CLOSE ═══ */
   function openConfigurator(product) {
     CFG_PRODUCT = product || 'diy';
-    document.getElementById('cfg-title').textContent =
-      product === 'install' ? 'Book Professional Installation' : 'Customise Your DIY Kit';
+    document.getElementById('cfg-title').textContent = product==='install' ? 'Book Professional Installation' : 'Customise Your DIY Kit';
     document.getElementById('cfg-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
     cfgUpdate();
@@ -1205,160 +1263,163 @@
     document.getElementById('cfg-overlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.getElementById('cfg-overlay').addEventListener('click', function(e) {
-    if (e.target === this) closeCfg();
-  });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCfg(); });
+  document.getElementById('cfg-overlay').addEventListener('click', function(e){ if(e.target===this)closeCfg(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape')closeCfg(); });
 
-  /* ═══════════════════════════════════════
-     STITCHING CIRCLE PICKER
-  ═══════════════════════════════════════ */
-  function pickStitch(el) {
+  /* ═══ OEM PRESET ═══ */
+  function setOEM() {
+    /* Genuine Leather sides (perforated), Genuine Leather top (smooth), Dark Grey stitching */
+    var sideEl = document.getElementById('sel-side-mat');
+    sideEl.value = 'Genuine Leather';
+    populateColors('sel-side-col', 'Genuine Leather');
+    setTimeout(function(){
+      document.getElementById('sel-side-col').value = 'Black-Perforated';
+    }, 10);
+    document.getElementById('sel-top-mat').value = 'Same as Sides';
+    document.getElementById('sel-top-col').style.display = 'none';
+    /* Stitching = Dark Grey */
     document.querySelectorAll('#stitch-circles .cfg-circle').forEach(function(c){ c.classList.remove('sel'); });
+    var dgCircle = document.querySelector('#stitch-circles .cfg-circle[data-val="Dark Grey"]');
+    if (dgCircle) { dgCircle.classList.add('sel'); STITCH_VAL='Dark Grey'; document.getElementById('stitch-label').textContent='Dark Grey'; }
+    cfgUpdate();
+  }
+
+  /* ═══ STITCH PICKER ═══ */
+  function pickStitch(el) {
+    document.querySelectorAll('#stitch-circles .cfg-circle').forEach(function(c){c.classList.remove('sel');});
     el.classList.add('sel');
     STITCH_VAL = el.dataset.val;
     document.getElementById('stitch-label').textContent = STITCH_VAL;
     cfgUpdate();
   }
 
-  /* ═══════════════════════════════════════
-     COLOUR DROPDOWNS
-  ═══════════════════════════════════════ */
+  /* ═══ COLOUR DROPDOWNS ═══ */
   function populateColors(selectId, material) {
-    var sel    = document.getElementById(selectId);
+    var sel = document.getElementById(selectId);
     var colors = MAT_COLORS[material] || [];
-    if (!colors.length) { sel.style.display = 'none'; return; }
-    /* Preserve current selection if it still exists in the new colour list */
+    if (!colors.length) { sel.style.display='none'; return; }
     var prev = sel.value;
     sel.innerHTML = '<option value="">Select colour</option>' +
-      colors.map(function(c){ return '<option value="' + c + '">' + c + '</option>'; }).join('');
-    if (prev && colors.indexOf(prev) !== -1) sel.value = prev;
+      colors.map(function(c){ return '<option value="'+c+'">'+c+'</option>'; }).join('');
+    if (prev && colors.indexOf(prev)!==-1) sel.value = prev;
     sel.style.display = 'block';
   }
 
-  /* ═══════════════════════════════════════
-     UPDATE
-  ═══════════════════════════════════════ */
+  /* ═══ UPDATE ═══ */
   function cfgUpdate() {
-    var mat     = document.getElementById('sel-material').value;
-    var topMat  = document.getElementById('sel-top-mat').value;
     var sideMat = document.getElementById('sel-side-mat').value;
+    var topRaw  = document.getElementById('sel-top-mat').value;
+    var topMat  = topRaw === 'Same as Sides' ? sideMat : topRaw;
+    var isCarbon = topMat && topMat.indexOf('Carbon') !== -1;
 
     /* Side colour */
-    var noSideCol = !sideMat || sideMat === 'Match Wrap Material';
-    if (noSideCol) {
-      document.getElementById('sel-side-col').style.display = 'none';
-    } else {
-      populateColors('sel-side-col', sideMat);
-    }
+    if (!sideMat) { document.getElementById('sel-side-col').style.display='none'; }
+    else { populateColors('sel-side-col', sideMat); }
 
-    /* Top colour — hide if matching sides or no selection */
-    var noTopCol = !topMat || topMat === 'Match Side Material';
-    if (noTopCol) {
-      document.getElementById('sel-top-col').style.display = 'none';
+    /* Top colour — hidden if same as sides or carbon with single option */
+    if (topRaw === 'Same as Sides' || !topMat) {
+      document.getElementById('sel-top-col').style.display='none';
     } else {
       populateColors('sel-top-col', topMat);
     }
 
-    /* Price */
-    var priceMap = PRICES[CFG_PRODUCT];
-    if (mat && priceMap[mat]) {
-      document.getElementById('cfg-price-badge').textContent = '$' + priceMap[mat] + ' AUD';
-    } else {
-      document.getElementById('cfg-price-badge').textContent = CFG_PRODUCT === 'diy' ? 'From $135 AUD' : 'From $340 AUD';
-    }
+    /* Price badge */
+    var p = calcPrice();
+    document.getElementById('cfg-price-badge').textContent = p ? '$'+p+' AUD' : 'Select options';
 
     /* Preview label */
     var parts = [];
-    if (mat) parts.push(mat);
-    if (STITCH_VAL) parts.push(STITCH_VAL + ' stitching');
-    document.getElementById('cfg-preview-label').textContent =
-      parts.length ? parts.join(' · ') : 'Configure your wrap below';
+    if (sideMat) parts.push(sideMat);
+    if (topRaw && topRaw !== 'Same as Sides' && topMat !== sideMat) parts.push(topMat+' top');
+    if (STITCH_VAL) parts.push(STITCH_VAL+' stitching');
+    document.getElementById('cfg-preview-label').textContent = parts.length ? parts.join(' · ') : 'Configure your wrap below';
 
+    updateNextBtn();
     renderCTA();
   }
 
-  /* ═══════════════════════════════════════
-     CTA
-  ═══════════════════════════════════════ */
-  /* Calendly URLs */
-  var CALENDLY = {
-    north:     'https://calendly.com/stichdup-info/30min',
-    southeast: 'https://calendly.com/stichdup-info/steering-wheel-fitting-time-clone',
-    west:      'https://calendly.com/stichdup-info/eastern-suburbs-steering-wheel-fitting-time-clone',
-  };
+  function updateNextBtn() {
+    /* Update submit button disabled state */
+    var btn = document.getElementById('cfg-submit');
+    if (!btn) return;
+    var sideMat = document.getElementById('sel-side-mat').value;
+    var make    = document.getElementById('v-make').value.trim();
+    var model   = document.getElementById('v-model').value.trim();
+    var ready   = sideMat && make && model && CAR_VALID;
+    btn.disabled = !ready;
+    btn.style.opacity = ready ? '1' : '0.5';
+    btn.style.cursor  = ready ? 'pointer' : 'not-allowed';
+  }
 
+  /* ═══ CALENDLY / CTA ═══ */
   function renderCTA() {
     var area = document.getElementById('cfg-cta-area');
     if (CFG_PRODUCT === 'install') {
       area.innerHTML =
-        '<div class="cfg-field">' +
-          '<label class="cfg-lbl">Select Your Area</label>' +
-          '<p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Pick your suburb to proceed to checkout. After payment we\'ll email you your booking link.</p>' +
-          '<div style="display:flex;flex-direction:column;gap:8px;">' +
-            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:border-color .2s;" id="area-north" onclick="selectArea(\'north\')">' +
-              '<input type="radio" name="suburb" value="north" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" />' +
-              '<div><strong style="display:block;font-size:14px;">Northern Suburbs</strong><span style="font-size:11px;color:var(--muted);">Epping · Craigieburn · Bundoora + more</span></div>' +
-            '</label>' +
-            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:border-color .2s;" id="area-west" onclick="selectArea(\'west\')">' +
-              '<input type="radio" name="suburb" value="west" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" />' +
-              '<div><strong style="display:block;font-size:14px;">Western Suburbs</strong><span style="font-size:11px;color:var(--muted);">Footscray · Sunshine · Werribee + more</span></div>' +
-            '</label>' +
-            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:border-color .2s;" id="area-southeast" onclick="selectArea(\'southeast\')">' +
-              '<input type="radio" name="suburb" value="southeast" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;" />' +
-              '<div><strong style="display:block;font-size:14px;">South East Suburbs</strong><span style="font-size:11px;color:var(--muted);">Dandenong · Frankston · Berwick + more</span></div>' +
-            '</label>' +
-          '</div>' +
-          '<button class="cfg-submit-btn" id="cfg-submit" onclick="submitInstall()" style="margin-top:14px;">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
-            'Proceed to Checkout' +
-          '</button>' +
-          '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Your Calendly booking link is sent automatically by email after payment.</p>' +
+        '<div class="cfg-field">'+
+          '<label class="cfg-lbl">Select Your Area <span style="color:var(--red);">*</span></label>'+
+          '<p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Pick your suburb. After payment you\'ll receive an email with your Calendly booking link.</p>'+
+          '<div style="display:flex;flex-direction:column;gap:8px;">'+
+            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;" id="area-north" onclick="selectArea(\'north\')">'+
+              '<input type="radio" name="suburb" value="north" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;"/>'+
+              '<div><strong style="display:block;font-size:14px;">Northern Suburbs</strong><span style="font-size:11px;color:var(--muted);">Epping · Craigieburn · Bundoora + more</span></div>'+
+            '</label>'+
+            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;" id="area-west" onclick="selectArea(\'west\')">'+
+              '<input type="radio" name="suburb" value="west" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;"/>'+
+              '<div><strong style="display:block;font-size:14px;">Western Suburbs</strong><span style="font-size:11px;color:var(--muted);">Footscray · Sunshine · Werribee + more</span></div>'+
+            '</label>'+
+            '<label style="display:flex;align-items:center;gap:12px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;" id="area-southeast" onclick="selectArea(\'southeast\')">'+
+              '<input type="radio" name="suburb" value="southeast" style="accent-color:var(--red);width:16px;height:16px;flex-shrink:0;"/>'+
+              '<div><strong style="display:block;font-size:14px;">South East Suburbs</strong><span style="font-size:11px;color:var(--muted);">Dandenong · Frankston · Berwick + more</span></div>'+
+            '</label>'+
+          '</div>'+
+          '<button class="cfg-submit-btn" id="cfg-submit" onclick="submitInstall()" style="margin-top:14px;" disabled>'+
+            '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'+
+            'Proceed to Checkout'+
+          '</button>'+
+          '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Your Calendly booking link is sent to your email automatically after payment.</p>'+
         '</div>';
     } else {
       area.innerHTML =
-        '<button class="cfg-submit-btn" id="cfg-submit" onclick="submitCart(\'diy\')">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
-          'Add DIY Kit to Cart' +
-        '</button>' +
+        '<button class="cfg-submit-btn" id="cfg-submit" onclick="submitCart(\'diy\')" disabled>'+
+          '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'+
+          'Add DIY Kit to Cart'+
+        '</button>'+
         '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Ships anywhere in Australia · 10–12 business days</p>';
     }
+    updateNextBtn();
   }
 
   var SELECTED_AREA = '';
   function selectArea(area) {
     SELECTED_AREA = area;
-    ['north','west','southeast'].forEach(function(k) {
-      var el = document.getElementById('area-' + k);
-      if (!el) return;
-      el.style.borderColor = k === area ? 'var(--red)' : 'var(--border)';
-      el.style.background  = k === area ? 'var(--red-s)' : 'var(--bg-card2)';
-      var radio = el.querySelector('input[type=radio]');
-      if (radio) radio.checked = (k === area);
+    ['north','west','southeast'].forEach(function(k){
+      var el = document.getElementById('area-'+k);
+      if(!el) return;
+      el.style.borderColor = k===area ? 'var(--red)' : 'var(--border)';
+      el.style.background  = k===area ? 'var(--red-s)' : 'var(--bg-card2)';
+      var r = el.querySelector('input[type=radio]');
+      if(r) r.checked = (k===area);
     });
+    updateNextBtn();
   }
 
+  /* ═══ BUILD CART ATTRIBUTES ═══ */
   function buildAttributes(product) {
-    var vehicle = [
-      document.getElementById('v-make').value,
-      document.getElementById('v-model').value,
-      document.getElementById('v-year').value,
-    ].filter(Boolean).join(' ');
+    var vehicle  = [document.getElementById('v-make').value, document.getElementById('v-model').value, document.getElementById('v-year').value].filter(Boolean).join(' ');
     var sideMat  = document.getElementById('sel-side-mat').value;
     var sideCol  = document.getElementById('sel-side-col').value;
-    var topMat   = document.getElementById('sel-top-mat').value;
+    var topRaw   = document.getElementById('sel-top-mat').value;
     var topCol   = document.getElementById('sel-top-col').value;
-    /* Resolve "Match Side Material" */
-    var topFinal = topMat === 'Match Side Material' ? sideMat : topMat;
-    var topColFinal = topMat === 'Match Side Material' ? sideCol : topCol;
-    var sideStr  = [sideMat, sideCol].filter(function(x){ return x && x !== 'Match Wrap Material'; }).join(' — ') || sideMat;
-    var topStr   = [topFinal, topColFinal].filter(function(x){ return x && x !== 'Match Side Material' && x !== 'Match Wrap Material'; }).join(' — ') || topFinal;
+    var topMat   = topRaw === 'Same as Sides' ? sideMat : topRaw;
+    var topColFinal = topRaw === 'Same as Sides' ? sideCol : topCol;
+    var sideStr  = [sideMat, sideCol].filter(function(x){return x;}).join(' — ');
+    var topStr   = [topMat,  topColFinal].filter(function(x){return x;}).join(' — ');
     var areaLabel = {north:'Northern Suburbs',west:'Western Suburbs',southeast:'South East Suburbs'};
     var attrs = [
       {key:'Vehicle',      value: vehicle||'Not provided'},
-      {key:'Material',     value: document.getElementById('sel-material').value},
       {key:'Side Material',value: sideStr},
-      {key:'Top & Bottom', value: topStr},
+      {key:'Top & Bottom', value: topStr || sideStr + ' (same as sides)'},
       {key:'Stitching',    value: STITCH_VAL},
       {key:'Centre Marker',value: document.getElementById('sel-marker').value},
     ];
@@ -1367,52 +1428,66 @@
   }
 
   function getVariantId(product) {
-    var mat=document.getElementById('sel-material').value;
-    var variants=SD_VARIANTS[product];
-    var id=variants[mat];
-    if(!id){
-      var keys=Object.keys(variants);
+    var sideMat  = document.getElementById('sel-side-mat').value;
+    var topRaw   = document.getElementById('sel-top-mat').value;
+    var topMat   = topRaw === 'Same as Sides' ? sideMat : topRaw;
+    var isCarbon = topMat && topMat.indexOf('Carbon') !== -1;
+    /* Shopify variant = most expensive non-carbon material */
+    var mats = [sideMat, isCarbon ? null : topMat].filter(Boolean);
+    var maxRank = 0; var bestMat = sideMat;
+    mats.forEach(function(m){ if((MAT_RANK[m]||0) > maxRank){ maxRank=MAT_RANK[m]||0; bestMat=m; } });
+    /* Map to Shopify variant name */
+    var variantName = bestMat;
+    var variants = SD_VARIANTS[product];
+    var id = variants[variantName];
+    if (!id) {
+      var keys = Object.keys(variants);
       for(var i=0;i<keys.length;i++){
-        if(keys[i].toLowerCase().indexOf(mat.toLowerCase())!==-1){id=variants[keys[i]];break;}
+        if(keys[i].toLowerCase().indexOf(variantName.toLowerCase())!==-1){ id=variants[keys[i]]; break; }
       }
     }
-    return id;
+    return id || Object.values(variants)[0];
   }
 
   function submitInstall() {
-    if (!document.getElementById('sel-material').value) {alert('Please select a material first.');return;}
-    if (!SELECTED_AREA) {alert('Please select your suburb area.');return;}
+    var make  = document.getElementById('v-make').value.trim();
+    var model = document.getElementById('v-model').value.trim();
+    if (!make||!model) { alert('Please enter your vehicle make and model.'); return; }
+    if (!CAR_VALID)    { alert('Please confirm your vehicle is compatible first.'); return; }
+    if (!document.getElementById('sel-side-mat').value) { alert('Please select a side material.'); return; }
+    if (!SELECTED_AREA) { alert('Please select your suburb area.'); return; }
     submitCart('install');
   }
 
   function submitCart(product) {
-    var mat=document.getElementById('sel-material').value;
-    if(!mat){alert('Please select a material first.');return;}
-    var variantId=getVariantId(product);
-    if(!variantId){alert('Still loading product data. Please wait a moment and try again.');return;}
-    var btn=document.getElementById('cfg-submit');
-    if(btn){btn.disabled=true;btn.textContent='Adding to cart...';}
+    var make = document.getElementById('v-make').value.trim();
+    var model = document.getElementById('v-model').value.trim();
+    if (!make||!model) { alert('Please enter your vehicle make and model.'); return; }
+    if (!CAR_VALID)    { alert('Please confirm your vehicle is compatible first.'); return; }
+    if (!document.getElementById('sel-side-mat').value) { alert('Please select a side material.'); return; }
+    var variantId = getVariantId(product);
+    if (!variantId) { alert('Still loading product data. Please wait a moment and try again.'); return; }
+    var btn = document.getElementById('cfg-submit');
+    if(btn){ btn.disabled=true; btn.textContent='Adding to cart...'; }
+    var note = product==='install'
+      ? 'PROFESSIONAL INSTALLATION — Mobile fitting booked via Calendly. A booking link will be emailed to the customer after payment. No shipping required.'
+      : null;
     shopifyQuery(
       'mutation($vid:ID!,$attrs:[AttributeInput!]!,$note:String){cartCreate(input:{lines:[{quantity:1,merchandiseId:$vid,attributes:$attrs}],note:$note}){cart{checkoutUrl}userErrors{message}}}',
-      {
-        vid:   variantId,
-        attrs: buildAttributes(product),
-        note:  product === 'install' ? 'PROFESSIONAL INSTALLATION — Mobile fitting. No shipping required. Customer will book via Calendly.' : null
-      }
+      {vid:variantId, attrs:buildAttributes(product), note:note}
     ).then(function(data){
       var errs=data.data&&data.data.cartCreate&&data.data.cartCreate.userErrors;
-      if(errs&&errs.length)throw new Error(errs[0].message);
+      if(errs&&errs.length) throw new Error(errs[0].message);
       var url=data.data&&data.data.cartCreate&&data.data.cartCreate.cart&&data.data.cartCreate.cart.checkoutUrl;
-      if(!url)throw new Error('No checkout URL');
+      if(!url) throw new Error('No checkout URL');
       closeCfg();
       window.location.href=url;
     }).catch(function(e){
       console.error(e);
-      if(btn){btn.disabled=false;btn.textContent=product==='install'?'Proceed to Checkout':'Add DIY Kit to Cart';}
+      if(btn){ btn.disabled=false; btn.textContent=product==='install'?'Proceed to Checkout':'Add DIY Kit to Cart'; }
       alert('Something went wrong. Please try again.');
     });
   }
   </script>
-
 </body>
 </html>
