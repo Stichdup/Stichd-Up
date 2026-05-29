@@ -1268,19 +1268,21 @@
 
   /* ═══ OEM PRESET ═══ */
   function setOEM() {
-    /* Genuine Leather sides (perforated), Genuine Leather top (smooth), Dark Grey stitching */
-    var sideEl = document.getElementById('sel-side-mat');
-    sideEl.value = 'Genuine Leather';
+    /* Sides: Genuine Leather — Black-Perforated */
     populateColors('sel-side-col', 'Genuine Leather');
-    setTimeout(function(){
-      document.getElementById('sel-side-col').value = 'Black-Perforated';
-    }, 10);
-    document.getElementById('sel-top-mat').value = 'Same as Sides';
-    document.getElementById('sel-top-col').style.display = 'none';
-    /* Stitching = Dark Grey */
+    document.getElementById('sel-side-mat').value = 'Genuine Leather';
+    document.getElementById('sel-side-col').value = 'Black-Perforated';
+
+    /* Top & Bottom: Genuine Leather — Black (smooth, not perforated) */
+    populateColors('sel-top-col', 'Genuine Leather');
+    document.getElementById('sel-top-mat').value = 'Genuine Leather';
+    document.getElementById('sel-top-col').value = 'Black';
+
+    /* Stitching: Dark Grey */
     document.querySelectorAll('#stitch-circles .cfg-circle').forEach(function(c){ c.classList.remove('sel'); });
     var dgCircle = document.querySelector('#stitch-circles .cfg-circle[data-val="Dark Grey"]');
     if (dgCircle) { dgCircle.classList.add('sel'); STITCH_VAL='Dark Grey'; document.getElementById('stitch-label').textContent='Dark Grey'; }
+
     cfgUpdate();
   }
 
