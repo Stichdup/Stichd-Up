@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — STICHD UP Custom Steering Wheel Wraps</title>
+  <meta name="description" content="Shop custom steering wheel wraps. Genuine leather, Alcantara, carbon and more. Professional installation across Melbourne or DIY kits shipped Australia-wide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#0b0b0b; --bg-card:#111; --bg-card2:#181818;
+      --red:#e63946; --red-s:rgba(230,57,70,0.12); --red-b:rgba(230,57,70,0.28);
+      --red-g:rgba(230,57,70,0.22);
+      --white:#f0ede8; --muted:#7a7672; --border:rgba(255,255,255,0.07);
+      --fh:'Bebas Neue',sans-serif; --fb:'DM Sans',sans-serif;
+      --r:12px; --rl:18px; --e:0.24s cubic-bezier(.4,0,.2,1);
+      --sb:env(safe-area-inset-bottom,0px);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit;}
+
+    /* Layout */
+    .w{max-width:1160px;margin:0 auto;padding:0 20px;}
+    @media(min-width:768px){.w{padding:0 32px;}}
+
+    /* Nav */
+    nav{position:sticky;top:0;z-index:100;background:rgba(11,11,11,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;}
+    .nav-logo{font-family:var(--fh);font-size:22px;letter-spacing:.06em;}
+    .nav-logo em{font-style:normal;color:var(--red);}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500;color:var(--muted);}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a.active{color:var(--white);}
+    .nav-cta{background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:var(--r);transition:var(--e);}
+    .nav-cta:hover{background:#f04550;}
+    @media(max-width:640px){.nav-links{display:none;}}
+
+    /* Hero */
+    .shop-hero{padding:56px 0 40px;text-align:center;}
+    .shop-hero .tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+    .shop-hero h1{font-family:var(--fh);font-size:clamp(42px,9vw,72px);line-height:1;letter-spacing:.01em;margin-bottom:14px;}
+    .shop-hero p{font-size:17px;font-weight:300;color:var(--muted);max-width:500px;margin:0 auto;}
+
+    /* Filter tabs */
+    .filters{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:40px 0 36px;}
+    .filter-btn{padding:9px 18px;border-radius:50px;border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--muted);background:var(--bg-card2);cursor:pointer;transition:var(--e);}
+    .filter-btn:hover{border-color:rgba(255,255,255,.2);color:var(--white);}
+    .filter-btn.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 16px rgba(230,57,70,.35);}
+
+    /* Product grid */
+    .product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:80px;}
+    @media(min-width:640px){.product-grid{grid-template-columns:repeat(2,1fr);gap:24px;}}
+    @media(min-width:900px){.product-grid{grid-template-columns:repeat(3,1fr);}}
+    @media(min-width:1100px){.product-grid{grid-template-columns:repeat(4,1fr);}}
+
+    /* Product card */
+    .pcard{
+      background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);
+      overflow:hidden;transition:var(--e);cursor:pointer;display:flex;flex-direction:column;
+    }
+    .pcard:hover{border-color:rgba(255,255,255,.14);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.4);}
+    .pcard-img{
+      aspect-ratio:1;overflow:hidden;background:#181818;position:relative;
+    }
+    .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .pcard:hover .pcard-img img{transform:scale(1.04);}
+    .pcard-img-placeholder{
+      width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+      color:var(--muted);font-size:13px;background:#181818;
+    }
+    .pcard-badge{
+      position:absolute;top:12px;left:12px;
+      background:var(--red);color:#fff;font-size:10px;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px;
+    }
+    .pcard-body{padding:16px;display:flex;flex-direction:column;flex:1;gap:8px;}
+    .pcard-title{font-size:15px;font-weight:600;line-height:1.3;color:var(--white);}
+    .pcard-desc{font-size:12px;color:var(--muted);line-height:1.5;flex:1;}
+    .pcard-price{font-family:var(--fh);font-size:22px;letter-spacing:.02em;color:var(--white);}
+    .pcard-price small{font-size:13px;color:var(--muted);font-family:var(--fb);font-weight:400;}
+    .pcard-btn{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      background:var(--red);color:#fff;font-size:13px;font-weight:700;
+      padding:12px;border-radius:var(--r);transition:var(--e);
+      box-shadow:0 0 16px rgba(230,57,70,.25);margin-top:4px;
+    }
+    .pcard-btn:hover{background:#f04550;box-shadow:0 0 28px rgba(230,57,70,.45);}
+    .pcard-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;}
+
+    /* Loading skeleton */
+    .skel{background:linear-gradient(90deg,#181818 25%,#222 50%,#181818 75%);background-size:200% 100%;animation:skel-shine 1.4s infinite;}
+    @keyframes skel-shine{from{background-position:200% 0;}to{background-position:-200% 0;}}
+    .skel-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;}
+    .skel-img{aspect-ratio:1;}
+    .skel-line{height:14px;border-radius:6px;margin:16px 16px 8px;}
+    .skel-line.short{width:55%;height:12px;}
+    .skel-line.price{width:40%;height:20px;margin-top:4px;}
+
+    /* Empty state */
+    .empty{text-align:center;padding:80px 20px;color:var(--muted);}
+    .empty svg{width:48px;height:48px;stroke:var(--muted);fill:none;stroke-width:1.5;margin:0 auto 16px;}
+    .empty h3{font-size:18px;font-weight:600;color:var(--white);margin-bottom:8px;}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;}
+    footer p{font-size:13px;color:var(--muted);}
+    footer a{color:var(--red);}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="w nav-inner">
+      <a href="/" class="nav-logo">STICHD<em>UP</em></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/shop.html" class="active">Shop</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <a href="/" class="nav-cta">Customise Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="shop-hero">
+    <div class="w">
+      <span class="tag">Melbourne's Custom Wrap Specialists</span>
+      <h1>Shop All Products</h1>
+      <p>Every wrap handcrafted to your exact spec. Professional install across Melbourne or shipped anywhere in Australia.</p>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="w">
+
+    <div class="filters" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Products</button>
+      <!-- Filter buttons added dynamically from product tags -->
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <!-- Skeleton loading state -->
+      <div class="skel-card">
+        <div class="skel-img skel"></div>
+        <div class="skel-line skel"></div>
+        <div class="skel-line short skel"></div>
+        <div class="skel-line price skel" style="margin-bottom:16px;"></div>
+      </div>
+      <div class="skel-card">
+        <div class="skel-img skel"></div>
+        <div class="skel-line skel"></div>
+        <div class="skel-line short skel"></div>
+        <div class="skel-line price skel" style="margin-bottom:16px;"></div>
+      </div>
+      <div class="skel-card" style="display:none;" id="skel3">
+        <div class="skel-img skel"></div>
+        <div class="skel-line skel"></div>
+        <div class="skel-line short skel"></div>
+        <div class="skel-line price skel" style="margin-bottom:16px;"></div>
+      </div>
+      <div class="skel-card" style="display:none;" id="skel4">
+        <div class="skel-img skel"></div>
+        <div class="skel-line skel"></div>
+        <div class="skel-line short skel"></div>
+        <div class="skel-line price skel" style="margin-bottom:16px;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="w">
+      <p>© 2025 STICHD UP · <a href="/#contact">Contact us</a> · <a href="/">Back to home</a></p>
+    </div>
+  </footer>
+
+  <script>
+  /* ═══════════════════════════════════════════════
+     SHOPIFY STOREFRONT API — pull all products live
+  ═══════════════════════════════════════════════ */
+  var SHOPIFY = {
+    api:   'https://7bip20-rt.myshopify.com/api/2024-01/graphql.json',
+    token: 'ebb81341f912982dc6b457c827ad3bef',
+    /* Redirect to configurator with product pre-selected */
+    configurator: '/'
+  };
+
+  var ALL_PRODUCTS = [];
+  var ACTIVE_FILTER = 'all';
+
+  /* Show 3rd/4th skeleton on wider screens */
+  if (window.innerWidth >= 900) document.getElementById('skel3').style.display = '';
+  if (window.innerWidth >= 1100) document.getElementById('skel4').style.display = '';
+
+  function shopifyQuery(query, variables) {
+    return fetch(SHOPIFY.api, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY.token,
+      },
+      body: JSON.stringify({ query: query, variables: variables || {} })
+    }).then(function(r){ return r.json(); });
+  }
+
+  /* Fetch all published products */
+  function loadProducts() {
+    var query = '\
+      query GetProducts($cursor: String) {\
+        products(first: 50, after: $cursor, sortKey: TITLE) {\
+          pageInfo { hasNextPage endCursor }\
+          edges {\
+            node {\
+              id\
+              title\
+              description\
+              handle\
+              tags\
+              featuredImage { url altText }\
+              images(first: 3) { edges { node { url altText } } }\
+              priceRange {\
+                minVariantPrice { amount currencyCode }\
+                maxVariantPrice { amount currencyCode }\
+              }\
+              variants(first: 10) {\
+                edges { node { id title availableForSale } }\
+              }\
+            }\
+          }\
+        }\
+      }\
+    ';
+
+    shopifyQuery(query)
+      .then(function(data) {
+        if (!data.data || !data.data.products) {
+          showError('Could not load products. Please try again.');
+          return;
+        }
+        var edges = data.data.products.edges;
+        ALL_PRODUCTS = edges.map(function(e){ return e.node; });
+        buildFilters();
+        renderProducts(ALL_PRODUCTS);
+      })
+      .catch(function(err) {
+        console.error('Product load error:', err);
+        showError('Could not connect to store. Please try again.');
+      });
+  }
+
+  /* Build filter buttons from product tags */
+  function buildFilters() {
+    var tagSet = {};
+    ALL_PRODUCTS.forEach(function(p){
+      (p.tags || []).forEach(function(t){
+        /* Only use tags that make sense as filters */
+        var clean = t.trim();
+        if (clean && clean.length < 30) tagSet[clean] = true;
+      });
+    });
+
+    var bar = document.getElementById('filter-bar');
+    Object.keys(tagSet).sort().forEach(function(tag) {
+      var btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.filter = tag;
+      btn.textContent = tag;
+      btn.addEventListener('click', function(){ setFilter(tag); });
+      bar.appendChild(btn);
+    });
+  }
+
+  function setFilter(filter) {
+    ACTIVE_FILTER = filter;
+    document.querySelectorAll('.filter-btn').forEach(function(b){
+      b.classList.toggle('active', b.dataset.filter === filter);
+    });
+    var filtered = filter === 'all'
+      ? ALL_PRODUCTS
+      : ALL_PRODUCTS.filter(function(p){ return p.tags && p.tags.indexOf(filter) !== -1; });
+    renderProducts(filtered);
+  }
+
+  /* Add "All" filter click */
+  document.querySelector('[data-filter="all"]').addEventListener('click', function(){
+    setFilter('all');
+  });
+
+  /* Format price */
+  function formatPrice(amount) {
+    return '$' + parseFloat(amount).toFixed(0);
+  }
+
+  /* Determine which configurator mode to open based on product title/tags */
+  function getProductMode(product) {
+    var title = (product.title || '').toLowerCase();
+    var tags  = (product.tags || []).join(' ').toLowerCase();
+    if (title.indexOf('install') !== -1 || tags.indexOf('install') !== -1) return 'install';
+    if (title.indexOf('diy') !== -1 || tags.indexOf('diy') !== -1) return 'diy';
+    return null; /* Open main page */
+  }
+
+  function handleProductClick(product) {
+    var mode = getProductMode(product);
+    if (mode) {
+      window.location.href = '/?product=' + mode;
+    } else {
+      window.location.href = '/';
+    }
+  }
+
+  /* Render product cards */
+  function renderProducts(products) {
+    var grid = document.getElementById('product-grid');
+    grid.innerHTML = '';
+
+    if (!products.length) {
+      grid.innerHTML = '\
+        <div class="empty" style="grid-column:1/-1;">\
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>\
+          <h3>No products found</h3>\
+          <p>Try a different filter or check back soon.</p>\
+        </div>';
+      return;
+    }
+
+    products.forEach(function(product, i) {
+      var minPrice = product.priceRange.minVariantPrice.amount;
+      var maxPrice = product.priceRange.maxVariantPrice.amount;
+      var priceStr = parseFloat(minPrice) === parseFloat(maxPrice)
+        ? formatPrice(minPrice)
+        : formatPrice(minPrice) + ' – ' + formatPrice(maxPrice);
+
+      var imgUrl  = product.featuredImage ? product.featuredImage.url : '';
+      var imgAlt  = product.featuredImage ? (product.featuredImage.altText || product.title) : product.title;
+      var desc    = product.description ? product.description.substring(0, 90) + (product.description.length > 90 ? '…' : '') : '';
+      var mode    = getProductMode(product);
+      var btnText = mode === 'install' ? 'Customise &amp; Book' : mode === 'diy' ? 'Customise &amp; Order' : 'View Product';
+      var isInstall = mode === 'install';
+
+      var card = document.createElement('div');
+      card.className = 'pcard';
+      card.innerHTML = '\
+        <div class="pcard-img">\
+          ' + (imgUrl
+            ? '<img src="' + imgUrl + '" alt="' + imgAlt + '" loading="' + (i < 4 ? 'eager' : 'lazy') + '" />'
+            : '<div class="pcard-img-placeholder">No image</div>') + '\
+          ' + (isInstall ? '<span class="pcard-badge">Most Popular</span>' : '') + '\
+        </div>\
+        <div class="pcard-body">\
+          <div class="pcard-title">' + product.title + '</div>\
+          ' + (desc ? '<div class="pcard-desc">' + desc + '</div>' : '') + '\
+          <div class="pcard-price">' + priceStr + ' <small>AUD</small></div>\
+          <button class="pcard-btn" onclick="handleProductClick(window._sdProducts[' + i + '])">\
+            ' + btnText + '\
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>\
+          </button>\
+        </div>';
+
+      grid.appendChild(card);
+    });
+
+    /* Store reference for onclick */
+    window._sdProducts = products;
+  }
+
+  function showError(msg) {
+    document.getElementById('product-grid').innerHTML = '\
+      <div class="empty" style="grid-column:1/-1;">\
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>\
+        <h3>Something went wrong</h3>\
+        <p>' + msg + '</p>\
+      </div>';
+  }
+
+  /* Check if opened from checkout "continue shopping" — go straight to shop */
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('product')) {
+    /* Auto-open configurator after page loads */
+    window.addEventListener('load', function() {
+      /* Redirect to homepage with configurator open */
+      var mode = params.get('product');
+      if (mode === 'install' || mode === 'diy') {
+        window.location.href = '/#products';
+      }
+    });
+  }
+
+  loadProducts();
+  </script>
+
+</body>
+</html>

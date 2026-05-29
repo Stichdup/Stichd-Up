@@ -386,6 +386,8 @@
       cursor:pointer;transition:var(--e);text-align:center;
     }
     .cfg-oem-btn:hover{background:var(--red-s);border-color:var(--red);}
+  #install-popup-overlay{display:none;}
+  #install-popup-overlay.open{display:flex !important;}
   </style>
 </head>
 <body>
@@ -409,6 +411,7 @@
         <a href="/" class="logo">STICHD<em>UP</em></a>
         <ul class="nl">
           <li><a href="#products">Products</a></li>
+          <li><a href="/shop.html">Shop</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -427,6 +430,7 @@
     </div>
     <div class="nd" id="nav-drawer">
       <a href="#products" onclick="closeD()">Products</a>
+      <a href="/shop.html" onclick="closeD()">Shop</a>
       <a href="#process" onclick="closeD()">How It Works</a>
       <a href="#reviews" onclick="closeD()">Reviews</a>
       <a href="#faq" onclick="closeD()">FAQ</a>
@@ -553,7 +557,7 @@
 
         <div class="pc rv d1">
           <div class="pi">
-            <img src="/images/product-diy.heic" alt="DIY Kit — STICHD UP" loading="lazy" />
+            <img src="/images/product-diy.png" alt="DIY Kit — STICHD UP" loading="lazy" />
             <span class="pbadge" style="background:#2a2a2a;">DIY Kit</span>
           </div>
           <div class="pb">
@@ -604,7 +608,7 @@
         <!-- Alcantara -->
         <div class="mat-card rv d1" onclick="this.classList.toggle('active')">
           <div class="mat-swatch" style="background:linear-gradient(135deg,#1c1c2e,#2d2d3f);">
-            <img src="/images/material-alcantara.heic" alt="Alcantara material" loading="lazy" style="object-position:center 65%;" id="alcantara-img" />
+            <img src="/images/material-alcantara.png" alt="Alcantara material" loading="lazy" style="object-position:center 65%;" id="alcantara-img" />
           </div>
           <div class="mat-name">Alcantara</div>
           <div class="mat-price">From $185</div>
@@ -612,7 +616,7 @@
         </div>
         <!-- Vegan Leather -->
         <div class="mat-card rv d2" onclick="this.classList.toggle('active')">
-          <img src="/images/material-vegan.heic" alt="Premium Vegan Leather" loading="lazy" />
+          <img src="/images/material-vegan.png" alt="Premium Vegan Leather" loading="lazy" />
           <div class="mat-name">Vegan Leather</div>
           <div class="mat-desc">Premium vegan leather delivering the look and feel of genuine hide without the premium price. Available in a wide range of colours and perforated options.</div>
         </div>
@@ -1520,10 +1524,16 @@
 
   function showInstallPopup(checkoutUrl) {
     document.getElementById('install-checkout-link').href = checkoutUrl;
-    document.getElementById('install-popup-overlay').classList.add('open');
+    var el = document.getElementById('install-popup-overlay');
+    el.style.display = 'flex';
+    el.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
   function closeInstallPopup() {
-    document.getElementById('install-popup-overlay').classList.remove('open');
+    var el = document.getElementById('install-popup-overlay');
+    el.style.display = 'none';
+    el.classList.remove('open');
+    document.body.style.overflow = '';
   }
   </script>
 
@@ -1532,7 +1542,7 @@
     position:fixed;inset:0;z-index:3000;
     background:rgba(0,0,0,.88);backdrop-filter:blur(14px);
     display:none;align-items:center;justify-content:center;padding:20px;
-  ">
+  " class="install-pop">
     <div style="
       background:var(--bg-card);max-width:500px;width:100%;
       border-radius:20px;border:1px solid var(--border);
@@ -1576,8 +1586,6 @@
   document.getElementById('install-popup-overlay').addEventListener('click', function(e){
     if(e.target === this) closeInstallPopup();
   });
-  document.getElementById('install-popup-overlay').style.display = 'flex';
-  document.getElementById('install-popup-overlay').style.display = 'none';
   </script>
 </body>
 </html>
