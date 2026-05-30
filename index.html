@@ -96,7 +96,7 @@
     .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;}
     .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
     .hero-bg img{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:center center;opacity:1;}
-    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 15%,#0b0b0b 35%,rgba(11,11,11,0.85) 48%,rgba(11,11,11,0.25) 68%,transparent 100%);}
+    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 35%,rgba(11,11,11,0.92) 48%,rgba(11,11,11,0.55) 62%,rgba(11,11,11,0.15) 78%,transparent 100%);}
     .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0b0b0b,transparent);}
     @media(max-width:768px){
       .hero-bg img{right:0;top:0;height:100%;width:100%;object-position:center center;opacity:0.28;}
@@ -251,10 +251,9 @@
     .mq-t{display:flex;gap:56px;width:max-content;will-change:transform;}
     /* animation driven by JS for zero-jump looping */
     .mq-logo{height:26px;width:auto;flex-shrink:0;
-      filter:invert(1) grayscale(1);
-      mix-blend-mode:screen;
+      filter:invert(1) grayscale(1) brightness(3);
       opacity:.4;transition:opacity var(--e);}
-    .mq-logo:hover{opacity:.75;}
+    .mq-logo:hover{opacity:.8;}
 
     /* Reviews */
     .rg{display:grid;grid-template-columns:1fr;gap:14px;}
