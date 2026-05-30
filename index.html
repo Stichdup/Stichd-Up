@@ -73,7 +73,7 @@
     nav.sc{background:rgba(11,11,11,.97);}
     .ni{display:flex;align-items:center;justify-content:space-between;height:58px;}
     .logo{display:flex;align-items:center;}
-    .logo img{height:32px;width:auto;display:block;}
+    .logo img{height:24px;width:auto;display:block;}
     .nl{display:none;list-style:none;gap:28px;}
     @media(min-width:900px){.nl{display:flex;align-items:center;}}
     .nl a{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.03em;transition:color var(--e);}
@@ -414,6 +414,9 @@
     .cfg-oem-btn:hover{background:var(--red-s);border-color:var(--red);}
   #install-popup-overlay{display:none;}
   #install-popup-overlay.open{display:flex !important;}
+    /* Safari compatibility */
+    @supports not (min-height: 100svh){.hero{min-height:100vh;}.cfg-modal{max-height:88vh;}}
+    @media not all and (min-resolution:.001dpcm){@supports (-webkit-appearance:none){.cfg-overlay{-webkit-overflow-scrolling:touch;}.cfg-controls{-webkit-overflow-scrolling:touch;}}}
   </style>
 </head>
 <body>
@@ -474,9 +477,9 @@
     <div class="bloom"></div>
     <div class="w" style="width:100%;">
       <div class="hero-c">
-        <div class="badge rv">Melbourne's Custom Wrap Studio</div>
+        <div class="badge rv">Australia's Custom Wrap Specialists</div>
         <h1 class="ht rv d1">YOUR<br>WHEEL.<br><em>YOUR<br>RULES.</em></h1>
-        <p class="hs rv d2">Handcrafted steering wheel wraps in leather, Alcantara, and carbon. Mobile fitting across Melbourne or DIY kits shipped Australia-wide.</p>
+        <p class="hs rv d2">Premium handcrafted steering wheel wraps. Built for drivers who give a damn about what they touch every time they drive.</p>
         <div class="hctas rv d3">
           <a href="#products" class="cta">
             Customise Now
@@ -876,7 +879,7 @@
       <div class="fg">
         <div>
           <div class="flogo"><img src="/images/logo.png" alt="STICHD UP" /></div>
-          <p class="ftag">Premium custom steering wheel wraps handcrafted in Melbourne. Built for drivers who give a damn about what they touch every time they drive.</p>
+          <p class="ftag">Premium handcrafted steering wheel wraps. Built for drivers who give a damn about what they touch every time they drive.</p>
           <div class="fsoc">
             <a href="https://www.instagram.com/stichdup_steeringwheels/" target="_blank" rel="noopener" class="sb" aria-label="Instagram">
               <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -1145,13 +1148,13 @@
               <div class="cfg-circle"    data-val="Rose Red"    title="Rose Red"   style="background:#e11d48;"                   onclick="pickStitch(this)"></div>
               <div class="cfg-circle"    data-val="Dark Green"  title="Dark Green" style="background:#14532d;"                   onclick="pickStitch(this)"></div>
               <!-- Tri-colour stitching -->
-              <div class="cfg-circle" data-val="Black / Yellow / Red" title="Black / Yellow / Red" style="background:conic-gradient(#111 0% 33%,#eab308 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
-              <div class="cfg-circle" data-val="Blue / White / Red"   title="Blue / White / Red"   style="background:conic-gradient(#2563eb 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
-              <div class="cfg-circle" data-val="Green / White / Red"  title="Green / White / Red"  style="background:conic-gradient(#16a34a 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
-              <div class="cfg-circle" data-val="Grey / White / Red"   title="Grey / White / Red"   style="background:conic-gradient(#4b4b4b 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
-              <div class="cfg-circle" data-val="Light Blue / Dark Blue / Red" title="Light Blue / Dark Blue / Red" style="background:conic-gradient(#38bdf8 0% 33%,#1e3a8a 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
-              <div class="cfg-circle" data-val="Red / Orange / Yellow" title="Red / Orange / Yellow" style="background:conic-gradient(#e63946 0% 33%,#ea580c 33% 66%,#eab308 66% 100%);" onclick="pickStitch(this)"></div>
-              <div class="cfg-circle" data-val="White / Red"          title="White / Red"          style="background:conic-gradient(#f0ede8 0% 50%,#e63946 50% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="Black / Yellow / Red" title="Black / Yellow / Red" style="background:-webkit-conic-gradient(#111 0% 33%,#eab308 33% 66%,#e63946 66% 100%);background:conic-gradient(#111 0% 33%,#eab308 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="Blue / White / Red"   title="Blue / White / Red"   style="background:-webkit-conic-gradient(#2563eb 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);background:conic-gradient(#2563eb 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="Green / White / Red"  title="Green / White / Red"  style="background:-webkit-conic-gradient(#16a34a 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);background:conic-gradient(#16a34a 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="Grey / White / Red"   title="Grey / White / Red"   style="background:-webkit-conic-gradient(#4b4b4b 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);background:conic-gradient(#4b4b4b 0% 33%,#f0ede8 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="Light Blue / Dark Blue / Red" title="Light Blue / Dark Blue / Red" style="background:-webkit-conic-gradient(#38bdf8 0% 33%,#1e3a8a 33% 66%,#e63946 66% 100%);background:conic-gradient(#38bdf8 0% 33%,#1e3a8a 33% 66%,#e63946 66% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="Red / Orange / Yellow" title="Red / Orange / Yellow" style="background:-webkit-conic-gradient(#e63946 0% 33%,#ea580c 33% 66%,#eab308 66% 100%);background:conic-gradient(#e63946 0% 33%,#ea580c 33% 66%,#eab308 66% 100%);" onclick="pickStitch(this)"></div>
+              <div class="cfg-circle" data-val="White / Red"          title="White / Red"          style="background:-webkit-conic-gradient(#f0ede8 0% 50%,#e63946 50% 100%);background:conic-gradient(#f0ede8 0% 50%,#e63946 50% 100%);" onclick="pickStitch(this)"></div>
             </div>
             <div class="cfg-selected-val" id="stitch-label">White</div>
           </div>
@@ -1185,6 +1188,19 @@
                 <option>Logo - No.12 Blue</option><option>Logo - No.12 Charcoal</option>
               </optgroup>
             </select>
+          </div>
+
+          <!-- Paddle Shifters -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Paddle Shifters</label>
+            <div style="display:flex;gap:10px;">
+              <label style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:13px 16px;cursor:pointer;font-size:14px;font-weight:600;transition:var(--e);" id="paddle-yes-label" onclick="setPaddle('Yes')">
+                <input type="radio" name="paddle" value="Yes" style="accent-color:var(--red);width:15px;height:15px;" /> Yes
+              </label>
+              <label style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:13px 16px;cursor:pointer;font-size:14px;font-weight:600;transition:var(--e);" id="paddle-no-label" onclick="setPaddle('No')">
+                <input type="radio" name="paddle" value="No" style="accent-color:var(--red);width:15px;height:15px;" /> No
+              </label>
+            </div>
           </div>
 
           <!-- CTA -->
@@ -1296,7 +1312,7 @@
   ═══════════════════════════════════════════ */
   var MAT_RANK = { 'Premium Vegan Leather':1, 'Genuine Leather':2, 'Alcantara':3 };
   var INSTALL_PRICE = { 1:340, 2:390, 3:430 };
-  var DIY_PRICE     = { 1:135, 2:135, 3:185 };
+  var DIY_PRICE = { 1:135, 2:195, 3:250 };
 
   function calcPrice() {
     var sideMat  = document.getElementById('sel-side-mat').value;
@@ -1315,6 +1331,20 @@
   var CFG_PRODUCT = 'diy';
   var STITCH_VAL  = 'White';
   var SELECTED_AREA = '';
+  var PADDLE_VAL = '';
+
+  function setPaddle(val) {
+    PADDLE_VAL = val;
+    var yes = document.getElementById('paddle-yes-label');
+    var no  = document.getElementById('paddle-no-label');
+    if (!yes || !no) return;
+    yes.style.borderColor = val === 'Yes' ? 'var(--red)' : 'var(--border)';
+    yes.style.background  = val === 'Yes' ? 'var(--red-s)' : 'var(--bg-card2)';
+    no.style.borderColor  = val === 'No'  ? 'var(--red)' : 'var(--border)';
+    no.style.background   = val === 'No'  ? 'var(--red-s)' : 'var(--bg-card2)';
+    var radio = document.querySelector('input[name="paddle"][value="'+val+'"]');
+    if (radio) radio.checked = true;
+  }
 
   /* ═══ OPEN / CLOSE ═══ */
   function openConfigurator(product) {
@@ -1458,6 +1488,20 @@
   }
 
   var SELECTED_AREA = '';
+  var PADDLE_VAL = '';
+
+  function setPaddle(val) {
+    PADDLE_VAL = val;
+    var yes = document.getElementById('paddle-yes-label');
+    var no  = document.getElementById('paddle-no-label');
+    if (!yes || !no) return;
+    yes.style.borderColor = val === 'Yes' ? 'var(--red)' : 'var(--border)';
+    yes.style.background  = val === 'Yes' ? 'var(--red-s)' : 'var(--bg-card2)';
+    no.style.borderColor  = val === 'No'  ? 'var(--red)' : 'var(--border)';
+    no.style.background   = val === 'No'  ? 'var(--red-s)' : 'var(--bg-card2)';
+    var radio = document.querySelector('input[name="paddle"][value="'+val+'"]');
+    if (radio) radio.checked = true;
+  }
   function selectArea(area) {
     SELECTED_AREA = area;
     ['north','west','southeast'].forEach(function(k){
