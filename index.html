@@ -250,13 +250,20 @@
     .mq::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
     .mq-t{display:flex;gap:56px;width:max-content;will-change:transform;}
     /* animation driven by JS for zero-jump looping */
-    .mq-logo{
+  .mq-logo{
   height:26px;
   width:auto;
   flex-shrink:0;
-  filter:brightness(0) invert(1);
   opacity:.45;
   transition:opacity var(--e);
+}
+
+.mq-logo[src$=".png"]{
+  filter:brightness(0) invert(1);
+}
+
+.mq-logo[src$=".svg"]{
+  filter:none;
 }
 
     /* Reviews */
