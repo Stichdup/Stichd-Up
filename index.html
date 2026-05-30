@@ -95,15 +95,15 @@
     /* Hero */
     .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;}
     .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
-    .hero-bg img{position:absolute;right:0;top:50%;transform:translateY(-50%);height:100%;width:65%;object-fit:cover;object-position:left center;opacity:1;}
-    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 32%,rgba(11,11,11,0.9) 46%,rgba(11,11,11,0.4) 62%,rgba(11,11,11,0.0) 100%);}
+    .hero-bg img{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:center center;opacity:1;}
+    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 35%,rgba(11,11,11,0.85) 48%,rgba(11,11,11,0.25) 68%,transparent 100%);}
     .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0b0b0b,transparent);}
     @media(max-width:768px){
-      .hero-bg img{right:-5%;top:50%;transform:translateY(-50%);height:100%;width:100%;object-position:center center;opacity:0.28;}
+      .hero-bg img{right:0;top:0;height:100%;width:100%;object-position:center center;opacity:0.28;}
       .hero-bg-fade{background:rgba(11,11,11,0.15);}
       .ht,.hs,.badge,.hctas,.hstats{text-shadow:0 0 40px rgba(11,11,11,0.95),0 2px 24px rgba(11,11,11,1);}
     }
-    .hero-c{position:relative;z-index:2;width:100%;padding:48px 0 40px;}
+    .hero-c{position:relative;z-index:2;width:100%;padding:48px 0 40px;max-width:520px;}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;border:1px solid var(--red-b);background:var(--red-s);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:24px;}
     .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:dot 2s ease-in-out infinite;}
     @keyframes dot{0%,100%{opacity:1;}50%{opacity:.2;}}
@@ -455,7 +455,7 @@
       <div class="hero-bg-bottom"></div>
     </div>
     <div class="bloom"></div>
-    <div class="w">
+    <div class="w" style="width:100%;">
       <div class="hero-c">
         <div class="badge rv">Melbourne's Custom Wrap Studio</div>
         <h1 class="ht rv d1">YOUR<br>WHEEL.<br><em>YOUR<br>RULES.</em></h1>
