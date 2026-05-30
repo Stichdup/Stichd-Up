@@ -72,8 +72,8 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,11,11,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background var(--e);}
     nav.sc{background:rgba(11,11,11,.97);}
     .ni{display:flex;align-items:center;justify-content:space-between;height:58px;}
-    .logo{font-family:var(--fh);font-size:24px;letter-spacing:.06em;}
-    .logo em{font-style:normal;color:var(--red);}
+    .logo{display:flex;align-items:center;}
+    .logo img{height:32px;width:auto;display:block;}
     .nl{display:none;list-style:none;gap:28px;}
     @media(min-width:900px){.nl{display:flex;align-items:center;}}
     .nl a{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.03em;transition:color var(--e);}
@@ -326,8 +326,8 @@
     footer{background:var(--bg-card);border-top:1px solid var(--border);padding:48px 0 32px;}
     .fg{display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:40px;}
     @media(min-width:640px){.fg{grid-template-columns:1.4fr 1fr 1fr;gap:48px;}}
-    .flogo{font-family:var(--fh);font-size:26px;letter-spacing:.04em;margin-bottom:10px;}
-    .flogo em{font-style:normal;color:var(--red);}
+    .flogo{display:flex;align-items:center;margin-bottom:10px;}
+    .flogo img{height:30px;width:auto;display:block;}
     .ftag{font-size:14px;color:var(--muted);max-width:280px;line-height:1.6;margin-bottom:20px;}
     .fsoc{display:flex;gap:10px;}
     .sb{width:38px;height:38px;border-radius:9px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:var(--e);}
@@ -362,8 +362,8 @@
     @media(min-width:700px){.cfg-modal{border-radius:20px;border-bottom:1px solid var(--border);max-height:88svh;}}
     @keyframes cfg-up{from{transform:translateY(32px);opacity:0;}to{transform:none;opacity:1;}}
     .cfg-hdr{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
-    .cfg-hdr-logo{font-family:var(--fh);font-size:18px;letter-spacing:.06em;flex-shrink:0;}
-    .cfg-hdr-logo em{font-style:normal;color:var(--red);}
+    .cfg-hdr-logo{display:flex;align-items:center;flex-shrink:0;}
+    .cfg-hdr-logo img{height:26px;width:auto;display:block;}
     .cfg-hdr-title{flex:1;font-size:14px;font-weight:600;color:var(--muted);}
     .cfg-close{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--e);flex-shrink:0;color:var(--muted);}
     .cfg-close:hover{border-color:var(--red);color:var(--red);}
@@ -434,7 +434,7 @@
   <nav id="main-nav">
     <div class="w">
       <div class="ni">
-        <a href="/" class="logo">STICHD<em>UP</em></a>
+        <a href="/" class="logo"><img src="/images/logo.png" alt="STICHD UP" /></a>
         <ul class="nl">
           <li><a href="#products">Products</a></li>
           <li><a href="/shop.html">Shop</a></li>
@@ -875,7 +875,7 @@
       </div>
       <div class="fg">
         <div>
-          <div class="flogo">STICHD<em>UP</em></div>
+          <div class="flogo"><img src="/images/logo.png" alt="STICHD UP" /></div>
           <p class="ftag">Premium custom steering wheel wraps handcrafted in Melbourne. Built for drivers who give a damn about what they touch every time they drive.</p>
           <div class="fsoc">
             <a href="https://www.instagram.com/stichdup_steeringwheels/" target="_blank" rel="noopener" class="sb" aria-label="Instagram">
@@ -1055,7 +1055,7 @@
     <div class="cfg-modal">
 
       <div class="cfg-hdr">
-        <div class="cfg-hdr-logo">STICHD<em>UP</em></div>
+        <div class="cfg-hdr-logo"><img src="/images/logo.png" alt="STICHD UP" /></div>
         <div class="cfg-hdr-title" id="cfg-title">Customise Your Wrap</div>
         <div class="cfg-close" onclick="closeCfg()">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
