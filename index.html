@@ -95,8 +95,8 @@
     /* Hero */
     .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;}
     .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
-    .hero-bg img{position:absolute;right:0;top:50%;transform:translateY(-50%);height:100%;width:60%;object-fit:cover;object-position:center center;opacity:1;}
-    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 28%,rgba(11,11,11,0.88) 44%,rgba(11,11,11,0.35) 65%,rgba(11,11,11,0.0) 100%);}
+    .hero-bg img{position:absolute;right:0;top:50%;transform:translateY(-50%);height:100%;width:65%;object-fit:cover;object-position:left center;opacity:1;}
+    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 32%,rgba(11,11,11,0.9) 46%,rgba(11,11,11,0.4) 62%,rgba(11,11,11,0.0) 100%);}
     .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0b0b0b,transparent);}
     @media(max-width:768px){
       .hero-bg img{right:-5%;top:50%;transform:translateY(-50%);height:100%;width:100%;object-position:center center;opacity:0.28;}
@@ -107,9 +107,9 @@
     .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;border:1px solid var(--red-b);background:var(--red-s);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:24px;}
     .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:dot 2s ease-in-out infinite;}
     @keyframes dot{0%,100%{opacity:1;}50%{opacity:.2;}}
-    .ht{font-family:var(--fh);font-size:clamp(62px,15vw,108px);line-height:.92;letter-spacing:.01em;margin-bottom:24px;}
+    .ht{font-family:var(--fh);font-size:clamp(62px,15vw,108px);line-height:.92;letter-spacing:.01em;margin-bottom:24px;text-align:left;}
     .ht em{font-style:normal;color:var(--red);}
-    .hs{font-size:17px;font-weight:300;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:36px;}
+    .hs{font-size:17px;font-weight:300;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:36px;text-align:left;}
     .hctas{display:flex;flex-direction:column;gap:12px;max-width:380px;margin-bottom:48px;}
     @media(min-width:480px){.hctas{flex-direction:row;}}
     .hctas .cta,.hctas .ghost{flex:1;justify-content:center;}
@@ -450,7 +450,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="/images/bmw-1.jpg" alt="Custom wrapped steering wheel" />
+      <img src="https://stichdup.com.au/wp-content/uploads/2025/06/bmw-1.jpg" alt="Custom wrapped steering wheel" />
       <div class="hero-bg-fade"></div>
       <div class="hero-bg-bottom"></div>
     </div>
