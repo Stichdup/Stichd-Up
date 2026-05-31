@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STICHD UP — Custom Steering Wheel Wraps Melbourne</title>
-  <meta name="description" content="We supply and install quality custom steering wheel wraps for most makes and models. We only use quality materials such as leather, suede and alcantara. We offer a mobile service to most of Melbourne and frequently visit the Geelong area." />
+  <meta name="description" content="We supply and install quality custom steering wheel wraps for most makes and models. We only use quality materials such as genuine leather, vegan leather, and alcantara. We offer a mobile service to most of Melbourne and frequently visit the Geelong area." />
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init("KP3dQH1Uk0W1Zh_t2");</script>
@@ -31,7 +31,7 @@
     button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit;}
 
     /* Bloom */
-    .bloom{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;display:none;}
+    .bloom{display:none;}
     .bloom::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:min(900px,140vw);height:600px;background:radial-gradient(ellipse,rgba(230,57,70,.20) 0%,rgba(230,57,70,.05) 45%,transparent 70%);filter:blur(60px);animation:bp 7s ease-in-out infinite alternate;}
     @keyframes bp{from{opacity:.7;}to{opacity:1;}}
 
@@ -94,17 +94,17 @@
     .nd a:hover{color:var(--white);}
 
     /* Hero */
-    .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;z-index:2;overflow:hidden;}
+    .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;isolation:isolate;}
+    .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
     .hero-bg img{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:center center;opacity:1;}
-    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 35%,rgba(11,11,11,0.92) 48%,rgba(11,11,11,0.55) 62%,rgba(11,11,11,0.15) 78%,transparent 100%);}
+    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 30%,rgba(11,11,11,0.8) 42%,rgba(11,11,11,0.2) 58%,transparent 72%);}
     .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0b0b0b,transparent);}
     @media(max-width:768px){
       .hero-bg img{right:0;top:0;height:100%;width:100%;object-position:center center;opacity:0.28;}
       .hero-bg-fade{background:rgba(11,11,11,0.15);}
       .ht,.hs,.badge,.hctas,.hstats{text-shadow:0 0 40px rgba(11,11,11,0.95),0 2px 24px rgba(11,11,11,1);}
     }
-    .hero-c{position:relative;z-index:3;width:100%;padding:48px 0 40px;max-width:520px;}
+    .hero-c{position:relative;z-index:1;width:100%;padding:48px 0 40px;max-width:520px;}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;border:1px solid var(--red-b);background:var(--red-s);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:24px;}
     .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:dot 2s ease-in-out infinite;}
     @keyframes dot{0%,100%{opacity:1;}50%{opacity:.2;}}
