@@ -31,7 +31,7 @@
 
     /* Bloom */
     .bloom{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
-    .bloom::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:min(900px,140vw);height:600px;background:radial-gradient(ellipse,rgba(230,57,70,.20) 0%,rgba(230,57,70,.05) 45%,transparent 70%);filter:blur(60px);animation:bp 7s ease-in-out infinite alternate;}
+    .bloom::before{content:'';position:absolute;top:-20%;left:-10%;width:55%;height:600px;background:radial-gradient(ellipse,rgba(230,57,70,.18) 0%,rgba(230,57,70,.04) 45%,transparent 70%);filter:blur(60px);animation:bp 7s ease-in-out infinite alternate;}
     @keyframes bp{from{opacity:.7;}to{opacity:1;}}
 
     /* Layout */
@@ -94,7 +94,7 @@
 
     /* Hero */
     .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;z-index:2;overflow:hidden;}
     .hero-bg img{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:center center;opacity:1;}
     .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 35%,rgba(11,11,11,0.92) 48%,rgba(11,11,11,0.55) 62%,rgba(11,11,11,0.15) 78%,transparent 100%);}
     .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0b0b0b,transparent);}
@@ -103,7 +103,7 @@
       .hero-bg-fade{background:rgba(11,11,11,0.15);}
       .ht,.hs,.badge,.hctas,.hstats{text-shadow:0 0 40px rgba(11,11,11,0.95),0 2px 24px rgba(11,11,11,1);}
     }
-    .hero-c{position:relative;z-index:2;width:100%;padding:48px 0 40px;max-width:520px;}
+    .hero-c{position:relative;z-index:3;width:100%;padding:48px 0 40px;max-width:520px;}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;border:1px solid var(--red-b);background:var(--red-s);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:24px;}
     .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:dot 2s ease-in-out infinite;}
     @keyframes dot{0%,100%{opacity:1;}50%{opacity:.2;}}
@@ -635,7 +635,7 @@
             <img src="/images/material-leather.png" alt="Genuine Leather material" loading="lazy" />
           </div>
           <div class="mat-name">Genuine Leather</div>
-          <div class="mat-price">From $135</div>
+          <div class="mat-price">From $195</div>
           <div class="mat-desc">Smooth, firm grip. Durable and easy to clean. The most popular choice for everyday drivers who want a premium feel without the fuss.</div>
         </div>
         <!-- Alcantara -->
@@ -644,7 +644,7 @@
             <img src="/images/material-alcantara.png" alt="Alcantara material" loading="lazy" style="object-position:center 65%;" id="alcantara-img" />
           </div>
           <div class="mat-name">Alcantara</div>
-          <div class="mat-price">From $185</div>
+          <div class="mat-price">From $250</div>
           <div class="mat-desc">The same material used by Ferrari, Lamborghini, and Porsche in their factory steering wheels. Exceptional grip, a premium texture, and a luxury feel that genuine leather simply can't match.</div>
         </div>
     <!-- Vegan Leather -->
