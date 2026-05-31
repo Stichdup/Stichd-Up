@@ -30,8 +30,8 @@
     button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit;}
 
     /* Bloom */
-    .bloom{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
-    .bloom::before{content:'';position:absolute;top:-20%;left:-10%;width:55%;height:600px;background:radial-gradient(ellipse,rgba(230,57,70,.18) 0%,rgba(230,57,70,.04) 45%,transparent 70%);filter:blur(60px);animation:bp 7s ease-in-out infinite alternate;}
+    .bloom{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;display:none;}
+    .bloom::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:min(900px,140vw);height:600px;background:radial-gradient(ellipse,rgba(230,57,70,.20) 0%,rgba(230,57,70,.05) 45%,transparent 70%);filter:blur(60px);animation:bp 7s ease-in-out infinite alternate;}
     @keyframes bp{from{opacity:.7;}to{opacity:1;}}
 
     /* Layout */
