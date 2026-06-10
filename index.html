@@ -381,7 +381,7 @@
     .cfg-preview-info{display:flex;flex-direction:column;gap:10px;align-items:center;}
     @media(max-width:699px){.cfg-preview-info{align-items:flex-start;}}
     .cfg-price-badge{background:var(--red);color:#fff;font-family:var(--fh);font-size:24px;letter-spacing:.02em;padding:8px 18px;border-radius:var(--r);box-shadow:0 0 20px rgba(230,57,70,.35);}
-    .cfg-controls{overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
+    .cfg-controls{overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
     .cfg-field{display:flex;flex-direction:column;}
     .cfg-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
     .cfg-sel{width:100%;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-family:var(--fb);font-size:15px;color:var(--white);outline:none;transition:border-color var(--e);appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a7672' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;}
@@ -397,6 +397,12 @@
     .cfg-circle:hover{transform:scale(1.18);}
     .cfg-circle.sel{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25);}
     .cfg-selected-val{font-size:12px;color:var(--muted);}
+    .cfg-marker-types{display:flex;flex-wrap:wrap;gap:7px;}
+    .cfg-marker-type{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:8px 13px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:var(--e);-webkit-tap-highlight-color:transparent;}
+    .cfg-marker-type.sel{background:rgba(230,57,70,.12);border-color:var(--red);color:var(--white);}
+    .cfg-marker-variants{display:flex;flex-wrap:wrap;gap:7px;}
+    .cfg-marker-var{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:8px 13px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:var(--e);-webkit-tap-highlight-color:transparent;}
+    .cfg-marker-var.sel{background:rgba(230,57,70,.12);border-color:var(--red);color:var(--white);}
     .cfg-suburb-btns{display:flex;flex-direction:column;gap:10px;}
     .cfg-suburb-btn{display:flex;align-items:center;gap:14px;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;text-decoration:none;color:var(--white);transition:var(--e);}
     .cfg-suburb-btn:hover{border-color:var(--red);background:var(--red-s);}
@@ -1164,32 +1170,20 @@
           <!-- Centre Marker -->
           <div class="cfg-field">
             <label class="cfg-lbl">Centre Marker</label>
-            <select class="cfg-sel" id="sel-marker" onchange="cfgUpdate()">
-              <option value="None">No marker</option>
-              <optgroup label="Hollow Stripe">
-                <option>Hollow Stripe - Black</option><option>Hollow Stripe - Blue</option>
-                <option>Hollow Stripe - Green</option><option>Hollow Stripe - Orange</option>
-                <option>Hollow Stripe - Purple</option><option>Hollow Stripe - Red</option>
-                <option>Hollow Stripe - White</option><option>Hollow Stripe - Yellow</option>
-              </optgroup>
-              <optgroup label="Alcantara Marker">
-                <option>Alcantara Marker - Light Blue</option><option>Alcantara Marker - Yellow</option>
-              </optgroup>
-              <optgroup label="Leather Marker">
-                <option>Leather Marker - Dark Green</option><option>Leather Marker - Green</option>
-                <option>Leather Marker - Light Blue</option><option>Leather Marker - Orange</option>
-                <option>Leather Marker - Purple</option><option>Leather Marker - White</option>
-                <option>Leather Marker - Yellow</option>
-              </optgroup>
-              <optgroup label="Flag">
-                <option>Flag - Blue/White/Red</option><option>Flag - German</option>
-                <option>Flag - Italian</option><option>Flag - Grey/White/Red</option>
-              </optgroup>
-              <optgroup label="Logo">
-                <option>Logo - M3</option><option>Logo - No.12 Black</option>
-                <option>Logo - No.12 Blue</option><option>Logo - No.12 Charcoal</option>
-              </optgroup>
-            </select>
+            <!-- Type row -->
+            <div class="cfg-marker-types" id="marker-types">
+              <button class="cfg-marker-type sel" data-type="None"          onclick="pickMarkerType(this)">None</button>
+              <button class="cfg-marker-type"     data-type="Hollow Stripe" onclick="pickMarkerType(this)">Hollow Stripe</button>
+              <button class="cfg-marker-type"     data-type="Alcantara"     onclick="pickMarkerType(this)">Alcantara</button>
+              <button class="cfg-marker-type"     data-type="Leather"       onclick="pickMarkerType(this)">Leather</button>
+              <button class="cfg-marker-type"     data-type="Flag"          onclick="pickMarkerType(this)">Flag</button>
+              <button class="cfg-marker-type"     data-type="Logo"          onclick="pickMarkerType(this)">Logo</button>
+            </div>
+            <!-- Colour/variant row — shown when type !== None -->
+            <div class="cfg-marker-variants" id="marker-variants" style="display:none;margin-top:10px;"></div>
+            <div class="cfg-selected-val" id="marker-label" style="margin-top:6px;">None</div>
+            <!-- Hidden value for cfgUpdate() -->
+            <input type="hidden" id="sel-marker" value="None">
           </div>
 
           <!-- Paddle Shifters -->
@@ -1334,6 +1328,58 @@
   var STITCH_VAL  = 'White';
   var SELECTED_AREA = '';
   var PADDLE_VAL = '';
+  var MARKER_TYPE = 'None';
+  var MARKER_VAL  = 'None';
+
+  var MARKER_VARIANTS = {
+    'Hollow Stripe': ['Black','Blue','Green','Orange','Purple','Red','White','Yellow'],
+    'Alcantara':     ['Light Blue','Yellow'],
+    'Leather':       ['Dark Green','Green','Light Blue','Orange','Purple','White','Yellow'],
+    'Flag':          ['Blue/White/Red','German','Italian','Grey/White/Red'],
+    'Logo':          ['M3','No.12 Black','No.12 Blue','No.12 Charcoal']
+  };
+
+  function pickMarkerType(el) {
+    document.querySelectorAll('.cfg-marker-type').forEach(function(b){ b.classList.remove('sel'); });
+    el.classList.add('sel');
+    MARKER_TYPE = el.dataset.type;
+    var varWrap = document.getElementById('marker-variants');
+    var lbl     = document.getElementById('marker-label');
+    if (MARKER_TYPE === 'None') {
+      varWrap.style.display = 'none';
+      varWrap.innerHTML = '';
+      MARKER_VAL = 'None';
+      lbl.textContent = 'None';
+      document.getElementById('sel-marker').value = 'None';
+      cfgUpdate(); return;
+    }
+    var opts = MARKER_VARIANTS[MARKER_TYPE] || [];
+    varWrap.innerHTML = '';
+    opts.forEach(function(o, i) {
+      var b = document.createElement('button');
+      b.className = 'cfg-marker-var' + (i === 0 ? ' sel' : '');
+      b.textContent = o;
+      b.onclick = function() { pickMarkerVar(b, o); };
+      varWrap.appendChild(b);
+    });
+    varWrap.style.display = 'flex';
+    // auto-select first
+    if (opts.length) {
+      MARKER_VAL = MARKER_TYPE + ' - ' + opts[0];
+      lbl.textContent = MARKER_VAL;
+      document.getElementById('sel-marker').value = MARKER_VAL;
+    }
+    cfgUpdate();
+  }
+
+  function pickMarkerVar(el, variant) {
+    document.querySelectorAll('.cfg-marker-var').forEach(function(b){ b.classList.remove('sel'); });
+    el.classList.add('sel');
+    MARKER_VAL = MARKER_TYPE + ' - ' + variant;
+    document.getElementById('marker-label').textContent = MARKER_VAL;
+    document.getElementById('sel-marker').value = MARKER_VAL;
+    cfgUpdate();
+  }
 
   function setPaddle(val) {
     PADDLE_VAL = val;
