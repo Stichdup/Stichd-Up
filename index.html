@@ -1184,7 +1184,6 @@
               <button class="cfg-marker-type"     data-type="Alcantara" onclick="pickMarkerType(this)">Alcantara</button>
               <button class="cfg-marker-type"     data-type="Carbon"    onclick="pickMarkerType(this)">Carbon</button>
               <button class="cfg-marker-type"     data-type="Hollow"    onclick="pickMarkerType(this)">Hollow</button>
-              <button class="cfg-marker-type"     data-type="Holo"      onclick="pickMarkerType(this)">Holo</button>
               <button class="cfg-marker-type"     data-type="Flag"      onclick="pickMarkerType(this)">Flag</button>
             </div>
             <!-- Colour/variant row — shown when type !== None -->
@@ -1373,8 +1372,8 @@
       ['Black Glossy',  'repeating-linear-gradient(45deg,#1a1a1a 0px,#1a1a1a 5px,#2e2e2e 5px,#2e2e2e 10px)'],
       ['Red Glossy',    'repeating-linear-gradient(45deg,#6a0000 0px,#6a0000 5px,#aa0808 5px,#aa0808 10px)'],
       ['Blue Glossy',   'repeating-linear-gradient(45deg,#080e40 0px,#080e40 5px,#102088 5px,#102088 10px)'],
-      ['Black Matte',   'repeating-linear-gradient(45deg,#1a1a1a 0px,#1a1a1a 5px,#282828 5px,#282828 10px)'],
       ['Black Forged',  'url(https://pub-64e1968b1fa54936b3a9ddad28397566.r2.dev/image_2026-06-10_143418490.png) center/300%'],
+      ['Black Matte',   'repeating-linear-gradient(45deg,#1a1a1a 0px,#1a1a1a 5px,#282828 5px,#282828 10px)'],
       ['Red Matte',     'repeating-linear-gradient(45deg,#600808 0px,#600808 5px,#880a0a 5px,#880a0a 10px)'],
       ['Blue Matte',    'repeating-linear-gradient(45deg,#081240 0px,#081240 5px,#0e1e70 5px,#0e1e70 10px)'],
     ],
@@ -1431,8 +1430,8 @@
       var swatchStyle = '';
       var extraClass  = '';
       if (MARKER_TYPE === 'Hollow') {
-        var c = bg; // bg is the dot colour
-        swatchStyle = 'background-color:#1a1a1a;background-image:radial-gradient(ellipse 35% 45% at 50% 50%,' + c + ' 60%,transparent 60%);background-size:10px 14px;background-repeat:repeat;';
+        var c = bg;
+        swatchStyle = 'background:#1a1a1a;background-image:linear-gradient(to right,transparent 20%,' + c + ' 20%,' + c + ' 32%,transparent 32%,transparent 44%,' + c + ' 44%,' + c + ' 56%,transparent 56%,transparent 68%,' + c + ' 68%,' + c + ' 80%,transparent 80%);';
       } else if (MARKER_TYPE === 'Carbon' && name.indexOf('Glossy') !== -1) {
         swatchStyle = 'background:' + bg + ';';
         extraClass = ' glossy';
