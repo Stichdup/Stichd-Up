@@ -1431,7 +1431,11 @@
       var extraClass  = '';
       if (MARKER_TYPE === 'Hollow') {
         var c = bg;
-        swatchStyle = 'background:#1a1a1a;background-image:linear-gradient(to right,transparent 20%,' + c + ' 20%,' + c + ' 32%,transparent 32%,transparent 44%,' + c + ' 44%,' + c + ' 56%,transparent 56%,transparent 68%,' + c + ' 68%,' + c + ' 80%,transparent 80%);';
+        // 3 vertical columns of small rectangular cutouts
+        swatchStyle = 'background:#1a1a1a;background-image:' +
+          'repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,' + c + ' 3px,' + c + ' 9px,transparent 9px,transparent 12px),' +
+          'linear-gradient(to right,transparent 20%,' + c + ' 20%,' + c + ' 32%,transparent 32%,transparent 44%,' + c + ' 44%,' + c + ' 56%,transparent 56%,transparent 68%,' + c + ' 68%,' + c + ' 80%,transparent 80%);' +
+          'background-blend-mode:multiply;';
       } else if (MARKER_TYPE === 'Carbon' && name.indexOf('Glossy') !== -1) {
         swatchStyle = 'background:' + bg + ';';
         extraClass = ' glossy';
