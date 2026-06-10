@@ -1183,7 +1183,7 @@
               <button class="cfg-marker-type"     data-type="Leather"   onclick="pickMarkerType(this)">Leather</button>
               <button class="cfg-marker-type"     data-type="Alcantara" onclick="pickMarkerType(this)">Alcantara</button>
               <button class="cfg-marker-type"     data-type="Carbon"    onclick="pickMarkerType(this)">Carbon</button>
-              <button class="cfg-marker-type"     data-type="Hollow"    onclick="pickMarkerType(this)">Hollow Stripe</button>
+              <button class="cfg-marker-type"     data-type="Hollow"    onclick="pickMarkerType(this)">Hollow</button>
               <button class="cfg-marker-type"     data-type="Holo"      onclick="pickMarkerType(this)">Holo</button>
               <button class="cfg-marker-type"     data-type="Flag"      onclick="pickMarkerType(this)">Flag</button>
             </div>
@@ -1374,7 +1374,7 @@
       ['Red Glossy',    'repeating-linear-gradient(45deg,#6a0000 0px,#6a0000 5px,#aa0808 5px,#aa0808 10px)'],
       ['Blue Glossy',   'repeating-linear-gradient(45deg,#080e40 0px,#080e40 5px,#102088 5px,#102088 10px)'],
       ['Black Matte',   'repeating-linear-gradient(45deg,#1a1a1a 0px,#1a1a1a 5px,#282828 5px,#282828 10px)'],
-      ['Black Forged',  'url(https://pub-64e1968b1fa54936b3a9ddad28397566.r2.dev/image_2026-06-10_143418490.png) center/33%'],
+      ['Black Forged',  'url(https://pub-64e1968b1fa54936b3a9ddad28397566.r2.dev/image_2026-06-10_143418490.png) center/300%'],
       ['Red Matte',     'repeating-linear-gradient(45deg,#600808 0px,#600808 5px,#880a0a 5px,#880a0a 10px)'],
       ['Blue Matte',    'repeating-linear-gradient(45deg,#081240 0px,#081240 5px,#0e1e70 5px,#0e1e70 10px)'],
     ],
@@ -1400,7 +1400,7 @@
     ],
     'Flag': [
       ['Blue-White-Red',    'linear-gradient(to right,#2255cc 33%,#e8e4e0 33%,#e8e4e0 66%,#cc2020 66%)'],
-      ['Black-Red-Yellow',  'linear-gradient(to bottom,#111 33%,#cc2020 33%,#cc2020 66%,#e8c820 66%)'],
+      ['Black-Red-Yellow',  'linear-gradient(to right,#111 33%,#cc2020 33%,#cc2020 66%,#e8c820 66%)'],
       ['Grey-White-Red',    'linear-gradient(to right,#666 33%,#e8e4e0 33%,#e8e4e0 66%,#cc2020 66%)'],
       ['Green-White-Red',   'linear-gradient(to right,#2a8a30 33%,#e8e4e0 33%,#e8e4e0 66%,#cc2020 66%)'],
       ['Red-Orange-Yellow', 'linear-gradient(to right,#cc2020 33%,#d06018 33%,#d06018 66%,#e8c820 66%)'],
@@ -1431,15 +1431,8 @@
       var swatchStyle = '';
       var extraClass  = '';
       if (MARKER_TYPE === 'Hollow') {
-        // Dark base + dot grid in the marker colour to simulate hollow stripe perforations
-        swatchStyle = 'background:#1a1a1a;';
-        var dotSvg = encodeURIComponent(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16">' +
-          '<rect x="2" y="2" width="4" height="6" rx="1" fill="' + bg + '" opacity="0.9"/>' +
-          '<rect x="2" y="10" width="4" height="4" rx="1" fill="' + bg + '" opacity="0.6"/>' +
-          '</svg>'
-        );
-        swatchStyle = 'background:#1a1a1a url("data:image/svg+xml,' + dotSvg + '") repeat center/12px 16px;';
+        var c = bg; // bg is the dot colour
+        swatchStyle = 'background-color:#1a1a1a;background-image:radial-gradient(ellipse 35% 45% at 50% 50%,' + c + ' 60%,transparent 60%);background-size:10px 14px;background-repeat:repeat;';
       } else if (MARKER_TYPE === 'Carbon' && name.indexOf('Glossy') !== -1) {
         swatchStyle = 'background:' + bg + ';';
         extraClass = ' glossy';
