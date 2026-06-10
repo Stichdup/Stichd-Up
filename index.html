@@ -402,8 +402,9 @@
     .cfg-marker-type.sel{background:rgba(230,57,70,.12);border-color:var(--red);color:var(--white);}
     .cfg-marker-variants{display:none;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:8px;}
     .cfg-mswatch-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
-    .cfg-mswatch{width:100%;aspect-ratio:1/1;border-radius:6px;border:2px solid transparent;transition:border-color .15s;}
-    .cfg-mswatch-wrap.sel .cfg-mswatch{border-color:var(--red);}
+    .cfg-mswatch{width:100%;aspect-ratio:1/1;border-radius:6px;outline:2px solid transparent;outline-offset:2px;transition:outline-color .15s;}
+    .cfg-mswatch-wrap.sel .cfg-mswatch{outline-color:var(--red);}
+    .cfg-marker-variants.flag-type .cfg-mswatch{border-radius:4px;}
     .cfg-mswatch-lbl{font-size:9px;color:var(--muted);text-align:center;line-height:1.2;transition:color .15s;}
     .cfg-mswatch-wrap.sel .cfg-mswatch-lbl{color:var(--white);}
     .cfg-marker-var{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:8px 13px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:var(--e);-webkit-tap-highlight-color:transparent;}
@@ -1181,7 +1182,6 @@
               <button class="cfg-marker-type"     data-type="Leather"   onclick="pickMarkerType(this)">Leather</button>
               <button class="cfg-marker-type"     data-type="Alcantara" onclick="pickMarkerType(this)">Alcantara</button>
               <button class="cfg-marker-type"     data-type="Carbon"    onclick="pickMarkerType(this)">Carbon</button>
-              <button class="cfg-marker-type"     data-type="Suede"     onclick="pickMarkerType(this)">Suede</button>
               <button class="cfg-marker-type"     data-type="Holo"      onclick="pickMarkerType(this)">Holo</button>
               <button class="cfg-marker-type"     data-type="Flag"      onclick="pickMarkerType(this)">Flag</button>
             </div>
@@ -1368,18 +1368,13 @@
       ['Yellow',     'radial-gradient(ellipse at 30% 30%,#d8b810,#806800)'],
     ],
     'Carbon': [
-      ['Black Glossy',  'repeating-linear-gradient(45deg,#222 0px,#222 4px,#333 4px,#333 8px)'],
-      ['Red Glossy',    'repeating-linear-gradient(45deg,#8a0808 0px,#8a0808 4px,#b01010 4px,#b01010 8px)'],
-      ['Blue Glossy',   'repeating-linear-gradient(45deg,#0a1860 0px,#0a1860 4px,#1428a0 4px,#1428a0 8px)'],
+      ['Black Glossy',  'repeating-linear-gradient(45deg,#333 0px,#333 4px,#555 4px,#555 8px),linear-gradient(135deg,rgba(255,255,255,0.18),transparent 60%)'],
+      ['Red Glossy',    'repeating-linear-gradient(45deg,#8a0808 0px,#8a0808 4px,#c01010 4px,#c01010 8px),linear-gradient(135deg,rgba(255,255,255,0.18),transparent 60%)'],
+      ['Blue Glossy',   'repeating-linear-gradient(45deg,#0a1860 0px,#0a1860 4px,#1a30b0 4px,#1a30b0 8px),linear-gradient(135deg,rgba(255,255,255,0.18),transparent 60%)'],
       ['Black Matte',   'repeating-linear-gradient(45deg,#1a1a1a 0px,#1a1a1a 4px,#282828 4px,#282828 8px)'],
-      ['Black Forged',  'radial-gradient(ellipse at 20% 30%,#383838,#0a0a0a 40%,#282828 60%,#080808)'],
+      ['Black Forged',  'url(https://pub-64e1968b1fa54936b3a9ddad28397566.r2.dev/image_2026-06-10_143418490.png) center/cover'],
       ['Red Matte',     'repeating-linear-gradient(45deg,#600808 0px,#600808 4px,#880a0a 4px,#880a0a 8px)'],
       ['Blue Matte',    'repeating-linear-gradient(45deg,#081240 0px,#081240 4px,#0e1e70 4px,#0e1e70 8px)'],
-    ],
-    'Suede': [
-      ['Black', 'radial-gradient(ellipse at 30% 30%,#3a3a3a,#111)'],
-      ['Red',   'radial-gradient(ellipse at 30% 30%,#c02020,#6a0808)'],
-      ['Blue',  'radial-gradient(ellipse at 30% 30%,#2a4aaa,#101840)'],
     ],
     'Holo': [
       ['Red',    'linear-gradient(135deg,#c00 0%,#f44 40%,#a00 60%,#c00 100%)'],
