@@ -359,8 +359,8 @@
     .cfg-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.87);backdrop-filter:blur(14px);display:none;align-items:flex-end;justify-content:center;overflow:hidden;}
     .cfg-overlay.open{display:flex;}
     @media(min-width:700px){.cfg-overlay{align-items:center;}}
-    .cfg-modal{background:var(--bg-card);width:100%;max-width:880px;border-radius:20px 20px 0 0;border:1px solid var(--border);border-bottom:none;max-height:92svh;display:flex;flex-direction:column;overflow:hidden;animation:cfg-up .3s cubic-bezier(.16,1,.3,1);}
-    @media(min-width:700px){.cfg-modal{border-radius:20px;border-bottom:1px solid var(--border);max-height:88svh;}}
+    .cfg-modal{background:var(--bg-card);width:100%;max-width:880px;border-radius:20px 20px 0 0;border:1px solid var(--border);border-bottom:none;height:92dvh;max-height:92dvh;display:flex;flex-direction:column;overflow:hidden;animation:cfg-up .3s cubic-bezier(.16,1,.3,1);}
+    @media(min-width:700px){.cfg-modal{border-radius:20px;border-bottom:1px solid var(--border);height:auto;max-height:88dvh;}}
     @keyframes cfg-up{from{transform:translateY(32px);opacity:0;}to{transform:none;opacity:1;}}
     .cfg-hdr{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
     .cfg-hdr-logo{display:flex;align-items:center;flex-shrink:0;}
@@ -381,7 +381,7 @@
     .cfg-preview-info{display:flex;flex-direction:column;gap:10px;align-items:center;}
     @media(max-width:699px){.cfg-preview-info{align-items:flex-start;}}
     .cfg-price-badge{background:var(--red);color:#fff;font-family:var(--fh);font-size:24px;letter-spacing:.02em;padding:8px 18px;border-radius:var(--r);box-shadow:0 0 20px rgba(230,57,70,.35);}
-    .cfg-controls{overflow-y:scroll;padding:20px;display:flex;flex-direction:column;gap:16px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;position:relative;}
+    .cfg-controls{flex:1 1 0;min-height:0;overflow-y:scroll;padding:20px;display:flex;flex-direction:column;gap:16px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;position:relative;}
     .cfg-field{display:flex;flex-direction:column;}
     .cfg-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
     .cfg-sel{width:100%;background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-family:var(--fb);font-size:15px;color:var(--white);outline:none;transition:border-color var(--e);appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a7672' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;}
@@ -1539,15 +1539,11 @@
     document.getElementById('cfg-title').textContent = product==='install' ? 'Book Professional Installation' : 'Customise Your DIY Kit';
     document.getElementById('cfg-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
     cfgUpdate();
   }
   function closeCfg() {
     document.getElementById('cfg-overlay').classList.remove('open');
     document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.width = '';
     var ctaArea = document.getElementById('cfg-cta-area');
     if (ctaArea) ctaArea.dataset.rendered = '';
   }
