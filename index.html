@@ -1182,7 +1182,6 @@
               <button class="cfg-marker-type sel" data-type="None"      onclick="pickMarkerType(this)">None</button>
               <button class="cfg-marker-type"     data-type="Leather"   onclick="pickMarkerType(this)">Leather</button>
               <button class="cfg-marker-type"     data-type="Alcantara" onclick="pickMarkerType(this)">Alcantara</button>
-              <button class="cfg-marker-type"     data-type="Hollow"    onclick="pickMarkerType(this)">Hollow</button>
               <button class="cfg-marker-type"     data-type="Holo"      onclick="pickMarkerType(this)">Holo</button>
               <button class="cfg-marker-type"     data-type="Flag"      onclick="pickMarkerType(this)">Flag</button>
             </div>
@@ -1451,9 +1450,8 @@
           "</svg>";
         var encoded = 'data:image/svg+xml,' + encodeURIComponent(dotSvg);
         swatchStyle = 'background:#111 url(' + encoded + ') center/54px 60px no-repeat;';
-      } else if (MARKER_TYPE === 'Carbon' && name.indexOf('Glossy') !== -1) {
-        swatchStyle = 'background:' + bg + ';';
-        extraClass = ' glossy';
+      } else if (MARKER_TYPE === 'Holo') {
+        swatchStyle = 'background:' + bg + ';background-size:cover;';
       } else {
         swatchStyle = 'background:' + bg + ';';
       }
