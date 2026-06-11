@@ -397,7 +397,10 @@
     .cfg-circle:hover{transform:scale(1.18);}
     .cfg-circle.sel{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25);}
     .cfg-selected-val{font-size:12px;color:var(--muted);}
-    .cfg-marker-types{display:flex;flex-wrap:wrap;gap:7px;}
+    .upload-zone{border:1.5px dashed var(--border);border-radius:var(--r);padding:24px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;min-height:100px;background:var(--bg-card2);}
+    .upload-zone:hover{border-color:rgba(230,57,70,.5);background:rgba(230,57,70,.04);}
+    .upload-zone.has-file{border-style:solid;border-color:rgba(230,57,70,.4);}
+    .upload-zone img{max-height:80px;border-radius:6px;object-fit:cover;}
     .cfg-marker-type{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--r);padding:8px 13px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:var(--e);-webkit-tap-highlight-color:transparent;}
     .cfg-marker-type.sel{background:rgba(230,57,70,.12);border-color:var(--red);color:var(--white);}
     .cfg-marker-variants{display:none;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:8px;}
@@ -1205,6 +1208,21 @@
             </div>
           </div>
 
+          <!-- Photo Upload -->
+          <div class="cfg-field">
+            <label class="cfg-lbl">Photo of Your Steering Wheel <span style="color:var(--red);">*</span></label>
+            <div class="upload-zone" id="upload-zone" onclick="document.getElementById('wheel-photo').click()">
+              <input type="file" id="wheel-photo" accept="image/*" style="display:none;" onchange="handlePhotoSelect(this)"/>
+              <div id="upload-prompt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--muted);margin-bottom:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <div style="font-size:13px;font-weight:600;color:var(--white);">Tap to upload a photo</div>
+                <div style="font-size:11px;color:var(--muted);margin-top:4px;">Helps us match your wheel perfectly</div>
+              </div>
+              <div id="upload-preview" style="display:none;width:100%;text-align:center;"></div>
+            </div>
+            <div id="upload-status" style="font-size:11px;margin-top:6px;min-height:16px;"></div>
+          </div>
+
           <!-- CTA -->
           <div id="cfg-cta-area"></div>
 
@@ -1331,7 +1349,52 @@
 
   /* ═══ STATE ═══ */
   var CFG_PRODUCT = 'diy';
-  var STITCH_VAL  = 'White';
+  var PHOTO_URL = '';
+  var UPLOAD_WORKER = 'https://steep-thunder-e287.cm-fileshares.workers.dev';
+
+  window.handlePhotoSelect = function(input) {
+    var file = input.files[0];
+    if (!file) return;
+    var zone    = document.getElementById('upload-zone');
+    var prompt  = document.getElementById('upload-prompt');
+    var preview = document.getElementById('upload-preview');
+    var status  = document.getElementById('upload-status');
+
+    // Show preview immediately
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      preview.innerHTML = '<img src="' + e.target.result + '" style="max-height:80px;border-radius:6px;object-fit:cover;"/>' +
+        '<div style="font-size:12px;color:var(--muted);margin-top:6px;">' + file.name + '</div>';
+      prompt.style.display  = 'none';
+      preview.style.display = 'block';
+      zone.classList.add('has-file');
+    };
+    reader.readAsDataURL(file);
+
+    // Upload to R2
+    status.style.color = 'var(--muted)';
+    status.textContent = 'Uploading…';
+    var fd = new FormData();
+    fd.append('file', file);
+    fetch(UPLOAD_WORKER, { method: 'POST', body: fd })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.url) {
+          PHOTO_URL = d.url;
+          status.style.color = '#4caf50';
+          status.textContent = '✓ Photo uploaded';
+          cfgUpdate();
+        } else {
+          throw new Error(d.error || 'Upload failed');
+        }
+      })
+      .catch(function(err){
+        PHOTO_URL = '';
+        status.style.color = 'var(--red)';
+        status.textContent = '✗ Upload failed — you can still place your order';
+        console.warn('Photo upload error:', err);
+      });
+  };
   var SELECTED_AREA = '';
   var PADDLE_VAL = '';
   var MARKER_TYPE = 'None';
@@ -1566,7 +1629,7 @@
     var sideMat = document.getElementById('sel-side-mat').value;
     var make    = document.getElementById('v-make').value.trim();
     var model   = document.getElementById('v-model').value.trim();
-    var ready   = sideMat && make && model && CAR_VALID;
+    var ready   = sideMat && make && model && CAR_VALID && PHOTO_URL;
     btn.disabled = !ready;
     btn.style.opacity = ready ? '1' : '0.5';
     btn.style.cursor  = ready ? 'pointer' : 'not-allowed';
@@ -1660,6 +1723,7 @@
       {key:'Centre Marker',value: document.getElementById('sel-marker').value},
     ];
     if (product==='install') attrs.push({key:'Area',value:areaLabel[SELECTED_AREA]||''});
+    if (PHOTO_URL) attrs.push({key:'Wheel Photo',value:PHOTO_URL});
     return attrs.filter(function(a){return a.value;});
   }
 
