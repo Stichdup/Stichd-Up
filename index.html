@@ -1548,6 +1548,8 @@
     document.body.style.overflow = '';
     document.body.style.position = '';
     document.body.style.width = '';
+    var ctaArea = document.getElementById('cfg-cta-area');
+    if (ctaArea) ctaArea.dataset.rendered = '';
   }
   document.getElementById('cfg-overlay').addEventListener('click', function(e){ if(e.target===this)closeCfg(); });
   document.getElementById('cfg-overlay').addEventListener('touchmove', function(e){ if(e.target===this)e.preventDefault(); }, {passive:false});
@@ -1623,8 +1625,13 @@
     if (STITCH_VAL) parts.push(STITCH_VAL+' stitching');
     document.getElementById('cfg-preview-label').textContent = parts.length ? parts.join(' · ') : 'Configure your wrap below';
 
+    /* Render CTA once per product type — don't wipe suburbs on every cfgUpdate */
+    var ctaArea = document.getElementById('cfg-cta-area');
+    if (!ctaArea.dataset.rendered || ctaArea.dataset.rendered !== CFG_PRODUCT) {
+      renderCTA();
+      ctaArea.dataset.rendered = CFG_PRODUCT;
+    }
     updateNextBtn();
-    renderCTA();
   }
 
   function updateNextBtn() {
