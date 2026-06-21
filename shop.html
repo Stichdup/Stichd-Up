@@ -10,10 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:#0b0b0b; --bg-card:#111; --bg-card2:#181818;
+      --bg:#faf8f5; --bg-card:#ffffff; --bg-card2:#f0eee8;
       --red:#e63946; --red-s:rgba(230,57,70,0.12); --red-b:rgba(230,57,70,0.28);
       --red-g:rgba(230,57,70,0.22);
-      --white:#f0ede8; --muted:#7a7672; --border:rgba(255,255,255,0.07);
+      --white:#1c1a17; --muted:#6b6660; --border:rgba(0,0,0,0.08);
       --fh:'Bebas Neue',sans-serif; --fb:'DM Sans',sans-serif;
       --r:12px; --rl:18px; --e:0.24s cubic-bezier(.4,0,.2,1);
       --sb:env(safe-area-inset-bottom,0px);
@@ -30,7 +30,7 @@
     @media(min-width:768px){.w{padding:0 32px;}}
 
     /* Nav */
-    nav{position:sticky;top:0;z-index:100;background:rgba(11,11,11,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;}
     .nav-logo{font-family:var(--fh);font-size:22px;letter-spacing:.06em;}
     .nav-logo em{font-style:normal;color:var(--red);}
@@ -50,7 +50,7 @@
     /* Filter tabs */
     .filters{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:40px 0 36px;}
     .filter-btn{padding:9px 18px;border-radius:50px;border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--muted);background:var(--bg-card2);cursor:pointer;transition:var(--e);}
-    .filter-btn:hover{border-color:rgba(255,255,255,.2);color:var(--white);}
+    .filter-btn:hover{border-color:rgba(0,0,0,.18);color:var(--white);}
     .filter-btn.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 16px rgba(230,57,70,.35);}
 
     /* Product grid */
@@ -64,15 +64,15 @@
       background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);
       overflow:hidden;transition:var(--e);cursor:pointer;display:flex;flex-direction:column;
     }
-    .pcard:hover{border-color:rgba(255,255,255,.14);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.4);}
+    .pcard:hover{border-color:rgba(0,0,0,.16);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
     .pcard-img{
-      aspect-ratio:1;overflow:hidden;background:#181818;position:relative;
+      aspect-ratio:1;overflow:hidden;background:#f0eee8;position:relative;
     }
     .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
     .pcard:hover .pcard-img img{transform:scale(1.04);}
     .pcard-img-placeholder{
       width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-      color:var(--muted);font-size:13px;background:#181818;
+      color:var(--muted);font-size:13px;background:#f0eee8;
     }
     .pcard-badge{
       position:absolute;top:12px;left:12px;
@@ -94,7 +94,7 @@
     .pcard-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;}
 
     /* Loading skeleton */
-    .skel{background:linear-gradient(90deg,#181818 25%,#222 50%,#181818 75%);background-size:200% 100%;animation:skel-shine 1.4s infinite;}
+    .skel{background:linear-gradient(90deg,#ece9e3 25%,#f7f5f1 50%,#ece9e3 75%);background-size:200% 100%;animation:skel-shine 1.4s infinite;}
     @keyframes skel-shine{from{background-position:200% 0;}to{background-position:-200% 0;}}
     .skel-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;}
     .skel-img{aspect-ratio:1;}
