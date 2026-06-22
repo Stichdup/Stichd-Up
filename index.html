@@ -93,22 +93,22 @@
     .nd a:last-of-type{border-bottom:none;}
     .nd a:hover{color:var(--white);}
 
-    /* Hero */
-    .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;isolation:isolate;}
+    /* Hero — dark section on light page */
+    .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:58px;overflow:hidden;isolation:isolate;background:#0b0b0b;}
     .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
     .hero-bg img{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:center center;opacity:1;}
-    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#faf8f5 0%,#faf8f5 38%,rgba(250,248,245,0.95) 50%,rgba(250,248,245,0.6) 65%,rgba(250,248,245,0.15) 82%,transparent 100%);}
-    .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#faf8f5,transparent);}
-    @media(max-width:768px){
-      .hero-bg img{right:0;top:0;height:100%;width:100%;object-position:center center;opacity:0.55;}
-      .hero-bg-fade{display:block;position:absolute;inset:0;background:rgba(250,248,245,0.01);}
-      .ht,.hs{text-shadow:0 1px 3px rgba(0,0,0,.4),0 2px 10px rgba(0,0,0,.2);}
-      .hero-c .badge{background:rgba(250,248,245,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.12);}
-      .hero-c .ghost{background:rgba(250,248,245,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:var(--red);}
-      .hero-c .hctas .cta{box-shadow:0 4px 16px rgba(0,0,0,.28);}
-      .hero-c .hstats{background:rgba(250,248,245,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
-    }
+    .hero-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,#0b0b0b 0%,#0b0b0b 38%,rgba(11,11,11,0.95) 50%,rgba(11,11,11,0.6) 65%,rgba(11,11,11,0.15) 82%,transparent 100%);}
+    .hero-bg-bottom{position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0b0b0b,transparent);}
     .hero-c{position:relative;z-index:1;width:100%;padding:48px 0 40px;max-width:520px;}
+    .hero .badge{border-color:rgba(230,57,70,0.28);background:rgba(230,57,70,0.12);color:var(--red);}
+    .hero .ht{color:#f0ede8;}
+    .hero .hs{color:#7a7672;}
+    .hero .ghost{border-color:rgba(230,57,70,0.28);color:#f0ede8;}
+    .hero .ghost:hover{border-color:var(--red);color:var(--red);background:rgba(230,57,70,0.12);}
+    .hero .hstats{border-color:rgba(255,255,255,0.07);}
+    .hero .hstat{border-color:rgba(255,255,255,0.07);}
+    .hero .hstat-n{color:#f0ede8;}
+    .hero .hstat-l{color:#7a7672;}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;border:1px solid var(--red-b);background:var(--red-s);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase;margin-bottom:24px;}
     .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:dot 2s ease-in-out infinite;}
     @keyframes dot{0%,100%{opacity:1;}50%{opacity:.2;}}
@@ -124,6 +124,11 @@
     .hstat-n{font-family:var(--fh);font-size:28px;color:var(--white);line-height:1;display:block;}
     .hstat-l{font-size:11px;color:var(--muted);margin-top:3px;display:block;}
     .hero-img{display:none;}
+    @media(max-width:768px){
+      .hero-bg img{right:0;top:0;height:100%;width:100%;object-position:center center;opacity:0.45;}
+      .hero-bg-fade{display:block;background:rgba(11,11,11,0.55);}
+      .hero-c{background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-radius:0;padding:48px 0 40px;margin:0;box-shadow:none;}
+    }
 
     /* Trust */
     .trust-strip{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 0 32px;}
@@ -158,9 +163,9 @@
 
     /* Before/After */
     .ba-wrap{position:relative;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 60px rgba(230,57,70,.1);touch-action:none;cursor:col-resize;user-select:none;}
-    .ba-after{display:block;width:100%;height:clamp(260px,55vw,460px);object-fit:cover;object-position:center;}
+    .ba-after{display:block;width:100%;height:clamp(360px,75vw,640px);object-fit:cover;object-position:center;}
     /* before image: identical size to after, sits on top, clipped by inset() */
-    .ba-before{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;clip-path:inset(0 50% 0 0);}
+    .ba-before{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;clip-path:inset(0 50% 0 0);}
     .ba-line{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:2px;background:var(--red);z-index:5;}
     .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(230,57,70,.7);}
     .ba-knob svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;}
@@ -174,7 +179,7 @@
     @media(min-width:640px){.pg{grid-template-columns:repeat(2,1fr);}}
     .pc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:var(--e);}
     .pc:hover{border-color:var(--red-b);box-shadow:0 0 40px rgba(230,57,70,.14);transform:translateY(-2px);}
-    .pi{position:relative;height:clamp(200px,45vw,280px);background:#f0eee8;overflow:hidden;}
+    .pi{position:relative;height:clamp(280px,60vw,400px);background:#f0eee8;overflow:hidden;}
     .pi img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
     .pc:hover .pi img{transform:scale(1.04);}
     .pbadge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:6px;}
@@ -242,7 +247,7 @@
       letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;
       border-radius:0 0 6px 6px;z-index:2;
     }
-    .mat-swatch{width:100%;height:200px;border-radius:10px;margin-bottom:16px;position:relative;overflow:hidden;background:#f0eee8;}
+    .mat-swatch{width:100%;height:300px;border-radius:10px;margin-bottom:16px;position:relative;overflow:hidden;background:#f0eee8;}
     .mat-swatch img{width:100%;height:100%;object-fit:cover;}
     .mat-name{font-family:var(--fh);font-size:24px;margin-bottom:4px;position:relative;z-index:1;}
     .mat-price{font-size:14px;color:var(--red);font-weight:600;margin-bottom:10px;position:relative;z-index:1;}
@@ -379,8 +384,8 @@
     @media(max-width:699px){.cfg-preview{border-right:none;border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:row;gap:20px;}}
     .cfg-wheel-wrap{position:relative;width:220px;flex-shrink:0;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 40px rgba(230,57,70,.14);}
     @media(max-width:699px){.cfg-wheel-wrap{width:120px;}}
-    .cfg-wheel-wrap img{width:100%;height:200px;object-fit:cover;display:block;}
-    @media(max-width:699px){.cfg-wheel-wrap img{height:110px;}}
+    .cfg-wheel-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+    @media(max-width:699px){.cfg-wheel-wrap img{height:160px;}}
     .cfg-overlay-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);font-size:10px;font-weight:500;color:#fff;padding:7px 10px;text-align:center;line-height:1.4;}
     .cfg-preview-info{display:flex;flex-direction:column;gap:10px;align-items:center;}
     @media(max-width:699px){.cfg-preview-info{align-items:flex-start;}}
@@ -542,6 +547,13 @@
             <div class="tb">Your material, your colours, your stitching pattern. No cookie-cutter options — every wrap is made just for you.</div>
           </div>
         </div>
+        <div class="tc rv d3">
+          <div class="ti"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div>
+            <div class="tt">Made in Australia</div>
+            <div class="tb">Every wrap is hand-crafted right here in Australia — not imported, not mass-produced overseas. You're supporting a local business that gives a damn.</div>
+          </div>
+        </div>
       </div>
       <a href="#products" class="sec-cta rv">
         Customise Now
@@ -662,7 +674,7 @@
         <!-- Alcantara -->
         <div class="mat-card rv d1" onclick="this.classList.toggle('active')">
           <div class="mat-swatch" style="background:linear-gradient(135deg,#1c1c2e,#2d2d3f);">
-            <img src="/images/material-alcantara.png" alt="Alcantara material" loading="lazy" style="object-position:center 65%;" id="alcantara-img" />
+            <img src="/images/material-alcantara.png" alt="Alcantara material" loading="lazy" style="object-position:center;" id="alcantara-img" />
           </div>
           <div class="mat-name">Alcantara</div>
           <div class="mat-price">From $250</div>
@@ -900,7 +912,7 @@
       <div class="fg">
         <div>
           <div class="flogo"><img src="/images/logo.png" alt="STICHD UP" /></div>
-          <p class="ftag">Premium handcrafted steering wheel wraps. Built for drivers who give a damn about what they touch every time they drive.</p>
+          <p class="ftag">Premium handcrafted steering wheel wraps, made in Australia. Built for drivers who give a damn about what they touch every time they drive.</p>
           <div class="fsoc">
             <a href="https://www.instagram.com/stichdup_steeringwheels/" target="_blank" rel="noopener" class="sb" aria-label="Instagram">
               <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -926,7 +938,7 @@
           <ul class="flinks">
             <li><a href="tel:0430366635">0430 366 635</a></li>
             <li><a href="mailto:info@stichdup.com.au">info@stichdup.com.au</a></li>
-            <li style="color:var(--muted);font-size:14px;cursor:default;">Melbourne VIC Metro</li>
+            <li style="color:var(--muted);font-size:14px;cursor:default;">📍 Melbourne, VIC — Australia-wide shipping</li>
           </ul>
           <div style="margin-top:24px;">
             <a href="#products" class="cta" style="font-size:13px;padding:12px 18px;">
@@ -937,7 +949,7 @@
         </div>
       </div>
       <div class="fbot">
-        <p class="fcopy">© 2026 STICHD UP Steering Wheels. All rights reserved.</p>
+        <p class="fcopy">© 2026 STICHD UP Steering Wheels. Australian owned &amp; operated. All rights reserved.</p>
         <div class="fleg"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
       </div>
     </div>
