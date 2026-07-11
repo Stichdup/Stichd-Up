@@ -730,25 +730,25 @@
 
       <div class="reason-grid rv d3">
         <div class="reason-card">
-          <img class="reason-img" src="/images/wrap-before.jpg" alt="Cracked and worn steering wheel before wrap" loading="lazy" />
           <div class="reason-body">
             <div class="reason-title">Fix a Cracked or Worn Steering Wheel</div>
             <div class="reason-desc">Years of sun exposure, hand oils, and daily use take a toll on factory steering wheels. Leather cracks, the surface goes shiny and slippery, and grip suffers right when you need it most. A steering wheel wrap covers the damage completely, restoring a like-new look and feel without the cost of replacing the entire wheel.</div>
           </div>
+          <img class="reason-img" src="/images/Cracked-wheel.jpeg" alt="Cracked and worn steering wheel before wrap" loading="lazy" />
         </div>
         <div class="reason-card">
-          <img class="reason-img" src="/images/wrap-after.jpg" alt="Steering wheel with premium wrap installed" loading="lazy" />
           <div class="reason-body">
             <div class="reason-title">Instant Interior Upgrade</div>
             <div class="reason-desc">The steering wheel is one of the most-touched, most-seen parts of your car's interior. Upgrading it with premium materials, custom stitching, or a fresh colour instantly lifts the whole cabin — making an older car feel newer and giving any interior a more refined, personalised touch.</div>
           </div>
+          <img class="reason-img" src="/images/Upgrade-wheel.jpeg" alt="Steering wheel with premium interior upgrade wrap installed" loading="lazy" />
         </div>
         <div class="reason-card">
-          <img class="reason-img" src="/images/material-leather.png" alt="Premium leather material protecting the original wheel" loading="lazy" />
           <div class="reason-body">
             <div class="reason-title">Protect Your Original Steering Wheel</div>
             <div class="reason-desc">A wrap acts as a barrier between your hands and the factory surface, shielding it from sweat, sun damage, fading, and everyday wear. Keep your original wheel in pristine condition underneath — ideal if you plan to resell the car or simply want to preserve its factory condition long-term.</div>
           </div>
+          <img class="reason-img" src="/images/Protect-wheel.jpeg" alt="Protected original steering wheel underneath the wrap" loading="lazy" />
         </div>
       </div>
 
@@ -1319,7 +1319,7 @@
 
           <!-- Photo Upload -->
           <div class="cfg-field">
-            <label class="cfg-lbl">Photo of Your Steering Wheel <span style="color:var(--red);">*</span></label>
+            <label class="cfg-lbl">Photo of Your Steering Wheel <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
             <div class="upload-zone" id="upload-zone" onclick="document.getElementById('wheel-photo').click()">
               <input type="file" id="wheel-photo" accept="image/*" style="display:none;" onchange="handlePhotoSelect(this)"/>
               <div id="upload-prompt">
@@ -1505,6 +1505,7 @@
         status.style.color = 'var(--red)';
         status.textContent = '✗ Upload failed — you can still place your order';
         console.warn('Photo upload error:', err);
+        cfgUpdate();
       });
   };
   var SELECTED_AREA = '';
@@ -1798,7 +1799,7 @@
     var sideMat = document.getElementById('sel-side-mat').value;
     var make    = document.getElementById('v-make').value.trim();
     var model   = document.getElementById('v-model').value.trim();
-    var ready   = sideMat && make && model && CAR_VALID && PHOTO_URL;
+    var ready   = sideMat && make && model && CAR_VALID;
     btn.disabled = !ready;
     btn.style.opacity = ready ? '1' : '0.5';
     btn.style.cursor  = ready ? 'pointer' : 'not-allowed';
