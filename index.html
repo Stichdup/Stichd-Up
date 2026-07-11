@@ -133,7 +133,8 @@
     /* Trust */
     .trust-strip{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 0 32px;}
     .tg{display:grid;grid-template-columns:1fr;gap:1px;background:var(--red-b);}
-    @media(min-width:640px){.tg{grid-template-columns:repeat(3,1fr);}}
+    @media(min-width:640px){.tg{grid-template-columns:repeat(2,1fr);}}
+    @media(min-width:900px){.tg{grid-template-columns:repeat(4,1fr);}}
     .tc{
       background:var(--bg-card);padding:28px 24px;display:flex;gap:16px;align-items:flex-start;
       position:relative;overflow:hidden;
@@ -163,9 +164,9 @@
 
     /* Before/After */
     .ba-wrap{position:relative;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 60px rgba(230,57,70,.1);touch-action:none;cursor:col-resize;user-select:none;}
-    .ba-after{display:block;width:100%;height:clamp(360px,75vw,640px);object-fit:cover;object-position:center 53%;}
+    .ba-after{display:block;width:100%;height:clamp(440px,85vw,760px);object-fit:cover;object-position:center 50%;}
     /* before image: identical size to after, sits on top, clipped by inset() */
-    .ba-before{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 47%;clip-path:inset(0 50% 0 0);}
+    .ba-before{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;clip-path:inset(0 50% 0 0);}
     .ba-line{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:2px;background:var(--red);z-index:5;}
     .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(230,57,70,.7);}
     .ba-knob svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;}
@@ -179,7 +180,7 @@
     @media(min-width:640px){.pg{grid-template-columns:repeat(2,1fr);}}
     .pc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:var(--e);}
     .pc:hover{border-color:var(--red-b);box-shadow:0 0 40px rgba(230,57,70,.14);transform:translateY(-2px);}
-    .pi{position:relative;height:clamp(280px,60vw,400px);background:#f0eee8;overflow:hidden;}
+    .pi{position:relative;height:clamp(320px,65vw,460px);background:#f0eee8;overflow:hidden;}
     .pi img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
     .pc:hover .pi img{transform:scale(1.04);}
     .pbadge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:6px;}
@@ -247,11 +248,26 @@
       letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;
       border-radius:0 0 6px 6px;z-index:2;
     }
-    .mat-swatch{width:100%;height:300px;border-radius:10px;margin-bottom:16px;position:relative;overflow:hidden;background:#f0eee8;}
+    .mat-swatch{width:100%;height:340px;border-radius:10px;margin-bottom:16px;position:relative;overflow:hidden;background:#f0eee8;}
     .mat-swatch img{width:100%;height:100%;object-fit:cover;}
     .mat-name{font-family:var(--fh);font-size:24px;margin-bottom:4px;position:relative;z-index:1;}
     .mat-price{font-size:14px;color:var(--red);font-weight:600;margin-bottom:10px;position:relative;z-index:1;}
     .mat-desc{font-size:13px;color:var(--muted);line-height:1.6;position:relative;z-index:1;}
+
+    /* Reasons to Get STICHD UP */
+    .reason-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+    @media(min-width:768px){.reason-grid{grid-template-columns:repeat(3,1fr);}}
+    .reason-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:var(--e);}
+    .reason-card:hover{border-color:var(--red-b);box-shadow:0 0 40px rgba(230,57,70,.14);transform:translateY(-2px);}
+    .reason-img{width:100%;height:220px;object-fit:cover;display:block;}
+    .reason-body{padding:20px;}
+    .reason-title{font-family:var(--fh);font-size:22px;letter-spacing:.01em;margin-bottom:8px;}
+    .reason-desc{font-size:14px;color:var(--muted);line-height:1.65;}
+
+    /* Why Choose STICHD UP */
+    .why-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--red-b);border-radius:var(--rl);overflow:hidden;}
+    @media(min-width:768px){.why-grid{grid-template-columns:repeat(3,1fr);}}
+    .why-card{background:var(--bg-card);padding:28px 24px;}
 
     /* Marquee */
     .mq{overflow:hidden;position:relative;}
@@ -450,7 +466,7 @@
   <!-- STICKY BOTTOM BAR -->
   <div class="sticky" id="sticky-bar">
     <div class="sticky-txt">
-      <strong>Custom Wraps from $135 AUD</strong>
+      <strong>Custom Wraps from $145 AUD</strong>
       <span>Genuine Leather · Alcantara · Carbon</span>
     </div>
     <a href="#products" class="cta">
@@ -467,6 +483,7 @@
         <ul class="nl">
           <li><a href="#products">Products</a></li>
           <li><a href="/shop.html">Shop</a></li>
+          <li><a href="#why-wrap">Why Wrap</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -486,6 +503,7 @@
     <div class="nd" id="nav-drawer">
       <a href="#products" onclick="closeD()">Products</a>
       <a href="/shop.html" onclick="closeD()">Shop</a>
+      <a href="#why-wrap" onclick="closeD()">Why Wrap</a>
       <a href="#process" onclick="closeD()">How It Works</a>
       <a href="#reviews" onclick="closeD()">Reviews</a>
       <a href="#faq" onclick="closeD()">FAQ</a>
@@ -503,7 +521,6 @@
     <div class="bloom"></div>
     <div class="w" style="width:100%;">
       <div class="hero-c">
-        <div class="badge rv">Australia's Custom Wrap Specialists</div>
         <h1 class="ht rv d1">YOUR<br>WHEEL.<br><em>YOUR<br>RULES.</em></h1>
         <p class="hs rv d2">Premium handcrafted steering wheel wraps. Built for drivers who give a damn about what they touch every time they drive.</p>
         <div class="hctas rv d3">
@@ -634,9 +651,9 @@
               <li>Your choice of material, colour, stitching, top insert, side handles &amp; marker</li>
               <li>Full step-by-step printed and digital instructions</li>
               <li>Live remote support via phone or video call during installation</li>
-              <li>Ships anywhere in Australia — 14–20 business days. International on request.</li>
+              <li>Free shipping anywhere in Australia — 14–20 business days. International on request.</li>
             </ul>
-            <div class="pprice">$135 – $250 <small>AUD</small></div>
+            <div class="pprice">$145 – $260 <small>AUD</small></div>
             <button class="pbtn pbtn-g" onclick="openConfigurator('diy')">
               <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               Customise &amp; Order Kit
@@ -668,7 +685,7 @@
             <img src="/images/material-leather.png" alt="Genuine Leather material" loading="lazy" />
           </div>
           <div class="mat-name">Genuine Leather</div>
-          <div class="mat-price">From $195</div>
+          <div class="mat-price">From $205</div>
           <div class="mat-desc">Smooth, firm grip. Durable and easy to clean. The most popular choice for everyday drivers who want a premium feel without the fuss.</div>
         </div>
         <!-- Alcantara -->
@@ -677,7 +694,7 @@
             <img src="/images/material-alcantara.png" alt="Alcantara material" loading="lazy" style="object-position:center;" id="alcantara-img" />
           </div>
           <div class="mat-name">Alcantara</div>
-          <div class="mat-price">From $250</div>
+          <div class="mat-price">From $260</div>
           <div class="mat-desc">The same material used by Ferrari, Lamborghini, and Porsche in their factory steering wheels. Exceptional grip, a premium texture, and a luxury feel that genuine leather simply can't match.</div>
         </div>
     <!-- Vegan Leather -->
@@ -691,7 +708,7 @@
     />
   </div>
   <div class="mat-name">Vegan Leather</div>
-  <div class="mat-price">From $135</div>
+  <div class="mat-price">From $145</div>
   <div class="mat-desc">
     Premium vegan leather delivering the look and feel of genuine hide without the premium price. Available in a wide range of colours and perforated options.
   </div>
@@ -701,6 +718,70 @@
         Customise Now
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+    </div>
+  </section>
+
+  <!-- REASONS TO GET STICHD UP -->
+  <section class="sec" id="why-wrap">
+    <div class="w">
+      <span class="tag rv">Why Get a Wrap</span>
+      <h2 class="h2 rv d1" style="margin-bottom:12px;">Reasons to get STICHD UP</h2>
+      <p class="sub rv d2" style="margin-bottom:40px;">Not just a cosmetic upgrade — here's what a custom wrap actually does for your car.</p>
+
+      <div class="reason-grid rv d3">
+        <div class="reason-card">
+          <img class="reason-img" src="/images/wrap-before.jpg" alt="Cracked and worn steering wheel before wrap" loading="lazy" />
+          <div class="reason-body">
+            <div class="reason-title">Fix a Cracked or Worn Steering Wheel</div>
+            <div class="reason-desc">Years of sun exposure, hand oils, and daily use take a toll on factory steering wheels. Leather cracks, the surface goes shiny and slippery, and grip suffers right when you need it most. A steering wheel wrap covers the damage completely, restoring a like-new look and feel without the cost of replacing the entire wheel.</div>
+          </div>
+        </div>
+        <div class="reason-card">
+          <img class="reason-img" src="/images/wrap-after.jpg" alt="Steering wheel with premium wrap installed" loading="lazy" />
+          <div class="reason-body">
+            <div class="reason-title">Instant Interior Upgrade</div>
+            <div class="reason-desc">The steering wheel is one of the most-touched, most-seen parts of your car's interior. Upgrading it with premium materials, custom stitching, or a fresh colour instantly lifts the whole cabin — making an older car feel newer and giving any interior a more refined, personalised touch.</div>
+          </div>
+        </div>
+        <div class="reason-card">
+          <img class="reason-img" src="/images/material-leather.png" alt="Premium leather material protecting the original wheel" loading="lazy" />
+          <div class="reason-body">
+            <div class="reason-title">Protect Your Original Steering Wheel</div>
+            <div class="reason-desc">A wrap acts as a barrier between your hands and the factory surface, shielding it from sweat, sun damage, fading, and everyday wear. Keep your original wheel in pristine condition underneath — ideal if you plan to resell the car or simply want to preserve its factory condition long-term.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:64px;">
+        <span class="tag rv">Why Choose Us</span>
+        <h2 class="h2 rv d1" style="margin-bottom:24px;font-size:clamp(28px,6vw,42px);">Why Choose STICHD UP</h2>
+        <div class="why-grid rv d2">
+          <div class="why-card">
+            <div class="ti"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
+            <div class="tt">Hands-On Experience You Can Trust</div>
+            <div class="tb">Every wrap is installed personally by the owner, not handed off to a rotating cast of technicians. With over 4 years of dedicated experience, you're getting a level of skill and attention to detail that only comes from someone who's mastered the craft firsthand.</div>
+          </div>
+          <div class="why-card">
+            <div class="ti"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="tt">You're Not Just a Number to Us</div>
+            <div class="tb">We're a business built on care, not volume. Every customer gets our full attention and every installation is treated with the same pride and precision, because your car matters to us, not just the transaction.</div>
+          </div>
+          <div class="why-card">
+            <div class="ti"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></div>
+            <div class="tt">Quality Materials, Built to Last</div>
+            <div class="tb">We don't cut corners on what goes into your wheel. Premium materials are paired with careful, precise installation so the finished result looks sharp and holds up to years of daily driving.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subb rv" style="margin-top:48px;">
+        <div style="font-family:var(--fh);font-size:24px;letter-spacing:.01em;margin-bottom:8px;">Want the STICHD UP look but want to install it yourself?</div>
+        <p style="color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:18px;max-width:600px;">Our DIY kits include everything you need with clear step-by-step instructions. No prior experience is required. With the addition of a few basic tools, in about two hours, you can get the same clean, professional finish as our expert installs.</p>
+        <a href="#products" class="sec-cta">
+          Shop DIY Kits
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -926,6 +1007,7 @@
           <div class="fch">Navigation</div>
           <ul class="flinks">
             <li><a href="#products">Products</a></li>
+            <li><a href="#why-wrap">Why Wrap</a></li>
             <li><a href="#process">How It Works</a></li>
             <li><a href="#materials">Materials</a></li>
             <li><a href="#reviews">Reviews</a></li>
@@ -1114,7 +1196,7 @@
 
           <!-- OEM button -->
           <button class="cfg-oem-btn" onclick="setOEM()" type="button">
-            ✦ I just want the factory / OEM look
+            ✦ Skip customising — match my factory / OEM look
           </button>
 
           <!-- Vehicle -->
@@ -1143,6 +1225,9 @@
             </select>
           </div>
 
+          <!-- STAGE 2: revealed once Side Material is chosen -->
+          <div id="cfg-stage-2" style="display:none;">
+
           <!-- Top & Bottom SECOND -->
           <div class="cfg-field">
             <label class="cfg-lbl">Top &amp; Bottom Material <span style="color:var(--red);">*</span></label>
@@ -1158,6 +1243,7 @@
             <select class="cfg-sel" id="sel-top-col" onchange="cfgUpdate()" style="margin-top:10px;display:none;">
               <option value="">Select colour</option>
             </select>
+            <div id="mat-conflict-note" style="display:none;font-size:11px;color:var(--muted);margin-top:6px;">Genuine Leather and Premium Vegan Leather can't be combined on the same wheel.</div>
           </div>
 
           <!-- Stitching -->
@@ -1201,9 +1287,10 @@
               <button class="cfg-marker-type sel" data-type="None"      onclick="pickMarkerType(this)">None</button>
               <button class="cfg-marker-type"     data-type="Leather"   onclick="pickMarkerType(this)">Leather</button>
               <button class="cfg-marker-type"     data-type="Alcantara" onclick="pickMarkerType(this)">Alcantara</button>
-              <button class="cfg-marker-type"     data-type="Holo"      onclick="pickMarkerType(this)">Holo</button>
+              <button class="cfg-marker-type"     data-type="Holo"      onclick="pickMarkerType(this)" id="marker-holo-btn">Holo</button>
               <button class="cfg-marker-type"     data-type="Flag"      onclick="pickMarkerType(this)">Flag</button>
             </div>
+            <div id="marker-holo-note" style="display:none;font-size:11px;color:var(--muted);margin-top:6px;">Hollow marker isn't available with Genuine Leather or Carbon Fibre.</div>
             <!-- Colour/variant row — shown when type !== None -->
             <div class="cfg-marker-variants" id="marker-variants" style="display:none;margin-top:10px;"></div>
             <div class="cfg-selected-val" id="marker-label" style="margin-top:6px;">None</div>
@@ -1224,6 +1311,12 @@
             </div>
           </div>
 
+          </div>
+          <!-- END STAGE 2 -->
+
+          <!-- STAGE 3: revealed once Paddle Shifters is answered -->
+          <div id="cfg-stage-3" style="display:none;">
+
           <!-- Photo Upload -->
           <div class="cfg-field">
             <label class="cfg-lbl">Photo of Your Steering Wheel <span style="color:var(--red);">*</span></label>
@@ -1238,6 +1331,9 @@
             </div>
             <div id="upload-status" style="font-size:11px;margin-top:6px;min-height:16px;"></div>
           </div>
+
+          </div>
+          <!-- END STAGE 3 -->
 
           <!-- CTA -->
           <div id="cfg-cta-area"></div>
@@ -1344,11 +1440,11 @@
   /* ═══ PRICING ═══
      Price = most expensive non-carbon material used.
      Install: Vegan $340 / Genuine $390 / Alcantara $430
-     DIY:     Vegan $135 / Genuine $195 / Alcantara $250
+     DIY:     Vegan $145 / Genuine $205 / Alcantara $260 (shipping folded in, advertised as free)
   ═══════════════════════════════════════════ */
   var MAT_RANK = { 'Premium Vegan Leather':1, 'Genuine Leather':2, 'Alcantara':3 };
   var INSTALL_PRICE = { 1:340, 2:390, 3:430 };
-  var DIY_PRICE = { 1:135, 2:195, 3:250 };
+  var DIY_PRICE = { 1:145, 2:205, 3:260 };
 
   function calcPrice() {
     var sideMat  = document.getElementById('sel-side-mat').value;
@@ -1467,6 +1563,7 @@
   };
 
   function pickMarkerType(el) {
+    if (el.disabled) return;
     document.querySelectorAll('.cfg-marker-type').forEach(function(b){ b.classList.remove('sel'); });
     el.classList.add('sel');
     MARKER_TYPE = el.dataset.type;
@@ -1547,6 +1644,7 @@
     no.style.background   = val === 'No'  ? 'var(--red-s)' : 'var(--bg-card2)';
     var radio = document.querySelector('input[name="paddle"][value="'+val+'"]');
     if (radio) radio.checked = true;
+    cfgUpdate();
   }
 
   /* ═══ OPEN / CLOSE ═══ */
@@ -1609,11 +1707,52 @@
   }
 
   /* ═══ UPDATE ═══ */
+  function updateMaterialConflicts() {
+    var sideSel = document.getElementById('sel-side-mat');
+    var topSel  = document.getElementById('sel-top-mat');
+    var sideMat = sideSel.value;
+    var topRaw  = topSel.value;
+
+    /* Genuine Leather and Premium Vegan Leather can't be combined */
+    var topVeganOpt   = topSel.querySelector('option[value="Premium Vegan Leather"]');
+    var topGenuineOpt = topSel.querySelector('option[value="Genuine Leather"]');
+    if (topVeganOpt)   topVeganOpt.disabled   = (sideMat === 'Genuine Leather');
+    if (topGenuineOpt) topGenuineOpt.disabled = (sideMat === 'Premium Vegan Leather');
+    if (topSel.value === 'Premium Vegan Leather' && sideMat === 'Genuine Leather') { topSel.value = 'Same as Sides'; }
+    if (topSel.value === 'Genuine Leather' && sideMat === 'Premium Vegan Leather') { topSel.value = 'Same as Sides'; }
+
+    var sideVeganOpt   = sideSel.querySelector('option[value="Premium Vegan Leather"]');
+    var sideGenuineOpt = sideSel.querySelector('option[value="Genuine Leather"]');
+    if (sideVeganOpt)   sideVeganOpt.disabled   = (topRaw === 'Genuine Leather');
+    if (sideGenuineOpt) sideGenuineOpt.disabled = (topRaw === 'Premium Vegan Leather');
+    if (sideSel.value === 'Premium Vegan Leather' && topRaw === 'Genuine Leather') { sideSel.value = ''; }
+    if (sideSel.value === 'Genuine Leather' && topRaw === 'Premium Vegan Leather') { sideSel.value = ''; }
+
+    var note = document.getElementById('mat-conflict-note');
+    if (note) note.style.display = (topRaw === 'Genuine Leather' || topRaw === 'Premium Vegan Leather') ? 'block' : 'none';
+  }
+
   function cfgUpdate() {
+    updateMaterialConflicts();
     var sideMat = document.getElementById('sel-side-mat').value;
     var topRaw  = document.getElementById('sel-top-mat').value;
     var topMat  = topRaw === 'Same as Sides' ? sideMat : topRaw;
     var isCarbon = topMat && topMat.indexOf('Carbon') !== -1;
+
+    /* Hollow centre marker isn't compatible with Genuine Leather or Carbon Fibre */
+    var blocksHollow = isCarbon || sideMat === 'Genuine Leather' || topMat === 'Genuine Leather';
+    var holoBtn  = document.getElementById('marker-holo-btn');
+    var holoNote = document.getElementById('marker-holo-note');
+    if (holoBtn) {
+      holoBtn.disabled = blocksHollow;
+      holoBtn.style.opacity = blocksHollow ? '0.4' : '1';
+      holoBtn.style.cursor  = blocksHollow ? 'not-allowed' : 'pointer';
+      holoNote.style.display = blocksHollow ? 'block' : 'none';
+      if (blocksHollow && MARKER_TYPE === 'Holo') {
+        var noneBtn = document.querySelector('.cfg-marker-type[data-type="None"]');
+        if (noneBtn) pickMarkerType(noneBtn);
+      }
+    }
 
     /* Side colour */
     if (!sideMat) { document.getElementById('sel-side-col').style.display='none'; }
@@ -1625,6 +1764,12 @@
     } else {
       populateColors('sel-top-col', topMat);
     }
+
+    /* Progressive reveal — next section unlocks once the prior choice is made */
+    var stage2 = document.getElementById('cfg-stage-2');
+    var stage3 = document.getElementById('cfg-stage-3');
+    if (stage2) stage2.style.display = sideMat ? 'block' : 'none';
+    if (stage3) stage3.style.display = PADDLE_VAL ? 'block' : 'none';
 
     /* Price badge */
     var p = calcPrice();
@@ -1693,7 +1838,7 @@
           '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'+
           'Add DIY Kit to Cart'+
         '</button>'+
-        '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Ships anywhere in Australia · 14–20 business days</p>';
+        '<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Free shipping anywhere in Australia · 14–20 business days</p>';
     }
     updateNextBtn();
   }
