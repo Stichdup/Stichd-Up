@@ -1203,10 +1203,16 @@
           <div class="cfg-field">
             <label class="cfg-lbl">Your Vehicle <span style="color:var(--red);">*</span></label>
             <div class="cfg-row2">
-              <input class="cfg-inp" id="v-make"  type="text" placeholder="Make (e.g. BMW)"  autocomplete="off" oninput="validateCar()"/>
-              <input class="cfg-inp" id="v-model" type="text" placeholder="Model (e.g. M3)"  autocomplete="off" oninput="validateCar()"/>
+              <select class="cfg-sel" id="v-make" onchange="onMakeChange()">
+                <option value="">Select brand</option>
+              </select>
+              <select class="cfg-sel" id="v-model" onchange="validateCar()" disabled>
+                <option value="">Select brand first</option>
+              </select>
             </div>
-            <input class="cfg-inp" id="v-year" type="text" placeholder="Year (e.g. 2022)" inputmode="numeric" maxlength="4" style="margin-top:10px;" oninput="validateCar()"/>
+            <select class="cfg-sel" id="v-year" style="margin-top:10px;" onchange="validateCar()">
+              <option value="">Select year (optional)</option>
+            </select>
             <input class="cfg-inp" id="v-address" type="text" placeholder="Delivery / Fitting Address *" autocomplete="street-address" style="margin-top:10px;" oninput="cfgUpdate()"/>
             <div id="car-status" style="font-size:12px;margin-top:8px;min-height:18px;"></div>
           </div>
@@ -1396,36 +1402,87 @@
 
   var CAR_VALID = false; // tracks whether vehicle check passed
 
-  function validateCar() {
-    var make  = document.getElementById('v-make').value.trim().toLowerCase();
-    var model = document.getElementById('v-model').value.trim().toLowerCase();
-    var status = document.getElementById('car-status');
-    if (!make || !model) { status.textContent=''; CAR_VALID=false; updateNextBtn(); return; }
-    var entry = COMPATIBLE[make];
-    if (!entry) {
-      /* Try partial match on make */
-      var keys = Object.keys(COMPATIBLE);
-      var found = keys.find(function(k){ return k.indexOf(make)!==-1 || make.indexOf(k)!==-1; });
-      entry = found ? COMPATIBLE[found] : null;
+  var MAKE_LIST = [
+    ['alfa romeo','Alfa Romeo'], ['audi','Audi'], ['bmw','BMW'], ['chrysler','Chrysler'],
+    ['citroen','Citroen'], ['dodge','Dodge'], ['fiat','Fiat'], ['ford','Ford'],
+    ['genesis','Genesis'], ['holden','Holden'], ['honda','Honda'], ['hyundai','Hyundai'],
+    ['infiniti','Infiniti'], ['isuzu','Isuzu'], ['jaguar','Jaguar'], ['jeep','Jeep'],
+    ['kia','Kia'], ['land rover','Land Rover'], ['lexus','Lexus'], ['mazda','Mazda'],
+    ['mercedes-benz','Mercedes-Benz'], ['mini','MINI'], ['mitsubishi','Mitsubishi'],
+    ['nissan','Nissan'], ['peugeot','Peugeot'], ['porsche','Porsche'], ['renault','Renault'],
+    ['skoda','Skoda'], ['subaru','Subaru'], ['suzuki','Suzuki'], ['tesla','Tesla'],
+    ['toyota','Toyota'], ['volkswagen','Volkswagen'], ['volvo','Volvo']
+  ];
+
+  function populateMakeSelect() {
+    var sel = document.getElementById('v-make');
+    MAKE_LIST.forEach(function(pair){
+      var opt = document.createElement('option');
+      opt.value = pair[0];
+      opt.textContent = pair[1];
+      sel.appendChild(opt);
+    });
+  }
+
+  function populateYearSelect() {
+    var sel = document.getElementById('v-year');
+    var current = new Date().getFullYear();
+    for (var y = current + 1; y >= 1990; y--) {
+      var opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      sel.appendChild(opt);
     }
+  }
+
+  function onMakeChange() {
+    var make = document.getElementById('v-make').value;
+    var modelSel = document.getElementById('v-model');
+    modelSel.innerHTML = '';
+    if (!make) {
+      modelSel.disabled = true;
+      modelSel.innerHTML = '<option value="">Select brand first</option>';
+      validateCar();
+      return;
+    }
+    var entry = COMPATIBLE[make];
+    modelSel.disabled = false;
+    if (!entry || entry === 'enquire') {
+      modelSel.innerHTML = '<option value="">Select model (optional)</option><option value="Other / Not Listed">Other / Not Listed — contact us to confirm</option>';
+    } else {
+      var opts = '<option value="">Select model (optional)</option>';
+      entry.forEach(function(m){ opts += '<option value="'+m+'">'+m+'</option>'; });
+      modelSel.innerHTML = opts;
+    }
+    validateCar();
+  }
+
+  function validateCar() {
+    var make  = document.getElementById('v-make').value;
+    var model = document.getElementById('v-model').value;
+    var year  = document.getElementById('v-year').value;
+    var status = document.getElementById('car-status');
+    if (!make) { status.textContent=''; CAR_VALID=false; updateNextBtn(); return; }
+    var entry = COMPATIBLE[make];
+    var makeLabel = (MAKE_LIST.find(function(p){return p[0]===make;}) || [null,make])[1];
     if (!entry) {
       status.innerHTML='<span style="color:#e63946;">⚠ Make not found in our compatibility list. <a href="mailto:info@stichdup.com.au" style="color:#e63946;">Email us a photo of your wheel</a> to confirm.</span>';
       CAR_VALID=false;
-    } else if (entry === 'enquire') {
-      status.innerHTML='<span style="color:#d4a843;">✓ Most '+make.charAt(0).toUpperCase()+make.slice(1)+' models are supported — <a href="mailto:info@stichdup.com.au" style="color:#d4a843;">contact us to confirm yours.</a></span>';
+    } else if (entry === 'enquire' || model === 'Other / Not Listed') {
+      status.innerHTML='<span style="color:#d4a843;">✓ Most '+makeLabel+' models are supported — <a href="mailto:info@stichdup.com.au" style="color:#d4a843;">contact us to confirm yours.</a></span>';
+      CAR_VALID=true;
+    } else if (!model) {
+      status.innerHTML='<span style="color:#16a34a;">✓ '+makeLabel+' is supported.</span>';
       CAR_VALID=true;
     } else {
-      var modelMatch = entry.find(function(m){ return model.indexOf(m.toLowerCase())!==-1 || m.toLowerCase().indexOf(model)!==-1; });
-      if (modelMatch) {
-        status.innerHTML='<span style="color:#16a34a;">✓ '+modelMatch+' is supported.</span>';
-        CAR_VALID=true;
-      } else {
-        status.innerHTML='<span style="color:#e63946;">⚠ '+model.charAt(0).toUpperCase()+model.slice(1)+' not found. <a href="mailto:info@stichdup.com.au" style="color:#e63946;">Email us a photo of your wheel</a> to confirm.</span>';
-        CAR_VALID=false;
-      }
+      status.innerHTML='<span style="color:#16a34a;">✓ '+model+' is supported.</span>';
+      CAR_VALID=true;
     }
     updateNextBtn();
   }
+
+  populateMakeSelect();
+  populateYearSelect();
 
   /* ═══ COLOURS ═══ */
   var MAT_COLORS = {
@@ -1798,8 +1855,7 @@
     if (!btn) return;
     var sideMat = document.getElementById('sel-side-mat').value;
     var make    = document.getElementById('v-make').value.trim();
-    var model   = document.getElementById('v-model').value.trim();
-    var ready   = sideMat && make && model && CAR_VALID;
+    var ready   = sideMat && make && CAR_VALID;
     btn.disabled = !ready;
     btn.style.opacity = ready ? '1' : '0.5';
     btn.style.cursor  = ready ? 'pointer' : 'not-allowed';
@@ -1859,7 +1915,9 @@
 
   /* ═══ BUILD CART ATTRIBUTES ═══ */
   function buildAttributes(product) {
-    var vehicle  = [document.getElementById('v-make').value, document.getElementById('v-model').value, document.getElementById('v-year').value].filter(Boolean).join(' ');
+    var makeVal = document.getElementById('v-make').value;
+    var makeLabelForCart = (MAKE_LIST.find(function(p){return p[0]===makeVal;}) || [null,makeVal])[1];
+    var vehicle  = [makeLabelForCart, document.getElementById('v-model').value, document.getElementById('v-year').value].filter(Boolean).join(' ');
     var sideMat  = document.getElementById('sel-side-mat').value;
     var sideCol  = document.getElementById('sel-side-col').value;
     var topRaw   = document.getElementById('sel-top-mat').value;
@@ -1906,8 +1964,7 @@
 
   function submitInstall() {
     var make  = document.getElementById('v-make').value.trim();
-    var model = document.getElementById('v-model').value.trim();
-    if (!make||!model) { alert('Please enter your vehicle make and model.'); return; }
+    if (!make) { alert('Please select your vehicle brand.'); return; }
     if (!CAR_VALID)    { alert('Please confirm your vehicle is compatible first.'); return; }
     var addr2 = document.getElementById('v-address'); if (addr2 && !addr2.value.trim()) { alert('Please enter your delivery address.'); return; }
     if (!document.getElementById('sel-side-mat').value) { alert('Please select a side material.'); return; }
@@ -1917,8 +1974,7 @@
 
   function submitCart(product) {
     var make = document.getElementById('v-make').value.trim();
-    var model = document.getElementById('v-model').value.trim();
-    if (!make||!model) { alert('Please enter your vehicle make and model.'); return; }
+    if (!make) { alert('Please select your vehicle brand.'); return; }
     if (!CAR_VALID)    { alert('Please confirm your vehicle is compatible first.'); return; }
     var addr2 = document.getElementById('v-address'); if (addr2 && !addr2.value.trim()) { alert('Please enter your delivery address.'); return; }
     if (!document.getElementById('sel-side-mat').value) { alert('Please select a side material.'); return; }
